@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
@@ -8,13 +9,35 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        sans: ["var(--font-roboto-sans)"],
+        serif: ["var(--font-roboto-slab)"],
+        mono: ["var(--font-roboto-serif)"],
+      },
+      colors: {
+        yellow: "rgb(var(--yellow))",
+        neutral: "rgb(var(--neutral))",
+        rose: "rgb(var(--accent))",
+        primary: "rgb(var(--yellow))",
+        secondary: "rgb(var(--neutral))",
+        accent: "rgb(var(--accent))",
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        joinT: {
+          primary: "#eab308",
+          secondary: "#0E0E0E",
+          accent: "#f43f5e",
+          neutral: "#0E0E0E",
+          "base-100": "#262626",
+          "--navbar-padding": "1rem",
+        },
+      },
+    ],
+  },
 };
 export default config;
