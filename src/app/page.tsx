@@ -6,6 +6,10 @@ export interface Activity {
 	id: string;
 	name: string;
 	description: string;
+	teatcher: string;
+	schedules: string;
+	images: string[];
+	videos?: string | string[];
 	group: string;
 }
 

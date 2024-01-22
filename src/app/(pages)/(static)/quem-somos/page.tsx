@@ -1,16 +1,13 @@
 import Image from "next/image"
 
-import hero1 from '../../../../public/about-1.png'
-import hero2 from '../../../../public/about-2.png'
-
 const About = () => {
 	return (
 		<>
 			<div className="bg-primary text-secondary py-10 w-full flex items-center justify-center pb-32">
 				<div className="grid grid-cols-2 gap-8 container self-center justify-center w-1/2">
 					<div className="flex flex-col gap-8 col-span-1 relative w-full h-full">
-						<Image src={hero2} alt="Imagem da JoinT" width={600} />
-						<Image src={hero1} alt="Imagem da JoinT" width={600} />
+						<Image src={'/about-2.png'} alt="Imagem da JoinT" width={600} height={400} />
+						<Image src={'/about-1.png'} alt="Imagem da JoinT" width={600} height={400} />
 					</div>
 					<div className=" col-span-1">
 						<h2 className='font-serif text-4xl mb-2'>Quem somos</h2>
