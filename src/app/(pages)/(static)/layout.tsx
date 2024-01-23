@@ -1,4 +1,5 @@
 import Curves from "@/app/_components/Curves"
+import GroupsMenu from "@/app/_components/GroupsMenu"
 import Image from "next/image"
 
 import { ReactNode } from "react"

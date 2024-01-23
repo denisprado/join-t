@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Camada_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 749 41">
-    <defs>
-        <style>.cls-1{fill:#ffae18;stroke-width:0px;}</style>
-    </defs>
-    <path transform="matrix(-1,0,0,-1,749,40.1)" class="cls-1" d="M 0 0 h 373.5 C 226.4 0 134.2 40.1 0 40.1 V 0 Z" />
-    <path transform="matrix(-1,0,0,-1,749,40.1)" class="cls-1" d="M 749 40.1 C 614.8 40.1 522.5 0 375.5 0 h 373.5 v 40.1 Z" />
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.6 37.9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffae18;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #ffae18;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <path class="cls-1" d="M419.5,37.4H.5V.5c128,0,241.5,36.9,419,36.9Z"/>
+        <path class="cls-2" d="M419.5,37.4H.5V.5c128,0,241.5,36.9,419,36.9Z"/>
+      </g>
+      <g>
+        <path class="cls-1" d="M784.1,37.4h-364.6C563.1,37.4,653.1.5,784.1.5v36.9Z"/>
+        <path class="cls-2" d="M784.1,37.4h-364.6c143.6,0,233.6-36,364.6-36v36Z"/>
+      </g>
+    </g>
+  </g>
 </svg>

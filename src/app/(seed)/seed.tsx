@@ -4,7 +4,7 @@ import { Activity, ActivityGroups, Plans, PlanType,  TermGroups } from '@/types/
 type Seed = {
 	activities:Activity[],
 	activityGroups:ActivityGroups[],
-	termGroups:TermGroups[]
+	termsGroup:TermGroups[]
 	planType:PlanType[]
 	plans:Plans[]
 }
@@ -70,12 +70,12 @@ const seed:Seed =
 
 		{
 			id: `3`,
-			title: `Danca`,
+			title: `Dança Contemporânea e Movimento Consciente`,
 			image: `danca-image.png`
 		},
 
 	],
-	termGroups: [
+	termsGroup: [
 		{
 			id: `1`,
 			terms: [
@@ -149,15 +149,18 @@ const seed:Seed =
 	planType: [
 		{
 			id: `1`,
-			title: `Plano`
+			title: `Plano`,
+			defaultSelectedPLan:'1'
 		},
 		{
 			id: `2`,
-			title: `Plano  Social`
+			title: `Plano  Social`,
+			defaultSelectedPLan:'4'
 		},
 		{
 			id: `3`,
-			title: `Aula  Especial`
+			title: `Aula  Avulsa`,
+			defaultSelectedPLan:'4'
 		},
 	],
 	plans: [
@@ -165,7 +168,7 @@ const seed:Seed =
 			id: `1`,
 			title: `Mensal`,
 			activityGroup: `1`,
-			conditions: `1`,
+			termsGroup: `1`,
 			planType: `1`,
 			prices: [
 				{
@@ -189,62 +192,36 @@ const seed:Seed =
 		},
 		{
 			id: `2`,
-			title: `Trimestral`,
-			activityGroup: `2`,
-			conditions: `2`,
+			title: `Mensal`,
+			activityGroup: `3`,
+			termsGroup: `1`,
 			planType: `1`,
 			prices: [
 				{
-					title: `2x/semana`,
-					value: `R$207,00`
+					title: `1x/semana`,
+					value: `R$180,00`
 				},
-				{
-					title: `3x/semana`,
-					value: `R$230,00`
-				},
-				{
-					title: `5x/semana`,
-					value: `R$270,00`
-				},
-				{
-					title: `8x/semana`,
-					value: `R$297,00`
-				},
-
 			]
 		},
 		{
 			id: `3`,
-			title: `Semestral`,
+			title: `Mensal`,
 			activityGroup: `2`,
-			conditions: `3`,
+			termsGroup: `1`,
 			planType: `1`,
 			prices: [
 				{
-					title: `2x/semana`,
-					value: `R$207,00`
+					title: `1x/semana`,
+					value: `R$180,00`
 				},
-				{
-					title: `3x/semana`,
-					value: `R$230,00`
-				},
-				{
-					title: `5x/semana`,
-					value: `R$270,00`
-				},
-				{
-					title: `8x/semana`,
-					value: `R$297,00`
-				},
-
 			]
 		},
 		{
 			id: `4`,
-			title: `Mensal`,
+			title: `Trimestral`,
 			activityGroup: `1`,
-			conditions: `1`,
-			planType: `2`, /** Plano Socias */
+			termsGroup: `2`,
+			planType: `1`, 
 			prices: [
 				{
 					title: `2x/semana`,
@@ -262,7 +239,7 @@ const seed:Seed =
 			id: `5`,
 			title: `Semestral`,
 			activityGroup: `1`,
-			conditions: `3`,
+			termsGroup: `3`,
 			planType: `2`, /** Plano Socias */
 			prices: [
 				{
@@ -277,6 +254,7 @@ const seed:Seed =
 
 			]
 		},
+		
 	]
 }
 

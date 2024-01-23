@@ -9,7 +9,7 @@ export interface Activity {
     activityGroup: string;
 }
 export interface ActivityGroups {
-    id: string;
+    id: string | number;
     title: string;
     image: string;
 }
@@ -17,21 +17,22 @@ export interface ActivityGroups {
 export interface TermGroups {
     id: string;
     terms: {
-        title: string,
+        title: string
         value: string
     }[]
 }
 
 export interface PlanType {
-    id: string,
+    id: string
     title: string
+    defaultSelectedPLan: string
 }
 
 export interface Plans {
     id: string,
     title: string,
     activityGroup: string,
-    conditions: string,
+    termsGroup: string,
     planType: string,
     prices:
     {
