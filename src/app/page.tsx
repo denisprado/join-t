@@ -23,9 +23,11 @@ console.log(mappedGroups)
 				})}
 			</div>
 
-			<div className="container flex flex-row gap-8 items-start self-center justify-center pt-16 px-32">
+			<div className="divider divider-neutral container self-center py-24"></div>
+
+			<div className="container flex flex-row gap-8 items-start self-center justify-center px-32">
 				<h2 className="font-serif text-primary text-4xl w-2/12">Alguns depoimentos de alunes Join-T</h2>
-				<div className="flex flex-col gap-4 w-full">
+				<div className="flex flex-col gap-6 w-full">
 					{seed.quotes.map((quote, i) => {
 						return <QuoteCard quote={quote} key={i} i={i} revert={i % 2 !== 0} />
 					})}
