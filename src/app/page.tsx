@@ -1,38 +1,13 @@
+import { Activity } from "@/types/index";
 import seed from "./(seed)/seed";
 import ActivityGroupCard from "./_components/ActivityGroupCard";
 import Hero from "./_components/Hero";
+import groupBy from "./_helpers/helpers";
 
-export interface Activity {
-	id: string;
-	name: string;
-	description: string;
-	teatcher: string;
-	schedules: string;
-	images: string[];
-	videos?: string | string[];
-	group: string;
-}
-
-
-function groupBy<T>(array: T[], key: keyof T): Record<string, T[]> {
-	return array.reduce((grouped, item) => {
-		const keyValue = item[key] as string;
-		const itemWithoutKey = { ...item };
-		delete itemWithoutKey[key];
-
-		if (!grouped[keyValue]) {
-			grouped[keyValue] = [];
-		}
-
-		grouped[keyValue].push(itemWithoutKey);
-
-		return grouped;
-	}, {} as Record<string, T[]>);
-}
 
 
 export default function Home() {
-	const groupedActivities = groupBy(seed.activities, 'group');
+	const groupedActivities = groupBy(seed.activities, 'activityGroup');
 	const mappedGroups: Activity[][] = Object.entries(groupedActivities).map(([key, group]) => {
 		const modifiedGroup = group.map((item: any) => ({ ...item }));
 		return modifiedGroup;

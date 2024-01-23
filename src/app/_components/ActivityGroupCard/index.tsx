@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import seed from '@/app/(seed)/seed'
-import { Activity } from '@/app/page'
+import { Activity } from "@/types/index"
 import { Fragment } from 'react'
 
 const ActivityGroupCard = ({ group, i }: { group: Activity[], i: number }) => {
 
 	return (
-		<div className="card lg:card-side bg-secondary shadow-xl" id={`${seed.groups[i].title}`} >
+		<div className="card lg:card-side bg-secondary shadow-xl" id={`${seed.activityGroups[i].title}`} >
 			<div className="card-body w-1/2">
 				{group.map((g, i) => {
 					return (
@@ -17,12 +17,12 @@ const ActivityGroupCard = ({ group, i }: { group: Activity[], i: number }) => {
 					)
 				})}
 				<div className="card-actions justify-start mt-8">
-					<a className="btn btn-primary" href={"/" + seed.groups[i].id}>Planos e Detalhes</a>
+					<a className="btn btn-primary" href={"/" + seed.activityGroups[i].id}>Planos e Detalhes</a>
 					<a className="btn btn-accent text-white" href="/agendar-avaliacao">Agendar Avaliação</a>
 				</div>
 
 			</div>
-			<figure className='p-5'><Image src={"/" + seed.groups[i].image} alt="treino" width={800} height={1000} /></figure>
+			<figure className='p-5'><Image src={"/" + seed.activityGroups[i].image} alt="treino" width={800} height={1000} /></figure>
 		</div>
 	)
 }

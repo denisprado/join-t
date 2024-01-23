@@ -1,4 +1,15 @@
-const seed =
+import { Activity, ActivityGroups, Plans, PlanType,  TermGroups } from "@/types/index"
+
+
+type Seed = {
+	activities:Activity[],
+	activityGroups:ActivityGroups[],
+	termGroups:TermGroups[]
+	planType:PlanType[]
+	plans:Plans[]
+}
+
+const seed:Seed =
 {
 	activities: [
 		{
@@ -8,7 +19,7 @@ const seed =
 			images: ["treino-image.png"],
 			schedules: "Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h",
 			teatcher: 'Daniel Moda e Lucas Ambrosio',
-			group: "1",
+			activityGroup: "1",
 			videos: ""
 		},
 		{
@@ -18,7 +29,7 @@ const seed =
 			images: ["treino-image.png"],
 			teatcher: 'Daniel Moda e Lucas Ambrosio',
 			schedules: "Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h",
-			group: "1",
+			activityGroup: "1",
 			videos: ""
 		}
 		,
@@ -29,38 +40,240 @@ const seed =
 			images: ["yoga-image.png"],
 			teatcher: 'Thais Esteves',
 			schedules: "Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h",
-			group: "2",
+			activityGroup: "2",
 			videos: ""
 		},
 		{
-			id: '3',
+			id: '4',
 			name: "Dança Contemporânea e Movimento Consciente",
 			description: "A DANÇA CONTEMPORÂNEA é uma forma de arte que valoriza a liberdade de expressão e a originalidade do movimento. Ela se diferencia dos estilos de dança mais tradicionais por sua abordagem experimental e pela busca constante por novas formas de se movimentar. ",
 			teatcher: 'Thais Esteves',
 			images: ["danca-image.png"],
 			schedules: "Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h",
-			group: "3",
+			activityGroup: "3",
 			videos: ""
 		}
 	],
-	groups: [
+	activityGroups: [
 		{
-			id: 1,
-			title: 'Treino+Aulas',
+			id: "1",
+			title: 'Treino Individualizado + Aulas Especiais',
 			image: "treino-image.png",
 		},
 		{
-			id: 2,
+			id: "2",
 			title: 'Yoga',
 			image: "yoga-image.png",
 		},
 
 		{
-			id: 3,
+			id: "3",
 			title: 'Danca',
 			image: "danca-image.png"
 		},
 
+	],
+	termGroups: [
+		{
+			id: "1",
+			terms: [
+				{ title: "Título", value: "Diário" },
+				{ title: "Duração", value: "**30 dias**" },
+				{ title: "Cancelamento", value: "Sendo necessário um **aviso prévio de 7 dias** para o cancelamento da renovação para o próximo mês. Não há multa por cancelamento (se respeitado o aviso de 7 dias)." },
+				{ title: "Renovação", value: "Sim" },
+				{ title: "Cobrança", value: "Mensal" },
+				{ title: "Trancamento", value: "Não permitido" },
+				{ title: "Descontos Aplicáveis", value: "R$ 20,00 - estudante (graduação, estrado e/ou doutorado) / R$ 25,00 - parceria clubleu (não cumulativo com o desconto estudante)" },
+				{ title: "Métodos de Pagamento", value: "Pix/Cartão de crédito/Débito recorrente" }
+			]
+		},
+		{
+			id: "2",
+			terms: [
+				{ title: "Título", value: "Trimestral" },
+				{ title: "Duração", value: "3 meses" },
+				{ title: "Cancelamento", value: "Multa proporcional ao tempo de uso e tempo restante do plano" },
+				{ title: "Renovação", value: "Sim" },
+				{ title: "Cobrança", value: "Mensal" },
+				{ title: "Trancamento", value: "Trancamento de 15 dias (não necessariamente consecutivos). Sendo realizado normalmente o pagamento, e depois o sistema liberará as reposições de aulas/treinos." },
+				{ title: "Descontos Aplicáveis", value: "R$ 20,00 - estudante (graduação, estrado e/ou doutorado) / R$ 25,00 - parceria clubleu (não cumulativo com o desconto estudante)" },
+				{ title: "Métodos de Pagamento", value: "Pix/Cartão de crédito/Débito recorrente" }
+			]
+		},
+		{
+			id: "3",
+			terms: [
+				{ title: "Título", value: "Semestral" },
+				{ title: "Duração", value: "6 meses" },
+				{ title: "Cancelamento", value: "Multa proporcional ao tempo de uso e tempo restante do plano" },
+				{ title: "Renovação", value: "Sim" },
+				{ title: "Cobrança", value: "Mensal" },
+				{ title: "Trancamento", value: "Trancamento de 30 dias (não necessariamente consecutivos). Sendo realizado normalmente o pagamento, e depois o sistema liberará as reposições de aulas/treinos." },
+				{ title: "Descontos Aplicáveis", value: "R$ 20,00 - estudante (graduação, estrado e/ou doutorado) / R$ 25,00 - parceria clubleu (não cumulativo com o desconto estudante)" },
+				{ title: "Métodos de Pagamento", value: "Pix/Cartão de crédito/Débito recorrente" }
+			]
+		},
+		{
+			id: "4",
+			terms: [
+				{ title: "Título", value: "Anual" },
+				{ title: "Duração", value: "#12 meses" },
+				{ title: "Cancelamento", value: "Multa proporcional ao tempo de uso e tempo restante do plano" },
+				{ title: "Renovação", value: "Sim" },
+				{ title: "Cobrança", value: "Mensal" },
+				{ title: "Trancamento", value: "Trancamento de 60 dias (não necessariamente consecutivos). Sendo realizado normalmente o pagamento, e depois o sistema liberará as reposições de aulas/treinos." },
+				{ title: "Descontos Aplicáveis", value: "R$ 20,00 - estudante (graduação, estrado e/ou doutorado) / R$ 25,00 - parceria clubleu (não cumulativo com o desconto estudante)" },
+				{ title: "Métodos de Pagamento", value: "Pix/Cartão de crédito/Débito recorrente" }
+			]
+		},
+		{
+			id: "5",
+			terms: [
+				{ title: "Título", value: "Au, special - Alune JoinT" },
+				{ title: "Duração", value: "2 meses" },
+				{ title: "Métodos de Pagamento", value: "Somente Pix" }
+			]
+		},
+		{
+			id: "6",
+			terms: [
+				{ title: "Título", value: "Au, special - Não Alune" },
+				{ title: "Duração", value: "2 meses" },
+				{ title: "Métodos de Pagamento", value: "Somente Pix" }
+			]
+		}
+	],
+	planType: [
+		{
+			id: "1",
+			title: "Plano"
+		},
+		{
+			id: "2",
+			title: "Plano Social"
+		},
+		{
+			id: "3",
+			title: "Aula Especial"
+		},
+	],
+	plans: [
+		{
+			id: "1",
+			title: "Mensal",
+			activityGroup: "1",
+			conditions: "1",
+			planType: "1",
+			prices: [
+				{
+					title: "2x/semana",
+					value: "R$220,00"
+				},
+				{
+					title: "3x/semana",
+					value: "R$240,00"
+				},
+				{
+					title: "5x/semana",
+					value: "R$280,00"
+				},
+				{
+					title: "8x/semana",
+					value: "R$307,00"
+				},
+
+			]
+		},
+		{
+			id: "2",
+			title: "Trimestral",
+			activityGroup: "2",
+			conditions: "2",
+			planType: "1",
+			prices: [
+				{
+					title: "2x/semana",
+					value: "R$207,00"
+				},
+				{
+					title: "3x/semana",
+					value: "R$230,00"
+				},
+				{
+					title: "5x/semana",
+					value: "R$270,00"
+				},
+				{
+					title: "8x/semana",
+					value: "R$297,00"
+				},
+
+			]
+		},
+		{
+			id: "3",
+			title: "Semestral",
+			activityGroup: "2",
+			conditions: "3",
+			planType: "1",
+			prices: [
+				{
+					title: "2x/semana",
+					value: "R$207,00"
+				},
+				{
+					title: "3x/semana",
+					value: "R$230,00"
+				},
+				{
+					title: "5x/semana",
+					value: "R$270,00"
+				},
+				{
+					title: "8x/semana",
+					value: "R$297,00"
+				},
+
+			]
+		},
+		{
+			id: "4",
+			title: "Mensal",
+			activityGroup: "1",
+			conditions: "1",
+			planType: "2", /** Plano Socias */
+			prices: [
+				{
+					title: "2x/semana",
+					value: "R$110,00"
+				},
+				{
+					title: "3x/semana",
+					value: "R$140,00"
+				},
+
+
+			]
+		},
+		{
+			id: "5",
+			title: "Semestral",
+			activityGroup: "1",
+			conditions: "3",
+			planType: "2", /** Plano Socias */
+			prices: [
+				{
+					title: "2x/semana",
+					value: "R$100,00"
+				},
+				{
+					title: "3x/semana",
+					value: "R$130,00"
+				},
+
+
+			]
+		},
 	]
 }
 
