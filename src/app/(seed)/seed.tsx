@@ -1,15 +1,15 @@
-import { Activity, ActivityGroups, Plans, PlanType,  TermGroups } from '@/types/index'
-
+import { Activity, ActivityGroups, Plans, PlanType, TermGroups, Quote } from '@/types/index'
 
 type Seed = {
-	activities:Activity[],
-	activityGroups:ActivityGroups[],
-	termsGroup:TermGroups[]
-	planType:PlanType[]
-	plans:Plans[]
+	activities: Activity[],
+	activityGroups: ActivityGroups[]
+	termsGroup: TermGroups[]
+	planType: PlanType[]
+	plans: Plans[]
+	quotes: Quote[]
 }
 
-const seed:Seed =
+const seed: Seed =
 {
 	activities: [
 		{
@@ -85,7 +85,8 @@ const seed:Seed =
 				{ title: `Renovação`, value: `Sim` },
 				{ title: `Cobrança`, value: `Mensal` },
 				{ title: `Trancamento`, value: `Não permitido` },
-				{ title: `Descontos Aplicáveis`, value: `R$ 20,00 - estudante (graduação, estrado e/ou doutorado)  
+				{
+					title: `Descontos Aplicáveis`, value: `R$ 20,00 - estudante (graduação, estrado e/ou doutorado)  
 				R$ 25,00 - parceria clubleu (não cumulativo com o desconto estudante)` },
 				{ title: `Métodos de Pagamento`, value: `Pix/Cartão de crédito/Débito recorrente` }
 			]
@@ -150,17 +151,17 @@ const seed:Seed =
 		{
 			id: `1`,
 			title: `Plano`,
-			defaultSelectedPLan:'1'
+			defaultSelectedPLan: '1'
 		},
 		{
 			id: `2`,
 			title: `Plano  Social`,
-			defaultSelectedPLan:'4'
+			defaultSelectedPLan: '4'
 		},
 		{
 			id: `3`,
 			title: `Aula  Avulsa`,
-			defaultSelectedPLan:'4'
+			defaultSelectedPLan: '4'
 		},
 	],
 	plans: [
@@ -221,7 +222,7 @@ const seed:Seed =
 			title: `Trimestral`,
 			activityGroup: `1`,
 			termsGroup: `2`,
-			planType: `1`, 
+			planType: `1`,
 			prices: [
 				{
 					title: `2x/semana`,
@@ -250,11 +251,34 @@ const seed:Seed =
 					title: `3x/semana`,
 					value: `R$130,00`
 				},
-
-
 			]
 		},
-		
+
+	],
+	quotes: [
+		{
+			id: "1",
+			author: "Maria",
+			avatar: "./avatar.png",
+			excerpt: "Cheguei no Joint faz pouco tempo e já me impressionei com a organização, a competência dos professores o ambiente acolhedor. Estão de parabéns!",
+			full: ""
+		},
+		{
+			id: "2",
+			author: "Maria",
+			avatar: "./avatar.png",
+			excerpt: "A Joint veio pra mudar minha visão de treinos: 			",
+			full: `1) Ela me foi recomendada por um professor de educação física do qual eu tenho muita confiança; 2) Logo na avaliação física (que é uma raridade em 
+				academias convencionais), o professor perguntou se eu tinha alguma queixa de dor, qual era  minha rotina e se
+				eu queria aprender algum movimento novo.`
+		},
+		{
+			id: "3",
+			author: "Maria",
+			avatar: "./avatar.png",
+			excerpt: "A Join-t me apresentou um jeito mais amigável e saudável de funcionamento de uma academia.",
+			full: `Esbarrei nesse cenário diferente logo na primeira sessão que fui, quando meu professor quis saber o que eu tinha de objetivo (e eu poderia falar tudo, menos o tradicional "ficar forte, definido etc."), achei isso muito legal. Isso dá muita liberdade e ajuda o aluno a continuar na academia pois você é encorajado a pensar em coisas que realmente quer alcançar (e não algo culturalmente imposto pela sociedade).`
+		}
 	]
 }
 

@@ -40,3 +40,11 @@ export interface Plans {
         value: string
     }[],
 }
+
+export interface Quote {
+    id: string
+    excerpt: string
+    full?: string
+    author: string
+    avatar: string
+}

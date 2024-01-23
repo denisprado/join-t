@@ -6,7 +6,7 @@ import Footer from "./_components/Footer";
 
 
 const roboto_slab = Roboto_Slab({
-	weight: ['400'],
+	weight: ['400','200'],
 	subsets: ['latin'],
 	display: 'swap',
 	variable: '--font-roboto-slab',
@@ -20,9 +20,10 @@ const roboto_sans = Roboto_Flex({
 })
 
 const roboto_serif = Roboto_Serif({
-	weight: ['400', '700'],
+	weight: ['100'],
 	subsets: ['latin'],
 	display: 'swap',
+	style: 'italic',
 	variable: '--font-roboto-serif',
 })
 
