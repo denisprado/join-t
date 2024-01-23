@@ -88,7 +88,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 															return (
 
-																<div className="flex gap-4">
+																<div className="flex gap-4" key={plan.id}>
 																	{plan.id === activePlan &&
 																		<div className="border w-1/2 columns-2 p-4 rounded-md  border-secondary">
 																			{terms?.map(term => (

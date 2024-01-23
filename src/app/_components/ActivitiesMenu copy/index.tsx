@@ -10,7 +10,7 @@ const GroupsMenu = ({ layout = 'vertical' }: { layout: 'vertical' | 'horizontal'
 				{seed.activityGroups.map(group => {
 					return (
 
-						<li><Link href={`/${group.id}`}>{group.title}</Link></li>
+						<li key={group.id}><Link href={`/${group.id}`}>{group.title}</Link></li>
 					)
 				})}
 
