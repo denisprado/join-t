@@ -35,8 +35,8 @@ const config: Config = {
           neutral: "#0E0E0E",
           "base-100": "#262626",
           "--navbar-padding": "1rem",
-          "--tab-border-color": "#0E0E0E",
-        },
+          
+          },
       },
     ],
   },

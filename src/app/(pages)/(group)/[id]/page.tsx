@@ -4,6 +4,7 @@ import seed from "@/app/(seed)/seed";
 import ActivityCard from "@/app/_components/ActivityCard/index";
 
 import Curves from "@/app/_components/Curves/index";
+import GroupsMenu from "@/app/_components/GroupsMenu/index";
 import Prices from "@/app/_components/Prices/index";
 import groupBy from "@/app/_helpers/helpers";
 import { Plans } from "@/types/index";
@@ -39,7 +40,8 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	}
 
 	return (
-		<div className="w-full flex flex-col justify-center items-center">
+		<div className="w-full flex flex-col justify-start items-center">
+			<GroupsMenu layout={"horizontal"}/>
 			<div className="container flex flex-col gap-4 justify-center items-center py-16">
 				{activities.map((act, i) => {
 					return (

@@ -6,7 +6,7 @@ import { ReactNode } from "react"
 const About = ({ children }: { children: ReactNode }) => {
 	return (
 		<>
-			<div className="py-10">
+			<div>
 				{children}
 			</div>
 			<div><Curves color="secondary" /></div>
