@@ -79,7 +79,7 @@ const seed:Seed =
 			terms: [
 				{ title: "Título", value: "Diário" },
 				{ title: "Duração", value: "**30 dias**" },
-				{ title: "Cancelamento", value: "Sendo necessário um **aviso prévio de 7 dias** para o cancelamento da renovação para o próximo mês. Não há multa por cancelamento (se respeitado o aviso de 7 dias)." },
+				{ title: "Cancelamento", value: "Sendo necessário um **aviso prévio de 7 dias** Spara o cancelamento da renovação para o próximo mês. Não há multa por cancelamento (se respeitado o aviso de 7 dias)." },
 				{ title: "Renovação", value: "Sim" },
 				{ title: "Cobrança", value: "Mensal" },
 				{ title: "Trancamento", value: "Não permitido" },
