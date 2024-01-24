@@ -26,7 +26,7 @@ const config: Config = {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: [  
+    themes: [
       {
         joinT: {
           primary: "#eab308",
@@ -34,9 +34,10 @@ const config: Config = {
           accent: "#E81C31",
           neutral: "#0E0E0E",
           "base-100": "#262626",
-          '--navbar-padding': "1rem",
-          },
+          "--navbar-padding": "1rem",
+        },
       },
+      "cyberpunk",
     ],
   },
 };

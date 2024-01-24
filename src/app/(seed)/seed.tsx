@@ -20,17 +20,17 @@ const seed: Seed =
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
 			teatcher: `Daniel Moda e Lucas Ambrosio`,
 			activityGroup: `1`,
-			videos: ``
+			videos: [``]
 		},
 		{
 			id: `2`,
 			name: `Aulas Especiais`,
 			description: `Aulas em grupo de diferentes temas: parada de mãos, kettlebell, calistenia, alongamento e treinão (treino de alta intensidade)`,
-			images: [`treino-image.png`],
+			images: [`treino-image.png`, 'treino-image.png', 'treino-image.png', 'treino-image.png', 'treino-image.png'],
 			teatcher: `Daniel Moda e Lucas Ambrosio`,
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
 			activityGroup: `1`,
-			videos: ``
+			videos: [``]
 		}
 		,
 		{
@@ -41,7 +41,7 @@ const seed: Seed =
 			teatcher: `Thais Esteves`,
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
 			activityGroup: `2`,
-			videos: ``
+			videos: [``]
 		},
 		{
 			id: `4`,
@@ -53,7 +53,7 @@ const seed: Seed =
 			
 			Sábado : 8h - 11h`,
 			activityGroup: `3`,
-			videos: ``
+			videos: [``]
 		}
 	],
 	activityGroups: [

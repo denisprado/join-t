@@ -1,5 +1,6 @@
-import { Activity} from "@/types/index"
+import { Activity } from "@/types/index"
 import Image from 'next/image'
+import { EmblaCarousel } from "../Carousel"
 
 const ActivityCard = ({ activity }: { activity: Activity }) => {
 
@@ -13,7 +14,7 @@ const ActivityCard = ({ activity }: { activity: Activity }) => {
 					</div>
 					<div className='flex flex-col gap-8'>
 						<div>
-							<h3 className='font-serif text-xl text-primary'>Prof.</h3>
+							<h3 className='font-serif text-xl text-primary'>Professor(a)</h3>
 							<p>{activity.teatcher}</p>
 						</div>
 						<div>
@@ -23,13 +24,16 @@ const ActivityCard = ({ activity }: { activity: Activity }) => {
 					</div>
 				</div>
 			</div>
-			{
-				activity.images.map((image, i) => {
-					return (
-						<figure className='p-5' key={i}><Image src={"/" + image} alt="treino" width={800} height={1000} /></figure>
-					)
-				})
-			}
+			<div className="grid grid-cols-2 gap-2">
+				{
+					// activity.images.map((image, i) => {
+					// 	return (
+					// 		<figure className='' key={i}><Image src={"/" + image} alt="treino" width={800} height={1000} /></figure>
+					// 	)
+					// })
+					<EmblaCarousel slides={activity.images} />
+				}
+			</div>
 		</div>
 	)
 }
