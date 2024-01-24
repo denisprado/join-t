@@ -133,19 +133,10 @@ const seed: Seed =
 		{
 			id: `5`,
 			terms: [
-				{ title: `Título`, value: `Au, special - Alune JoinT` },
 				{ title: `Duração`, value: `2 meses` },
 				{ title: `Métodos de Pagamento`, value: `Somente Pix` }
 			]
 		},
-		{
-			id: `6`,
-			terms: [
-				{ title: `Título`, value: `Au, special - Não Alune` },
-				{ title: `Duração`, value: `2 meses` },
-				{ title: `Métodos de Pagamento`, value: `Somente Pix` }
-			]
-		}
 	],
 	planType: [
 		{
@@ -219,10 +210,10 @@ const seed: Seed =
 		},
 		{
 			id: `4`,
-			title: `Trimestral`,
+			title: `Alune JoinT`,
 			activityGroup: `1`,
-			termsGroup: `2`,
-			planType: `1`,
+			termsGroup: `1`,
+			planType: `5`,
 			prices: [
 				{
 					title: `2x/semana`,
@@ -238,10 +229,10 @@ const seed: Seed =
 		},
 		{
 			id: `5`,
-			title: `Semestral`,
+			title: `Não alune`,
 			activityGroup: `1`,
-			termsGroup: `3`,
-			planType: `2`, /** Plano Socias */
+			termsGroup: `1`,
+			planType: `5`,
 			prices: [
 				{
 					title: `2x/semana`,
