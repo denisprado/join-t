@@ -183,6 +183,84 @@ const seed: Seed =
 			]
 		},
 		{
+			id: `6`,
+			title: `Trimestral`,
+			activityGroup: `1`,
+			termsGroup: `2`,
+			planType: `1`,
+			prices: [
+				{
+					title: `2x/semana`,
+					value: `R$220,00`
+				},
+				{
+					title: `3x/semana`,
+					value: `R$240,00`
+				},
+				{
+					title: `5x/semana`,
+					value: `R$280,00`
+				},
+				{
+					title: `8x/semana`,
+					value: `R$307,00`
+				},
+
+			]
+		},
+		{
+			id: `7`,
+			title: `Semestral`,
+			activityGroup: `1`,
+			termsGroup: `3`,
+			planType: `1`,
+			prices: [
+				{
+					title: `2x/semana`,
+					value: `R$220,00`
+				},
+				{
+					title: `3x/semana`,
+					value: `R$240,00`
+				},
+				{
+					title: `5x/semana`,
+					value: `R$280,00`
+				},
+				{
+					title: `8x/semana`,
+					value: `R$307,00`
+				},
+
+			]
+		},
+		{
+			id: `8`,
+			title: `Anual`,
+			activityGroup: `1`,
+			termsGroup: `4`,
+			planType: `1`,
+			prices: [
+				{
+					title: `2x/semana`,
+					value: `R$220,00`
+				},
+				{
+					title: `3x/semana`,
+					value: `R$240,00`
+				},
+				{
+					title: `5x/semana`,
+					value: `R$280,00`
+				},
+				{
+					title: `8x/semana`,
+					value: `R$307,00`
+				},
+
+			]
+		},
+		{
 			id: `2`,
 			title: `Mensal`,
 			activityGroup: `3`,
@@ -212,8 +290,8 @@ const seed: Seed =
 			id: `4`,
 			title: `Alune JoinT`,
 			activityGroup: `1`,
-			termsGroup: `1`,
-			planType: `5`,
+			termsGroup: `5`,
+			planType: `3`,
 			prices: [
 				{
 					title: `2x/semana`,
