@@ -59,7 +59,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 			</div>
 			<Curves color="primary-revert" />
 			<div className="w-full flex flex-col pt-8 bg-primary justify-start min-h-full">
-				<div role="tablist" className="tabs  tabs-bordered tab-lg font-sans text-secondary  container self-center">
+				<div role="tablist" className="tabs tabs-bordered tab-lg font-sans text-secondary  container self-center">
 					{planType.map((g, indexTab) => {
 
 						const activityGroupsByPlanType = Object.keys(groupedPlans)
@@ -73,7 +73,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 						return (
 							<Fragment key={g.id}>
-								
+
 								<input type="radio" onClick={() => handleChangeTab(g.defaultSelectedPLan)} name="my_tabs_1" role="tab"
 									className="tab text-lg text-secondary [--tab-border-color:black]"
 									aria-label={g.title} defaultChecked={g.id === "1"} />

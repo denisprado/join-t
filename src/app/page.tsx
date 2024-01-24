@@ -45,7 +45,7 @@ export default function Home() {
 					<h2 className="font-serif text-secondary text-4xl ">Planos a partir de {treinosPlans[0].prices[0]?.value}</h2>
 					<div className="flex flex-row gap-6 w-full justify-center">
 						{treinosPlans.map((plan, i) => {
-							return <Prices plan={plan} showButton={false} />
+							return <Prices key={i} plan={plan} showButton={false} />
 						})}
 					</div>
 					<div className="flex gap-2">
