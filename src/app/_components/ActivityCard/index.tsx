@@ -8,13 +8,12 @@ const ActivityCard = ({ activity }: { activity: Activity }) => {
 			<div className="card-body w-1/2">
 				<div className='flex flex-col gap-8'>
 					<div className='flex flex-col gap-4'>
-						<h2 className="card-title text-primary font-serif text-4xl">{activity.name}</h2>
+						<h2 className="card-title text-5xl font-medium text-primary font-serif ">{activity.name}</h2>
 						<p className='font-sans'>{activity.description}</p>
 					</div>
 					<div className='flex flex-col gap-8'>
 						<div>
-							<h3 className='font-serif text-xl text-primary'>Professor</h3>
-
+							<h3 className='font-serif text-xl text-primary'>Prof.</h3>
 							<p>{activity.teatcher}</p>
 						</div>
 						<div>

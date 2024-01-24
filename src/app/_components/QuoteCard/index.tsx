@@ -4,7 +4,7 @@ import { Fragment } from 'react'
 import ReactMarkdown from 'react-markdown'
 
 const QuoteCard = ({ quote, i, revert }: { quote: Quote, i: number, revert: boolean }) => {
-    const direction = `flex-row${revert ? '-reverse' : ''}`
+    const direction = revert ? 'flex-row-reverse' : 'flex-row'
     console.log(direction)
     return (
         <div className={`bg-secondary shadow-xl gap-8 rounded-xl p-8 flex ${direction}`} id={`${quote.id}`} >

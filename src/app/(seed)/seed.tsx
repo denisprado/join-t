@@ -79,7 +79,7 @@ const seed: Seed =
 		{
 			id: `1`,
 			terms: [
-				{ title: `Título`, value: `Diário` },
+				{ title: `Título`, value: `Mensal` },
 				{ title: `Duração`, value: `**30 dias**` },
 				{ title: `Cancelamento`, value: `Sendo necessário um **aviso prévio de 7 dias** para o cancelamento da renovação para o próximo mês. Não há multa por cancelamento (se respeitado o aviso de 7 dias).` },
 				{ title: `Renovação`, value: `Sim` },

@@ -31,11 +31,10 @@ const config: Config = {
         joinT: {
           primary: "#eab308",
           secondary: "#0E0E0E",
-          accent: "#f43f5e",
+          accent: "#E81C31",
           neutral: "#0E0E0E",
           "base-100": "#262626",
-          "--navbar-padding": "1rem",
-          
+          '--navbar-padding': "1rem",
           },
       },
     ],

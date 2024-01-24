@@ -38,7 +38,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 			<ul className="flex flex-col" >
 				{plans?.map((plan, i) => {
 					return (
-						<li key={plan.id} onClick={() => handleClick(plan.id)} className={`p-4 cursor-pointer ${(plan.id === activePlan) ? "bg-secondary text-primary" : "border-b border-secondary"}`}>
+						<li key={plan.id} onClick={() => handleClick(plan.id)} className={`py-3 px-4 cursor-pointer ${(plan.id === activePlan) ? "bg-secondary text-primary" : "border-b border-secondary"}`}>
 							<a >{plan.title} </a>
 						</li>
 					)
@@ -59,7 +59,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 			</div>
 			<Curves color="primary-revert" />
 			<div className="w-full flex flex-col pt-8 bg-primary justify-start min-h-full">
-				<div role="tablist" className="tabs tabs-bordered font-sans text-secondary container self-center">
+				<div role="tablist" className="tabs  tabs-bordered tab-lg font-sans text-secondary  container self-center">
 					{planType.map((g, indexTab) => {
 
 						const activityGroupsByPlanType = Object.keys(groupedPlans)
@@ -73,15 +73,18 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 						return (
 							<Fragment key={g.id}>
-								<input type="radio" onClick={() => handleChangeTab(g.defaultSelectedPLan)} name="my_tabs_1" role="tab" className="tab tabs-lifted tab-lg font-sans text-secondary border-b-black" aria-label={g.title} defaultChecked={g.id === "1"} />
+								
+								<input type="radio" onClick={() => handleChangeTab(g.defaultSelectedPLan)} name="my_tabs_1" role="tab"
+									className="tab text-lg text-secondary [--tab-border-color:black]"
+									aria-label={g.title} defaultChecked={g.id === "1"} />
 								<div role="tabpanel" className="tab-content">
-									<div className="flex flex-col gap-4 py-10">
-										<h2 className="text-2xl font-serif text-secondary">{activityGroupsTitle}</h2>
-										<div className="flex gap-4 py-4">
+									<div className="flex flex-col gap-8 py-10">
+										<h2 className="text-5xl font-medium font-serif text-secondary">{activityGroupsTitle}</h2>
+										<div className="flex gap-5 py-4">
 
 											{activityGroupsByPlanType.map(((g, i) => {
 												return (
-													<div className="w-40" key={i}>
+													<div className="w-44" key={i}>
 														<PlanMenu plans={g.plans} />
 													</div>
 												)
@@ -93,14 +96,12 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 													<div className="flex-1 w-full" key={i}>
 														{g.plans.map(plan => {
 															return (
-																<div className="flex gap-4" key={plan.id}>
+																<div className="flex gap-8" key={plan.id}>
 																	{(plan.id === activePlan) &&
 																		<Conditions plan={plan} />
 																	}
 																	{(plan.id === activePlan) &&
-																		<div>
-																			<Prices prices={plan.prices}></Prices>
-																		</div>
+																		<Prices plan={plan} showButton></Prices>
 																	}
 																</div>
 															)
