@@ -15,16 +15,16 @@ import { Fragment, SetStateAction, useEffect, useState } from "react";
 export default function GroupPage({ params }: { params: { id: string } }) {
 	const { id } = params
 	const activities = seed.activities.filter(act => act.activityGroup === id)
-	const { planType, activityGroups } = seed
+	const { planType, activityGroups, plans } = seed
 	const groupedPlans = groupBy(seed.plans, 'planType');
 
-	const initialPlanDefaultChecked = planType[0].defaultSelectedPLan
-	console.log(initialPlanDefaultChecked)
-	const [activePlan, setActivePlan] = useState<string>(initialPlanDefaultChecked)
+	const plansDefaultChecked = plans.filter(plan => plan.defaultSelectedPLan && plan.activityGroup === id)
 
+	// plano inicialmente seleionado é o primeiro do mesmo grupo de atividade
+	const [activePlan, setActivePlan] = useState<string>(plansDefaultChecked[0].id)
 
-	function handleChangeTab(defaultActivePlan: SetStateAction<string>) {
-		setActivePlan(defaultActivePlan)
+	function handleChangeTab(activePlan: SetStateAction<string>) {
+		setActivePlan(activePlan)
 	}
 
 	function handleClick(id: string) {
@@ -59,7 +59,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 				})}
 			</div>
 			<Curves color="primary-revert" />
-			<div className="w-full flex flex-col pt-8 bg-primary justify-center min-h-[75vh]" >
+			<div className="w-full flex flex-col pt-8 bg-primary items-center min-h-[75vh]" >
 				<div className="container self-center px-20 ">
 
 
@@ -78,9 +78,9 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 							return (
 								<Fragment key={g.id}>
 
-									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTab(g.defaultSelectedPLan)} name="my_tabs_1" role="tab"
+									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTab(plansDefaultChecked.filter(plan => plan.planType === g.id)[0].id)} name="my_tabs_1" role="tab" defaultChecked={indexTab === 0}
 										className="tab text-lg text-secondary font-sans bg-yellow [--tab-border-color:black]"
-										aria-label={g.title} defaultChecked={g.id === "1"} />
+										aria-label={g.title} />
 									<div role="tabpanel" className="tab-content" >
 										<div className="flex flex-col gap-8 py-10">
 											<h2 className="text-5xl font-medium font-serif text-secondary">{activityGroupsTitle}</h2>

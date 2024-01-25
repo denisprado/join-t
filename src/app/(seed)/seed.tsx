@@ -142,17 +142,17 @@ const seed: Seed =
 		{
 			id: `1`,
 			title: `Plano`,
-			defaultSelectedPLan: '1'
+
 		},
 		{
 			id: `2`,
 			title: `Plano  Social`,
-			defaultSelectedPLan: '4'
+
 		},
 		{
 			id: `3`,
 			title: `Aula  Avulsa`,
-			defaultSelectedPLan: '4'
+
 		},
 	],
 	plans: [
@@ -162,6 +162,8 @@ const seed: Seed =
 			activityGroup: `1`,
 			termsGroup: `1`,
 			planType: `1`,
+			fixed: true,
+			defaultSelectedPLan: true,
 			prices: [
 				{
 					title: `2x/semana`,
@@ -183,27 +185,47 @@ const seed: Seed =
 			]
 		},
 		{
+			id: `11`,
+			title: `Mensal`,
+			activityGroup: `1`,
+			termsGroup: `1`,
+			planType: `2`,
+			fixed: true,
+			defaultSelectedPLan: true,
+			prices: [
+				{
+					title: `2x/semana`,
+					value: `R$110,00`
+				},
+				{
+					title: `3x/semana`,
+					value: `R$140,00`
+				},
+			]
+		},
+		{
 			id: `6`,
 			title: `Trimestral`,
 			activityGroup: `1`,
 			termsGroup: `2`,
 			planType: `1`,
+			fixed: true,
 			prices: [
 				{
 					title: `2x/semana`,
-					value: `R$220,00`
+					value: `R$207,00`
 				},
 				{
 					title: `3x/semana`,
-					value: `R$240,00`
+					value: `R$230,00`
 				},
 				{
 					title: `5x/semana`,
-					value: `R$280,00`
+					value: `R$270,00`
 				},
 				{
 					title: `8x/semana`,
-					value: `R$307,00`
+					value: `R$297,00`
 				},
 
 			]
@@ -214,24 +236,43 @@ const seed: Seed =
 			activityGroup: `1`,
 			termsGroup: `3`,
 			planType: `1`,
+			fixed: true,
 			prices: [
 				{
 					title: `2x/semana`,
-					value: `R$220,00`
+					value: `R$197,00`
 				},
 				{
 					title: `3x/semana`,
-					value: `R$240,00`
+					value: `R$220,00`
 				},
 				{
 					title: `5x/semana`,
-					value: `R$280,00`
+					value: `R$257,00`
 				},
 				{
 					title: `8x/semana`,
-					value: `R$307,00`
+					value: `R$287,00`
 				},
 
+			]
+		},
+		{
+			id: `10`,
+			title: `Semestral`,
+			activityGroup: `1`,
+			termsGroup: `3`,
+			planType: `2`,
+			fixed: true,
+			prices: [
+				{
+					title: `2x/semana`,
+					value: `R$100,00`
+				},
+				{
+					title: `3x/semana`,
+					value: `R$130,00`
+				},
 			]
 		},
 		{
@@ -240,24 +281,20 @@ const seed: Seed =
 			activityGroup: `1`,
 			termsGroup: `4`,
 			planType: `1`,
+			fixed: true,
 			prices: [
 				{
 					title: `2x/semana`,
-					value: `R$220,00`
+					value: `R$187,00`
 				},
 				{
 					title: `3x/semana`,
-					value: `R$240,00`
+					value: `R$207,00`
 				},
 				{
 					title: `5x/semana`,
-					value: `R$280,00`
+					value: `R$250,00`
 				},
-				{
-					title: `8x/semana`,
-					value: `R$307,00`
-				},
-
 			]
 		},
 		{
@@ -266,6 +303,7 @@ const seed: Seed =
 			activityGroup: `3`,
 			termsGroup: `1`,
 			planType: `1`,
+			defaultSelectedPLan: true,
 			prices: [
 				{
 					title: `1x/semana`,
@@ -279,6 +317,7 @@ const seed: Seed =
 			activityGroup: `2`,
 			termsGroup: `1`,
 			planType: `1`,
+			defaultSelectedPLan: true,
 			prices: [
 				{
 					title: `1x/semana`,
@@ -288,37 +327,53 @@ const seed: Seed =
 		},
 		{
 			id: `4`,
-			title: `Alune JoinT`,
+			title: `Treino individualizado`,
 			activityGroup: `1`,
 			termsGroup: `5`,
 			planType: `3`,
 			prices: [
 				{
-					title: `2x/semana`,
-					value: `R$110,00`
+					title: `1 aula`,
+					value: `R$40,00`
 				},
 				{
-					title: `3x/semana`,
+					title: `4 aulas`,
 					value: `R$140,00`
 				},
-
-
 			]
 		},
 		{
 			id: `5`,
-			title: `Não alune`,
+			title: `Aulas Especiais - Alune JoinT`,
 			activityGroup: `1`,
-			termsGroup: `1`,
-			planType: `5`,
+			termsGroup: `5`,
+			planType: `3`,
+			defaultSelectedPLan: true,
 			prices: [
 				{
-					title: `2x/semana`,
-					value: `R$100,00`
+					title: `1 aula`,
+					value: `R$30,00`
 				},
 				{
-					title: `3x/semana`,
-					value: `R$130,00`
+					title: `4 aulas`,
+					value: `R$110,00`
+				},
+			]
+		},
+		{
+			id: `9`,
+			title: `Aulas Especiais - Não Alune`,
+			activityGroup: `1`,
+			termsGroup: `5`,
+			planType: `3`,
+			prices: [
+				{
+					title: `1 aula`,
+					value: `R$40,00`
+				},
+				{
+					title: `4 aulas`,
+					value: `R$150,00`
 				},
 			]
 		},

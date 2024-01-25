@@ -16,7 +16,7 @@ export default function Home() {
 		return modifiedGroup;
 	});
 
-	const treinosPlans = seed.plans.filter(plan => plan.activityGroup === '1')
+	const treinosPlans = seed.plans.filter(plan => plan.fixed === true)
 
 	return (
 		<main className="flex min-h-screen flex-col bg-neutral-800 justify-start ">

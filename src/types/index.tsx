@@ -25,11 +25,12 @@ export interface TermGroups {
 export interface PlanType {
 	id: string
 	title: string
-	defaultSelectedPLan: string
 }
 
 export interface Plans {
 	id: string,
+	fixed?: boolean
+	defaultSelectedPLan?: boolean
 	title: string,
 	activityGroup: string,
 	termsGroup: string,
