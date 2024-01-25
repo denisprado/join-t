@@ -147,7 +147,19 @@ const seed: Seed =
 		{
 			id: `2`,
 			title: `Plano  Social`,
+			disclaimer: `**Sobre o Plano Social**  
 
+Enquanto estúdio de treinamento, gerido por pessoas brancas, de classe média e com privilégios, entendemos que temos nosso papel social independente do estado.  
+
+Acreditamos que todas as pessoas devem ter acesso ao exercício físico.  
+
+Fazendo um recorte social, encontramos pessoas que foram e são marginalizadas e que por muitas vezes não possuem acessos e oportunidades a essas práticas. Com isso, criamos o nosso plano social de valor diferenciado para que pessoas de baixa renda (hoje, no brasil são consideradas de baixa renda aquelas que possuem renda mensal por pessoa de até meio salário mínimo R$ 522,50 ou renda familiar total de até 3 salários mínimos R$3.135,00), pretas, trans, gordas maiores e indígenas em vulnerabilidade social tenham acesso as nossas práticas.  
+  
+**Outras condições**
+
+Caso você se enquadre no plano social mas pode pagar um pouco a mais do valor cobrado, este será destinado a descontos ainda maiores para pessoas que ainda sim, não conseguem arcar com os valores do nosso plano social.  
+
+Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e pague r$ 130,00 por este plano, estes r$ 30,00 serão direcionados para alguém que gostaria de fechar o plano de 2x mas não consegue pagar, assim, será cobrado deste pessoa o valor de apenas r$ 70,00 pela contratação do plano. `
 		},
 		{
 			id: `3`,
@@ -190,7 +202,6 @@ const seed: Seed =
 			activityGroup: `1`,
 			termsGroup: `1`,
 			planType: `2`,
-			fixed: true,
 			defaultSelectedPLan: true,
 			prices: [
 				{
@@ -263,7 +274,6 @@ const seed: Seed =
 			activityGroup: `1`,
 			termsGroup: `3`,
 			planType: `2`,
-			fixed: true,
 			prices: [
 				{
 					title: `2x/semana`,

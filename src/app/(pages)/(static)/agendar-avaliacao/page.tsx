@@ -32,7 +32,7 @@ const Agendar = () => {
 						<div className="flex flex-col gap-4 relative w-full h-full pb-10 ">
 							<label className="form-control w-full ">
 								<div className="label">
-									<span className="label-text text-secondary font-sans font-semibold focus-within:border-secondary">Nome completo</span>
+									<span className="label-text text-secondary font-sans font-semibold">Nome completo</span>
 								</div>
 
 								<input

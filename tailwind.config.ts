@@ -15,7 +15,20 @@ const config: Config = {
         mono: ["var(--font-roboto-serif)"],
       },
       colors: {
-        yellow: "rgb(var(--yellow))",
+        yellow: {
+          "50": "#fff2cc",
+          "100": "#ffe8a8",
+          "200": "#ffd56b",
+          "300": "#ffc02e",
+          "400": "#ffaf1a",
+          "500": "#f98e0b",
+          "600": "#e36b02",
+          "700": "#bc4906",
+          "800": "#97360c",
+          "900": "#7d2d0d",
+          "950": "#4a1702",
+        },
+
         neutral: "rgb(var(--neutral))",
         rose: "rgb(var(--accent))",
         primary: "rgb(var(--yellow))",

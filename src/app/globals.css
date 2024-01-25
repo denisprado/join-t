@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --yellow: 255, 174, 24, 100;
+    --yellow: 255 174 24;
     --neutral: 14 14 14;
     --accent: 232 28 49;
   }

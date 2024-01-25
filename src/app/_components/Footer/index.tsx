@@ -1,5 +1,6 @@
 import Curves from "../Curves"
 import Logo from "../Logo"
+import Image from 'next/image'
 
 const Footer = () => {
 	return (
@@ -9,7 +10,7 @@ const Footer = () => {
 			</aside>
 			<nav>
 				<header className="footer-title">Email</header>
-				<p>@jointtreinamento</p>
+				<p><a href="mailto:joint@jointtreinamento.com.br">joint@jointtreinamento.com.br</a></p>
 			</nav>
 			<nav>
 				<header className="footer-title">Instagram</header>
@@ -17,13 +18,12 @@ const Footer = () => {
 			</nav>
 			<nav>
 				<header className="footer-title">WhatsApp</header>
-				<a href="https://wa.me/19971404714">(19) 97140-4717</a>
+				<span className="badge badge-success badge-outline"><a href="https://wa.me/19971404714" target={'_blank'}>Enviar Mensagem</a></span>
 			</nav>
 			<nav>
 				<header className="footer-title">Endereço</header>
-				<p>Rua Jerônimo Páttaro, 250 <br />
-					Barão Geraldo (Próximo ao Sorvete em Camadas
-					)
+				<p>Rua Jerônimo Páttaro, 250. Barão Geraldo. <br />
+					(Próximo ao Sorvete em Camadas)
 				</p>
 				<span className="badge badge-primary badge-outline"><a href="https://maps.app.goo.gl/QWuAJTGP3p9Pmtzb8" target={'_blank'}>Ver mapa</a></span>
 			</nav>

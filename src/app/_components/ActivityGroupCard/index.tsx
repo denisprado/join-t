@@ -18,8 +18,8 @@ const ActivityGroupCard = ({ group, i }: { group: Activity[], i: number }) => {
 					)
 				})}
 				<div className="card-actions justify-start mt-8">
-					<a className="btn btn-primary" href={"/" + id}>Planos e Detalhes</a>
-					<a className="btn btn-accent text-white" href="/agendar-avaliacao">Agendar Avaliação</a>
+					<a className="btn btn-primary btn-outline btn-sm" href={"/" + id}>Planos e Detalhes</a>
+					<a className="btn btn-accent text-white btn-sm" href="/agendar-avaliacao">Agendar Avaliação</a>
 				</div>
 
 			</div>

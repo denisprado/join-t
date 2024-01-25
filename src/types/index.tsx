@@ -25,6 +25,7 @@ export interface TermGroups {
 export interface PlanType {
 	id: string
 	title: string
+	disclaimer?: string
 }
 
 export interface Plans {

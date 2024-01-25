@@ -11,6 +11,7 @@ import Prices from "@/app/_components/Prices/index";
 import groupBy from "@/app/_helpers/helpers";
 import { Plans, PlanType } from "@/types/index";
 import { Fragment, SetStateAction, useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 export default function GroupPage({ params }: { params: { id: string } }) {
 	const { id } = params
@@ -34,7 +35,6 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	const PlanMenu = ({ plans, planType }: { plans: Plans[], planType: PlanType }) => {
 
 		const plansToShow = plans.filter(plan => plan.planType === planType.id && plan.activityGroup === id)
-		console.log(plans)
 		return <>
 			<ul className="flex flex-col" >
 				{plansToShow?.map((plan, i) => {
@@ -48,6 +48,15 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 		</>
 	}
 
+	const planTypesWithPlans = planType.filter(type => {
+		const plansForType = Object.keys(groupedPlans)
+			.map(group => groupedPlans[group])
+			.flat()
+			.filter(plan => plan.planType === type.id && plan.activityGroup === id);
+
+		return plansForType.length > 0;
+	});
+
 	return (
 		<div className="w-full flex flex-col justify-start items-center">
 			<GroupsMenu layout={"horizontal"} />
@@ -60,27 +69,27 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 			</div>
 			<Curves color="primary-revert" />
 			<div className="w-full flex flex-col pt-8 bg-primary items-center min-h-[75vh]" >
-				<div className="container self-center px-20 ">
+				<div className="container self-center px-10 ">
 
 
-					<div role="tablist" className="tabs tabs-bordered [--tab-border-color:black] tab-lg font-sans text-secondary self-center  mx-20 ">
-						{planType.map((g, indexTab) => {
+					<div role="tablist" className="tabs tabs-bordered [--tab-border-color:black] tab-lg font-sans text-secondary self-center mx-10">
+						{planTypesWithPlans.map((type, indexTab) => {
 
 							const activityGroupsByPlanType = Object.keys(groupedPlans)
 								.map((group) => ({
 									group,
-									plans: groupedPlans[group].filter((plan) => plan.planType === g.id)
+									plans: groupedPlans[group].filter((plan) => plan.planType === type.id)
 								}))
 								.filter((item) => item.plans.length > 0);
 
 							const activityGroupsTitle = activityGroups.filter(group => group.id === id)[0]?.title
 
 							return (
-								<Fragment key={g.id}>
+								<Fragment key={type.id}>
 
-									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTab(plansDefaultChecked.filter(plan => plan.planType === g.id)[0].id)} name="my_tabs_1" role="tab" defaultChecked={indexTab === 0}
-										className="tab text-lg text-secondary font-sans bg-yellow [--tab-border-color:black]"
-										aria-label={g.title} />
+									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTab(plansDefaultChecked.filter(plan => plan.planType === type.id)[0].id)} name="my_tabs_1" role="tab" defaultChecked={indexTab === 0}
+										className="tab text-lg text-secondary font-sans bg-yellow-400 [--tab-border-color:black]"
+										aria-label={type.title} />
 									<div role="tabpanel" className="tab-content" >
 										<div className="flex flex-col gap-8 py-10">
 											<h2 className="text-5xl font-medium font-serif text-secondary">{activityGroupsTitle}</h2>
@@ -89,7 +98,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 												{activityGroupsByPlanType.map(((ag, i) => {
 													return (
 														<div className="w-44" key={i}>
-															<PlanMenu plans={ag.plans} planType={g} />
+															<PlanMenu plans={ag.plans} planType={type} />
 														</div>
 													)
 												}))}
@@ -102,11 +111,18 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 																return (
 																	<div className="flex gap-8" key={plan.id}>
 																		{(plan.id === activePlan) &&
-																			<Conditions plan={plan} />
+																			<div className="flex flex-col gap-4">
+																				<Conditions plan={plan} />
+																				{!!type.disclaimer && <div className="flex flex-col border border-secondary rounded-md">
+																					<ReactMarkdown className={'p-4'}>{type.disclaimer}</ReactMarkdown>
+																				</div>}
+
+																			</div>
 																		}
 																		{(plan.id === activePlan) &&
 																			<Prices plan={plan} showButton></Prices>
 																		}
+
 																	</div>
 																)
 															})
