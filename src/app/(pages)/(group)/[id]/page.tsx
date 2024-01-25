@@ -39,7 +39,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 			<ul className="flex flex-col" >
 				{plansToShow?.map((plan, i) => {
 					return (
-						<li key={plan.id} onClick={() => handleClick(plan.id)} className={`py-3 px-4 cursor-pointer hover:bg-current/50 ${(plan.id === activePlan) ? "bg-secondary text-primary" : "border-b border-secondary"}`}>
+						<li key={plan.id} onClick={() => handleClick(plan.id)} className={`py-2 px-4 cursor-pointer hover:bg-yellow-300 hover:text-secondary hover:border-b hover:first:border-y hover:border-secondary ${(plan.id === activePlan) ? "bg-secondary text-primary" : "border-b border-secondary"} ${clasLinkAnimation}`}>
 							<a>{plan.title} </a>
 						</li>
 					)
@@ -56,6 +56,8 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 		return plansForType.length > 0;
 	});
+
+	const clasLinkAnimation = 'transition duration-300 hover:duration-500 transition-delay-200 hover:transition-delay-300'
 
 	return (
 		<div className="w-full flex flex-col justify-start items-center">
@@ -88,7 +90,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 								<Fragment key={type.id}>
 
 									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTab(plansDefaultChecked.filter(plan => plan.planType === type.id)[0].id)} name="my_tabs_1" role="tab" defaultChecked={indexTab === 0}
-										className="tab text-lg text-secondary font-sans bg-yellow-400 [--tab-border-color:black]"
+										className={`tab text-lg text-secondary font-sans bg-yellow-400 checked:bg-yellow-500 hover:bg-yellow-300 [--tab-border-color:black] ${clasLinkAnimation}`}
 										aria-label={type.title} />
 									<div role="tabpanel" className="tab-content" >
 										<div className="flex flex-col gap-8 py-10">

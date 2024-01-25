@@ -8,13 +8,13 @@ const Navbar = () => {
 			</div>
 			<div className="navbar-end">
 				<div className="flex-none">
-					<ul className="menu menu-horizontal">
-						<li><a className="link link-primary" href="/quem-somos">Quem somos</a></li>
-						<li><a className="link link-primary" href="#footer">Contato</a></li>
-						<li><a className="link link-primary" href="#footer">Localização</a></li>
+					<ul className="menu menu-horizontal menu-md">
+						<li><a className="link link-primary link-hover" href="/quem-somos">Quem somos</a></li>
+						<li><a className="link link-primary link-hover" href="#footer">Contato</a></li>
+						<li><a className="link link-primary link-hover" href="#footer">Localização</a></li>
 					</ul>
 				</div>
-				<a className="btn btn-accent text-white" href="/agendar-avaliacao">Agendar Avaliação de Movimento</a>
+				<a className="btn btn-accent text-white btn-sm" href="/agendar-avaliacao">Agendar Avaliação de Movimento</a>
 			</div>
 		</div>
 	)
