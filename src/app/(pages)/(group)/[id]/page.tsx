@@ -70,8 +70,8 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 				})}
 			</div>
 			<Curves color="primary-revert" />
-			<div className="w-full flex flex-col pt-8 bg-primary items-center min-h-[75vh]" >
-				<div className="container self-center px-10 ">
+			<div className="w-full flex flex-col pt-8 bg-primary items-center " >
+				<div className="container self-center px-10 py-16">
 
 
 					<div role="tablist" className="tabs tabs-bordered [--tab-border-color:black] tab-lg font-sans text-secondary self-center mx-10">
