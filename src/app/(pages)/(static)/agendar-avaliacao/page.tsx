@@ -9,6 +9,9 @@ import 'react-phone-number-input/style.css'
 const Agendar = () => {
 	const [value, setValue] = useState<E164Number>()
 	const [nome, setNome] = useState('')
+	const [identidade, setIdentidade] = useState('')
+	const [nascimento, setNascimento] = useState('')
+	const [email, setEmail] = useState('')
 	const [diaDaSemana, setDiaDaSemana] = useState('')
 	const [horario, setHorario] = useState('')
 
@@ -26,7 +29,7 @@ const Agendar = () => {
 
 	return (
 		<div className="bg-primary w-full flex flex-col items-center justify-center">
-			<div className="container w-1/4">
+			<div className="container w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/3">
 				<h2 className=" text-4xl font-serif pb-4 text-secondary">Solicitar Agendamento <br></br>de Avaliação de Movimento</h2>
 				<div className="bg-primary text-secondary py-10 w-full  pb-32">
 					<form onSubmit={handleSubmit}>
@@ -34,16 +37,43 @@ const Agendar = () => {
 							<label className="form-control w-full ">
 								<div className="label">
 									<span className="label-text text-secondary font-sans font-semibold">Nome completo</span>
-								</div>
-
-								<input
+								</div><input
 									type="text"
 									className="input w-full bg-primary border-secondary focus:border-secondary"
 									onChange={(e) => setNome(e.target.value)}
 									value={nome}
 								/>
 							</label>
+
 							<label className="form-control w-full ">
+								<div className="label">
+									<span className="label-text text-secondary font-sans font-semibold focus-within:border-secondary">Identidade de Gênero</span>
+								</div>
+								<select
+									className="select w-full bg-primary border-secondary focus:border-secondary"
+									value={identidade}
+									onChange={(e) => setIdentidade(e.target.value)}
+								>
+									<option disabled>Data</option>
+									<option>Masculino</option>
+									<option>Feminino</option>
+									<option>Não-binário</option>
+									<option>Outros</option>
+								</select>
+							</label>
+
+							<label className="form-control w-full ">
+								<div className="label">
+									<span className="label-text text-secondary font-sans font-semibold">Data de nascimento</span>
+								</div><input
+									type="date"
+									className="input w-full bg-primary border-secondary focus:border-secondary"
+									onChange={(e) => setNascimento(e.target.value)}
+									value={nascimento}
+								/>
+							</label>
+
+							{/* <label className="form-control w-full ">
 								<div className="label">
 									<span className="label-text text-secondary font-sans font-semibold [&_input]:focus-within:border-secondary">Telefone (WhatsApp)</span>
 								</div>
@@ -58,34 +88,27 @@ const Agendar = () => {
 										style={{ ":focus-within:border-color": 'black' }}
 									/>
 								</div>
+							</label> */}
+
+							<label className="form-control w-full ">
+								<div className="label">
+									<span className="label-text text-secondary font-sans font-semibold">Email</span>
+								</div><input
+									type="email"
+									className="input w-full bg-primary border-secondary focus:border-secondary"
+									onChange={(e) => setEmail(e.target.value)}
+									value={email}
+								/>
 							</label>
 							<label className="form-control w-full ">
 								<div className="label">
-									<span className="label-text text-secondary font-sans font-semibold focus-within:border-secondary">Dia</span>
-								</div>
-								<select
-									className="select w-full bg-primary border-secondary focus:border-secondary"
-									value={diaDaSemana}
-									onChange={(e) => setDiaDaSemana(e.target.value)}
-								>
-									<option disabled>Data</option>
-									<option>Segunda</option>
-									<option>Quarta</option>
-								</select>
-							</label>
-							<label className="form-control w-full ">
-								<div className="label">
-									<span className="label-text text-secondary font-sans font-semibold focus-within:border-secondary">Horário</span>
-								</div>
-								<select
-									className="select w-full bg-primary border-secondary focus:border-secondary"
-									value={horario}
-									onChange={(e) => setHorario(e.target.value)}
-								>
-									<option disabled>Horário</option>
-									<option value={16}>16</option>
-									<option value={10}>10</option>
-								</select>
+									<span className="label-text text-secondary font-sans font-semibold">Dias e horários disponíveis para Avaliação</span>
+								</div><input
+									type="text"
+									className="input w-full bg-primary border-secondary focus:border-secondary"
+									onChange={(e) => setNome(e.target.value)}
+									value={nome}
+								/>
 							</label>
 						</div>
 						<button type="submit" className="btn btn-accent text-white w-full ">Enviar agendamento</button>

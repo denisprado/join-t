@@ -7,8 +7,8 @@ const ActivityGroupCard = ({ group, i }: { group: Activity[], i: number }) => {
 	const id = seed.activityGroups.filter(groupAct => groupAct.id === group[0]?.activityGroup)[0]?.id.toString()
 	const image = seed.activityGroups.filter(groupAct => groupAct.id === group[0]?.activityGroup)[0]?.image.toString()
 	return (
-		<div className="card lg:card-side bg-secondary shadow-xl" id={id} >
-			<div className="card-body w-1/2 flex flex-col gap-4">
+		<div className="card flex flex-col-reverse md:card-side bg-secondary shadow-xl" id={id} >
+			<div className="card-body w-full lg:w-1/2 flex flex-col gap-4">
 				{group.map((g, i) => {
 					return (
 						<Fragment key={i}>

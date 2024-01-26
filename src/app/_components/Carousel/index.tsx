@@ -93,17 +93,17 @@ const EmblaCarousel = ({ images, videos }: { images: string[], videos: string[] 
 							handleNext();
 						}} disabled={nextBtnDisabled} />
 				</div>
-			</div>
-			<div className="embla__dots">
-				{scrollSnaps.map((_, index) => (
-					<DotButton
-						key={index}
-						onClick={() => {
-							scrollTo(index);
-						}}
-						className={'embla__dot'.concat(index === selectedIndex ? ' embla__dot--selected' : '')}
-					/>
-				))}
+				<div className="embla__dots">
+					{scrollSnaps.map((_, index) => (
+						<DotButton
+							key={index}
+							onClick={() => {
+								scrollTo(index);
+							}}
+							className={'embla__dot'.concat(index === selectedIndex ? ' embla__dot--selected' : '')}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);

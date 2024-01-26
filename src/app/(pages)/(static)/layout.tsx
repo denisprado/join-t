@@ -10,7 +10,7 @@ const About = ({ children }: { children: ReactNode }) => {
 		<>
 			<div className="flex flex-col items-center">
 				<ActivitiesMenu layout="horizontal" />
-				<div className="hero min-h-fit bg-primary text-secondary py-40">
+				<div className="hero min-h-fit bg-primary text-secondary py-16  md:py-24 xl:py-32 2xl:py-36">
 					<div className="hero-content text-center bg-primary">
 						<div className="relative">
 							<Image src="/logo-paginas.png" className="max-w-sm" width={1030} height={542} alt={'hero-background-people-working out'} />

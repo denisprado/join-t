@@ -16,7 +16,7 @@ const seed: Seed =
 		{
 			id: `1`,
 			name: `Treino Individualizado`,
-			description: `Treinos montados para cada aluno, respeitando as particularidades,as necessidades e os objetivos acordados e conversados na nossa avaliação inicial de movimento.`,
+			description: `Treinos estruturados com um trabalho de mobilidade, força e condicionamento físico, respeitando as particularidades, necessidades e objetivos conversados na nossa avaliação de movimento inicial.`,
 			images: [`treino-image.png`],
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
 			teatcher: `Daniel Moda e Lucas Ambrosio`,

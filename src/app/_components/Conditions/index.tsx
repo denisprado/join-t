@@ -6,7 +6,7 @@ const Conditions = ({ plan }: { plan: Plans }) => {
 	const terms = seed?.termsGroup?.filter(term => plan.termsGroup === term.id)[0]?.terms
 
 	return (
-		<div className="border columns-2 p-4 rounded-md bg-yellow-500 border-secondary min-w-96">
+		<div className="border md:columns-2 p-4 rounded-md bg-yellow-500 border-secondary ">
 			{terms?.map((term: { title: string, value: string }) => (
 				<div className="flex flex-col gap-0 mb-2 break-inside-avoid-column" key={term.title}>
 					<h3 className="text-secondary text-sm font-serif font-semibold">{term.title}</h3>

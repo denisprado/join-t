@@ -82,6 +82,7 @@ p {
   top: 90%;
   transform: translateY(-50%);
   right: 1.6rem;
+  z-index: 2;
 }
 .embla__button {
   z-index: 1;
@@ -116,6 +117,7 @@ p {
   bottom: 1.6rem;
   position: absolute;
   left: 0;
+
   right: 0;
   display: flex;
   justify-content: center;

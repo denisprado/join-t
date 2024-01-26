@@ -35,17 +35,17 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	const PlanMenu = ({ plans, planType }: { plans: Plans[], planType: PlanType }) => {
 
 		const plansToShow = plans.filter(plan => plan.planType === planType.id && plan.activityGroup === id)
-		return <>
-			<ul className="flex flex-col" >
-				{plansToShow?.map((plan, i) => {
-					return (
-						<li key={plan.id} onClick={() => handleClick(plan.id)} className={`py-2 px-4 cursor-pointer hover:bg-yellow-300 hover:text-secondary hover:border-b hover:first:border-y hover:border-secondary ${(plan.id === activePlan) ? "bg-secondary text-primary" : "border-b border-secondary"} ${clasLinkAnimation}`}>
-							<a>{plan.title} </a>
-						</li>
-					)
-				})}
-			</ul>
-		</>
+		return <ul className="flex xl:flex-col min-w-44" >
+			{plansToShow?.map((plan, i) => {
+				return (
+					<li key={plan.id} onClick={() => handleClick(plan.id)} className={`py-2 px-4 cursor-pointer hover:bg-yellow-300 hover:text-secondary border-y  border-secondary hover:border-y hover:first:border-y 
+					xl:border-b-0 hover:xl:border-b-0  hover:border-secondary ${(plan.id === activePlan) ? "bg-secondary text-primary" : "border-b border-secondary"} ${clasLinkAnimation}`}>
+						<a>{plan.title} </a>
+					</li>
+				)
+			})}
+		</ul>
+
 	}
 
 	const planTypesWithPlans = planType.filter(type => {
@@ -71,7 +71,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 			</div>
 			<Curves color="primary-revert" />
 			<div className="w-full flex flex-col pt-8 bg-primary items-center " >
-				<div className="container self-center px-10 py-16">
+				<div className="container self-center px-0 lg:px-10 py-16">
 
 
 					<div role="tablist" className="tabs tabs-bordered [--tab-border-color:black] tab-lg font-sans text-secondary self-center mx-10">
@@ -95,23 +95,21 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 									<div role="tabpanel" className="tab-content" >
 										<div className="flex flex-col gap-8 py-10">
 											<h2 className="text-5xl font-medium font-serif text-secondary">{activityGroupsTitle}</h2>
-											<div className="flex gap-5 py-4">
+											<div className="flex flex-col xl:flex-row gap-2 md:gap-5 py-4">
 
 												{activityGroupsByPlanType.map(((ag, i) => {
 													return (
-														<div className="w-44" key={i}>
-															<PlanMenu plans={ag.plans} planType={type} />
-														</div>
+														<PlanMenu key={i} plans={ag.plans} planType={type} />
 													)
 												}))}
 
 												{activityGroupsByPlanType.map(((g, i) => {
 
 													return (
-														<div className="flex-1 w-full" key={i}>
+														<div className="" key={i}>
 															{g.plans.map(plan => {
 																return (
-																	<div className="flex gap-8" key={plan.id}>
+																	<div className="flex gap-2 md:gap-5 " key={plan.id}>
 																		{(plan.id === activePlan) &&
 																			<div className="flex flex-col gap-4">
 																				<Conditions plan={plan} />
