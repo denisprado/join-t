@@ -17,7 +17,7 @@ const About = () => {
 							treinamento generalizado que resgata a liberdade
 							de movimento que vamos perdendo ao longo
 							da nossa evolução.</p>
-						<h2 className="font-serif text-4xl  mb-2	">O que nos diferencial</h2>
+						<h2 className="font-serif text-4xl  mb-2	">O que nos diferencia</h2>
 						<p className="font-sans text-secondary">Buscamos ressignificar o que é se exercitar dentro de um espaço de &quot;academia&quot;. Gostamos de explorar as possibilidades do nosso corpo e além disso, descontruir a ideia de corpo &quot;ideal&quot; dentro da educação física.</p>
 					</div>
 
