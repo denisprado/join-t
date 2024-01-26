@@ -106,8 +106,8 @@ const Agendar = () => {
 								</div><input
 									type="text"
 									className="input w-full bg-primary border-secondary focus:border-secondary"
-									onChange={(e) => setNome(e.target.value)}
-									value={nome}
+									onChange={(e) => setDiaDaSemana(e.target.value)}
+									value={diaDaSemana}
 								/>
 							</label>
 						</div>
