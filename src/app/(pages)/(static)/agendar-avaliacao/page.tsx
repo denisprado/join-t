@@ -8,8 +8,8 @@ import 'react-phone-number-input/style.css'
 
 const Agendar = () => {
 	const [value, setValue] = useState<E164Number>()
-	const [nome, setNome] = useState('Masculino')
-	const [identidade, setIdentidade] = useState('')
+	const [nome, setNome] = useState('')
+	const [identidade, setIdentidade] = useState('Masculino')
 	const [nascimento, setNascimento] = useState('')
 	const [email, setEmail] = useState('')
 	const [diaDaSemana, setDiaDaSemana] = useState('')
