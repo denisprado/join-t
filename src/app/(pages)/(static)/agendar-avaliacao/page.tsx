@@ -8,7 +8,7 @@ import 'react-phone-number-input/style.css'
 
 const Agendar = () => {
 	const [value, setValue] = useState<E164Number>()
-	const [nome, setNome] = useState('')
+	const [nome, setNome] = useState('Masculino')
 	const [identidade, setIdentidade] = useState('')
 	const [nascimento, setNascimento] = useState('')
 	const [email, setEmail] = useState('')
@@ -18,7 +18,7 @@ const Agendar = () => {
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
 
-		const mensagem = `Nome: ${nome} Identidade: ${identidade} Data de nascimento: ${nascimento} Email: ${email} Dia/horário disponíveis: ${diaDaSemana}`;
+		const mensagem = `Nome: ${nome} | Identidade: ${identidade} | Data de nascimento: ${nascimento} | Email: ${email} | Dia/horário disponíveis: ${diaDaSemana}`;
 		const whatsappLink = `https://wa.me/${seed.profile.whatsapp}?text=${encodeURIComponent(mensagem)}`;
 
 		// Redirecionando para o link
