@@ -13,12 +13,12 @@ const Agendar = () => {
 	const [nascimento, setNascimento] = useState('')
 	const [email, setEmail] = useState('')
 	const [diaDaSemana, setDiaDaSemana] = useState('')
-	const [horario, setHorario] = useState('')
+
 
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
 
-		const mensagem = `Nome: ${nome} Telefone: ${value} Dia: ${diaDaSemana} Horário: ${horario}`;
+		const mensagem = `Nome: ${nome} Identidade: ${identidade} Data de nascimento: ${nascimento} Email: ${email} Dia/horário disponíveis: ${diaDaSemana}`;
 		const whatsappLink = `https://wa.me/${seed.profile.whatsapp}?text=${encodeURIComponent(mensagem)}`;
 
 		// Redirecionando para o link
