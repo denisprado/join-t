@@ -1,4 +1,4 @@
-import { Activity, ActivityGroups, Plans, PlanType, TermGroups, Quote } from '@/types/index'
+import { Activity, ActivityGroups, Plans, PlanType, TermGroups, Quote, Profile } from '@/types/index'
 
 type Seed = {
 	activities: Activity[],
@@ -6,7 +6,8 @@ type Seed = {
 	termsGroup: TermGroups[]
 	planType: PlanType[]
 	plans: Plans[]
-	quotes: Quote[]
+	quotes: Quote[],
+	profile: Profile
 }
 
 const seed: Seed =
@@ -20,7 +21,7 @@ const seed: Seed =
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
 			teatcher: `Daniel Moda e Lucas Ambrosio`,
 			activityGroup: `1`,
-			videos: [``]
+			videos: ['https://www.youtube.com/watch?v=ntm42tvkngk', 'https://www.youtube.com/watch?v=7Ty0ICZIVuE']
 		},
 		{
 			id: `2`,
@@ -30,7 +31,7 @@ const seed: Seed =
 			teatcher: `Daniel Moda e Lucas Ambrosio`,
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
 			activityGroup: `1`,
-			videos: [``]
+
 		}
 		,
 		{
@@ -41,7 +42,7 @@ const seed: Seed =
 			teatcher: `Thais Esteves`,
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
 			activityGroup: `2`,
-			videos: [``]
+
 		},
 		{
 			id: `4`,
@@ -53,7 +54,7 @@ const seed: Seed =
 			
 			Sábado : 8h - 11h`,
 			activityGroup: `3`,
-			videos: [``]
+
 		}
 	],
 	activityGroups: [
@@ -79,7 +80,7 @@ const seed: Seed =
 		{
 			id: `1`,
 			terms: [
-				{ title: `Título`, value: `Mensal` },
+
 				{ title: `Duração`, value: `**30 dias**` },
 				{ title: `Cancelamento`, value: `Sendo necessário um **aviso prévio de 7 dias** para o cancelamento da renovação para o próximo mês. Não há multa por cancelamento (se respeitado o aviso de 7 dias).` },
 				{ title: `Renovação`, value: `Sim` },
@@ -94,7 +95,7 @@ const seed: Seed =
 		{
 			id: `2`,
 			terms: [
-				{ title: `Título`, value: `Trimestral` },
+
 				{ title: `Duração`, value: `3 meses` },
 				{ title: `Cancelamento`, value: `Multa proporcional ao tempo de uso e tempo restante do plano` },
 				{ title: `Renovação`, value: `Sim` },
@@ -107,7 +108,7 @@ const seed: Seed =
 		{
 			id: `3`,
 			terms: [
-				{ title: `Título`, value: `Semestral` },
+
 				{ title: `Duração`, value: `6 meses` },
 				{ title: `Cancelamento`, value: `Multa proporcional ao tempo de uso e tempo restante do plano` },
 				{ title: `Renovação`, value: `Sim` },
@@ -120,7 +121,6 @@ const seed: Seed =
 		{
 			id: `4`,
 			terms: [
-				{ title: `Título`, value: `Anual` },
 				{ title: `Duração`, value: `#12 meses` },
 				{ title: `Cancelamento`, value: `Multa proporcional ao tempo de uso e tempo restante do plano` },
 				{ title: `Renovação`, value: `Sim` },
@@ -133,6 +133,15 @@ const seed: Seed =
 		{
 			id: `5`,
 			terms: [
+				{ title: `Atividades`, value: `Aulas Especiais` },
+				{ title: `Duração`, value: `2 meses` },
+				{ title: `Métodos de Pagamento`, value: `Somente Pix` }
+			]
+		},
+		{
+			id: `6`,
+			terms: [
+				{ title: `Atividades`, value: `Treinos Individualizados` },
 				{ title: `Duração`, value: `2 meses` },
 				{ title: `Métodos de Pagamento`, value: `Somente Pix` }
 			]
@@ -339,7 +348,7 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			id: `4`,
 			title: `Treino individualizado`,
 			activityGroup: `1`,
-			termsGroup: `5`,
+			termsGroup: `6`,
 			planType: `3`,
 			prices: [
 				{
@@ -413,7 +422,17 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			excerpt: "A Join-t me apresentou um jeito mais amigável e saudável de funcionamento de uma academia.",
 			full: `Esbarrei nesse cenário diferente logo na primeira sessão que fui, quando meu professor quis saber o que eu tinha de objetivo (e eu poderia falar tudo, menos o tradicional "ficar forte, definido etc."), achei isso muito legal. Isso dá muita liberdade e ajuda o aluno a continuar na academia pois você é encorajado a pensar em coisas que realmente quer alcançar (e não algo culturalmente imposto pela sociedade).`
 		}
-	]
+	],
+	profile:
+	{
+		whatsapp: "19971404714",
+		instagram: "@jointtreinamento",
+		email: "joint@jooint.com.br",
+		address: `Rua Jerônimo Páttaro, 250. Barão Geraldo.  
+			(Próximo ao Sorvete em Camadas)`,
+		coordinates: "https://maps.app.goo.gl/QWuAJTGP3p9Pmtzb8",
+	}
+
 }
 
 

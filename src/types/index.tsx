@@ -50,3 +50,11 @@ export interface Quote {
 	author: string
 	avatar: string
 }
+
+export interface Profile {
+	whatsapp: string
+	instagram: string
+	email: string
+	address: string
+	coordinates: string,
+}

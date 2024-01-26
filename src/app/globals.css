@@ -19,6 +19,23 @@ p {
   font-family: sans-serif, var(--font-roboto-sans);
   font-size: 13.33px;
 }
+:where(
+    .menu
+      li:not(.menu-title):not(.disabled)
+      > *:not(ul):not(details):not(.menu-title)
+  ):not(.active):hover,
+:where(
+    .menu
+      li:not(.menu-title):not(.disabled)
+      > details
+      > summary:not(.menu-title)
+  ):not(.active):hover {
+  background-color: transparent;
+}
+
+.link-primary:hover {
+  color: color-mix(in oklab, var(--fallback-p, oklch(var(--p) / 1)) 90%, white);
+}
 
 @layer utilities {
   .text-balance {
@@ -41,7 +58,7 @@ p {
   touch-action: pan-y;
 }
 .embla__slide {
-  flex: 0 0 auto;
+  flex: 0 0 100%;
   min-width: 0;
   max-width: 100%;
   position: relative;

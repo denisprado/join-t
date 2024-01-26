@@ -10,7 +10,7 @@ const About = ({ children }: { children: ReactNode }) => {
 			<div>
 				{children}
 			</div>
-			<div><Curves color="secondary" /></div>
+			<div></div>
 		</>
 	)
 }

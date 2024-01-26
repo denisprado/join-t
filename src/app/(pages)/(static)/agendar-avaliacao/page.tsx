@@ -1,7 +1,8 @@
 'use client'
 
+import seed from "@/app/(seed)/seed"
 import { E164Number } from "libphonenumber-js/core"
-import { FormEvent, SetStateAction, useState } from "react"
+import { FormEvent, useState } from "react"
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 
@@ -15,7 +16,7 @@ const Agendar = () => {
 		event.preventDefault();
 
 		const mensagem = `Nome: ${nome} Telefone: ${value} Dia: ${diaDaSemana} Horário: ${horario}`;
-		const whatsappLink = `https://wa.me/19991958904?text=${encodeURIComponent(mensagem)}`;
+		const whatsappLink = `https://wa.me/${seed.profile.whatsapp}?text=${encodeURIComponent(mensagem)}`;
 
 		// Redirecionando para o link
 		window.location.href = whatsappLink;
@@ -87,7 +88,7 @@ const Agendar = () => {
 								</select>
 							</label>
 						</div>
-						<button type="submit" className="btn btn-accent text-white w-full">Enviar agendamento</button>
+						<button type="submit" className="btn btn-accent text-white w-full ">Enviar agendamento</button>
 
 					</form>
 				</div>

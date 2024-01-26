@@ -1,4 +1,4 @@
-const Curves = ({ color = "primary" }: { color?: 'primary' | 'primary-revert' | 'secondary' | 'secondary-revert' }) => {
+const Curves = ({ color = "primary" }: { color?: 'primary' | 'primary-revert' | 'secondary' | 'secondary-revert' | 'terciary' }) => {
 
 	switch (color) {
 		case "primary":
@@ -9,6 +9,8 @@ const Curves = ({ color = "primary" }: { color?: 'primary' | 'primary-revert' | 
 			return <div className={`w-full bg-[url('/curve-secondary.svg')] h-10`}></div>
 		case "secondary-revert":
 			return <div className={`w-full bg-[url('/curve-secondary.svg')] h-10 translate-x-full`}></div>
+		case "terciary":
+			return <div className={`bg-[url('/curve-secondary.svg')] h-10 translate-y-full`}></div>
 	}
 }
 

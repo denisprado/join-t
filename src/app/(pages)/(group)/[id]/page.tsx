@@ -90,7 +90,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 								<Fragment key={type.id}>
 
 									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTab(plansDefaultChecked.filter(plan => plan.planType === type.id)[0].id)} name="my_tabs_1" role="tab" defaultChecked={indexTab === 0}
-										className={`tab text-lg text-secondary font-sans bg-yellow-400 checked:bg-yellow-500 hover:bg-yellow-300 [--tab-border-color:black] ${clasLinkAnimation}`}
+										className={`tab text-lg text-secondary font-sans bg-yellow-400 checked:bg-yellow-500 checked:font-semibold hover:bg-yellow-300 [--tab-border-color:black] ${clasLinkAnimation}`}
 										aria-label={type.title} />
 									<div role="tabpanel" className="tab-content" >
 										<div className="flex flex-col gap-8 py-10">

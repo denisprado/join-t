@@ -1,6 +1,8 @@
 import { Activity } from "@/types/index"
+import dynamic from "next/dynamic";
 import Image from 'next/image'
-import { EmblaCarousel } from "../Carousel"
+
+const DynamicEmblaCarousel = dynamic(() => import('../Carousel'), { ssr: false });
 
 const ActivityCard = ({ activity }: { activity: Activity }) => {
 
@@ -26,8 +28,7 @@ const ActivityCard = ({ activity }: { activity: Activity }) => {
 					</div>
 				</div>
 				<div className="w-2/3 p-5">
-
-					<EmblaCarousel slides={activity.images} />
+					<DynamicEmblaCarousel videos={activity.videos && activity.videos.length > 0 ? activity.videos : null} images={activity.images} />
 				</div>
 			</div>
 			<div className="min-w-0">
