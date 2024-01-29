@@ -2,11 +2,13 @@
   "name": "join-t",
   "version": "0.1.0",
   "private": true,
+	"repository": "https://github.com/denisprado/join-t",
   "scripts": {
-    "dev": "turbo run dev --parallel",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+		"build": "turbo run build",
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
   },
   "workspaces": [
     "apps/*",
