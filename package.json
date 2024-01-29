@@ -4,7 +4,8 @@
   "private": true,
 	"repository": "https://github.com/denisprado/join-t",
   "scripts": {
-		"build": "turbo run build",
+		"build": "turbo run build --filter=admin..",
+		"buildFront": "turbo run build --filter=frontend..",
     "dev": "turbo run dev",
     "start": "turbo run start",
     "lint": "turbo run lint",
