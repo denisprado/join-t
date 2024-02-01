@@ -14,7 +14,7 @@ const seed: Seed =
 {
 	activities: [
 		{
-			id: `1`,
+			id: `b3d8df62-84f5-4921-978f-a2a100d9cc07`,
 			name: `Treino Individualizado`,
 			description: `Treinos estruturados com um trabalho de mobilidade, força e condicionamento físico, respeitando as particularidades, necessidades e objetivos conversados na nossa avaliação de movimento inicial.`,
 			images: [`treino-image.png`],
@@ -24,7 +24,7 @@ const seed: Seed =
 			videos: []
 		},
 		{
-			id: `2`,
+			id: `d8cb69ee-a1ae-4c30-b2b3-4076aa2fcde3`,
 			name: `Aulas Especiais`,
 			description: `Aulas em grupo de diferentes temas: parada de mãos, kettlebell, calistenia, alongamento e treinão (treino de alta intensidade)`,
 			images: [`treino-image.png`, 'treino-image.png', 'treino-image.png', 'treino-image.png', 'treino-image.png'],
@@ -45,7 +45,7 @@ const seed: Seed =
 
 		// },
 		{
-			id: `4`,
+			id: `921707e0-f84c-43ab-b05e-9a8fe9cf3848`,
 			name: `Dança Contemporânea e Movimento Consciente`,
 			description: `A DANÇA CONTEMPORÂNEA é uma forma de arte que valoriza a liberdade de expressão e a originalidade do movimento. Ela se diferencia dos estilos de dança mais tradicionais por sua abordagem experimental e pela busca constante por novas formas de se movimentar. `,
 			teatcher: `Thais Esteves`,
@@ -53,13 +53,13 @@ const seed: Seed =
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30	 <br>
 			
 			Sábado : 8h - 11h`,
-			activityGroup: `3`,
+			activityGroupId: `463f2d71-e18b-4c9f-b8a4-d1ee85b0dc03`,
 
 		}
 	],
 	activityGroups: [
 		{
-			id: `1`,
+			id: `84b1a7e9-e1aa-4917-a329-354f38474931`,
 			title: `Treino Individualizado + Aulas Especiais`,
 			image: `treino-image.png`,
 		},
@@ -70,7 +70,7 @@ const seed: Seed =
 		// },
 
 		{
-			id: `3`,
+			id: `463f2d71-e18b-4c9f-b8a4-d1ee85b0dc03`,
 			title: `Dança Contemporânea e Movimento Consciente`,
 			image: `danca-image.png`
 		},
@@ -78,7 +78,7 @@ const seed: Seed =
 	],
 	termsGroup: [
 		{
-			id: `1`,
+			id: `82a46e23-241a-4590-926a-5bc8b000dbd2`,
 			terms: [
 
 				{ title: `Duração`, value: `**30 dias**` },
@@ -93,7 +93,7 @@ const seed: Seed =
 			]
 		},
 		{
-			id: `2`,
+			id: `e01aecbf-1f07-4b37-a457-79e444fc5740`,
 			terms: [
 
 				{ title: `Duração`, value: `3 meses` },
@@ -106,7 +106,7 @@ const seed: Seed =
 			]
 		},
 		{
-			id: `3`,
+			id: `ee840f29-33ba-4db4-a574-14776ed42d30`,
 			terms: [
 
 				{ title: `Duração`, value: `6 meses` },
@@ -119,7 +119,7 @@ const seed: Seed =
 			]
 		},
 		{
-			id: `4`,
+			id: `9d8aa8fa-ad6d-43f4-a7c6-ce984b0c3aaf`,
 			terms: [
 				{ title: `Duração`, value: `#12 meses` },
 				{ title: `Cancelamento`, value: `Multa proporcional ao tempo de uso e tempo restante do plano` },
@@ -131,7 +131,7 @@ const seed: Seed =
 			]
 		},
 		{
-			id: `5`,
+			id: `507e11c7-d857-478e-b1fe-984a3353eb82`,
 			terms: [
 				{ title: `Atividades`, value: `Aulas Especiais` },
 				{ title: `Duração`, value: `2 meses` },
@@ -139,7 +139,7 @@ const seed: Seed =
 			]
 		},
 		{
-			id: `6`,
+			id: `68f81a3c-600b-4d72-97e1-490a00ebec26`,
 			terms: [
 				{ title: `Atividades`, value: `Treinos Individualizados` },
 				{ title: `Duração`, value: `2 meses` },
@@ -149,12 +149,12 @@ const seed: Seed =
 	],
 	planType: [
 		{
-			id: `1`,
+			id: `767db225-3dec-4b53-9a4e-b4c07c0fc4ee`,
 			title: `Plano`,
 
 		},
 		{
-			id: `2`,
+			id: `d9c0ea2f-fd29-4144-98ff-d91f09a8158c`,
 			title: `Plano  Social`,
 			disclaimer: `**Sobre o Plano Social**  
 
@@ -171,18 +171,18 @@ Caso você se enquadre no plano social mas pode pagar um pouco a mais do valor c
 Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e pague r$ 130,00 por este plano, estes r$ 30,00 serão direcionados para alguém que gostaria de fechar o plano de 2x mas não consegue pagar, assim, será cobrado deste pessoa o valor de apenas r$ 70,00 pela contratação do plano. `
 		},
 		{
-			id: `3`,
+			id: `99a9bae5-3d8f-43b2-8ed4-a5841168d16c`,
 			title: `Aula  Avulsa`,
 
 		},
 	],
 	plans: [
 		{
-			id: `1`,
+			id: `201c60db-c94c-4da8-af5c-f71a94be97f5`,
 			title: `Mensal`,
-			activityGroup: `1`,
-			termsGroup: `1`,
-			planType: `1`,
+			activityGroupId: `84b1a7e9-e1aa-4917-a329-354f38474931`,
+			termsGroupId: `82a46e23-241a-4590-926a-5bc8b000dbd2`,
+			planTypeId: '767db225-3dec-4b53-9a4e-b4c07c0fc4ee',
 			fixed: true,
 			defaultSelectedPLan: true,
 			prices: [
@@ -206,11 +206,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `11`,
+			id: `62faa88a-be20-4cf2-bcd0-9ccb7cde235f`,
 			title: `Mensal`,
-			activityGroup: `1`,
-			termsGroup: `1`,
-			planType: `2`,
+			activityGroupId: `84b1a7e9-e1aa-4917-a329-354f38474931`,
+			termsGroupId: `82a46e23-241a-4590-926a-5bc8b000dbd2`,
+			planTypeId: 'd9c0ea2f-fd29-4144-98ff-d91f09a8158c',
 			defaultSelectedPLan: true,
 			prices: [
 				{
@@ -224,11 +224,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `6`,
+			id: `06042977-3ab8-4666-8fe6-ae7944a37af3`,
 			title: `Trimestral`,
-			activityGroup: `1`,
-			termsGroup: `2`,
-			planType: `1`,
+			activityGroupId: `84b1a7e9-e1aa-4917-a329-354f38474931`,
+			termsGroupId: `e01aecbf-1f07-4b37-a457-79e444fc5740`,
+			planTypeId: '767db225-3dec-4b53-9a4e-b4c07c0fc4ee',
 			fixed: true,
 			prices: [
 				{
@@ -251,11 +251,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `7`,
+			id: `3c4edf89-261f-4620-b634-79968a1b9f70`,
 			title: `Semestral`,
-			activityGroup: `1`,
-			termsGroup: `3`,
-			planType: `1`,
+			activityGroupId: `84b1a7e9-e1aa-4917-a329-354f38474931`,
+			termsGroupId: `ee840f29-33ba-4db4-a574-14776ed42d30`,
+			planTypeId: '767db225-3dec-4b53-9a4e-b4c07c0fc4ee',
 			fixed: true,
 			prices: [
 				{
@@ -278,11 +278,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `10`,
+			id: `24d9cc66-b9bb-47a6-83a6-6fb368e398bc`,
 			title: `Semestral`,
-			activityGroup: `1`,
-			termsGroup: `3`,
-			planType: `2`,
+			activityGroupId: `84b1a7e9-e1aa-4917-a329-354f38474931`,
+			termsGroupId: `ee840f29-33ba-4db4-a574-14776ed42d30`,
+			planTypeId: 'd9c0ea2f-fd29-4144-98ff-d91f09a8158c',
 			prices: [
 				{
 					title: `2x/semana`,
@@ -295,11 +295,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `8`,
+			id: `7acb65cb-a932-4305-9a5b-a96899174c99`,
 			title: `Anual`,
-			activityGroup: `1`,
-			termsGroup: `4`,
-			planType: `1`,
+			activityGroupId: `84b1a7e9-e1aa-4917-a329-354f38474931`,
+			termsGroupId: `9d8aa8fa-ad6d-43f4-a7c6-ce984b0c3aaf`,
+			planTypeId: '767db225-3dec-4b53-9a4e-b4c07c0fc4ee',
 			fixed: true,
 			prices: [
 				{
@@ -317,11 +317,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `2`,
+			id: `dccfc8b2-bd76-491b-b15e-87e446479fb2`,
 			title: `Mensal`,
-			activityGroup: `3`,
-			termsGroup: `1`,
-			planType: `1`,
+			activityGroupId: `3`,
+			termsGroupId: `82a46e23-241a-4590-926a-5bc8b000dbd2`,
+			planTypeId: '767db225-3dec-4b53-9a4e-b4c07c0fc4ee',
 			defaultSelectedPLan: true,
 			prices: [
 				{
@@ -331,11 +331,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `3`,
+			id: `d11aa371-c2a2-4aed-90a1-7ae820e5b87f`,
 			title: `Mensal`,
-			activityGroup: `2`,
-			termsGroup: `1`,
-			planType: `1`,
+			activityGroupId: `2`,
+			termsGroupId: `82a46e23-241a-4590-926a-5bc8b000dbd2`,
+			planTypeId: '767db225-3dec-4b53-9a4e-b4c07c0fc4ee',
 			defaultSelectedPLan: true,
 			prices: [
 				{
@@ -345,11 +345,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `4`,
+			id: `41ba3164-2e18-437d-9e97-05a9fa1bcb95`,
 			title: `Treino individualizado`,
-			activityGroup: `1`,
-			termsGroup: `6`,
-			planType: `3`,
+			activityGroupId: `84b1a7e9-e1aa-4917-a329-354f38474931`,
+			termsGroupId: `68f81a3c-600b-4d72-97e1-490a00ebec26`,
+			planTypeId: '99a9bae5-3d8f-43b2-8ed4-a5841168d16c',
 			prices: [
 				{
 					title: `1 aula`,
@@ -362,11 +362,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `5`,
+			id: `a2203e2f-0c04-4f9b-a60e-b2e40f80739d`,
 			title: `Aulas Especiais - Alune JoinT`,
-			activityGroup: `1`,
-			termsGroup: `5`,
-			planType: `3`,
+			activityGroupId: `84b1a7e9-e1aa-4917-a329-354f38474931`,
+			termsGroupId: `507e11c7-d857-478e-b1fe-984a3353eb82`,
+			planTypeId: '99a9bae5-3d8f-43b2-8ed4-a5841168d16c',
 			defaultSelectedPLan: true,
 			prices: [
 				{
@@ -380,11 +380,11 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 			]
 		},
 		{
-			id: `9`,
+			id: `606c87bc-b2f6-4545-b401-eca942e169ba`,
 			title: `Aulas Especiais - Não Alune`,
-			activityGroup: `1`,
-			termsGroup: `5`,
-			planType: `3`,
+			activityGroupId: `84b1a7e9-e1aa-4917-a329-354f38474931`,
+			termsGroupId: `507e11c7-d857-478e-b1fe-984a3353eb82`,
+			planTypeId: '99a9bae5-3d8f-43b2-8ed4-a5841168d16c',
 			prices: [
 				{
 					title: `1 aula`,

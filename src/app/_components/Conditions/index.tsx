@@ -3,7 +3,7 @@ import { Plans, TermGroups } from "@/types"
 import Markdown from "react-markdown"
 
 const Conditions = ({ plan }: { plan: Plans }) => {
-	const terms = seed?.termsGroup?.filter(term => plan.termsGroup === term.id)[0]?.terms
+	const terms = seed?.termsGroup?.filter(term => plan.termsGroupId === term.id)[0]?.terms
 
 	return (
 		<div className="border md:columns-2 p-4 rounded-md bg-yellow-500 border-secondary ">

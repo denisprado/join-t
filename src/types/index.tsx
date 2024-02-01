@@ -6,7 +6,7 @@ export interface Activity {
 	schedules: string;
 	images: string[];
 	videos?: string[];
-	activityGroup: string;
+	activityGroupId: ActivityGroups['id'];
 }
 export interface ActivityGroups {
 	id: string | number;
@@ -33,9 +33,9 @@ export interface Plans {
 	fixed?: boolean
 	defaultSelectedPLan?: boolean
 	title: string,
-	activityGroup: string,
-	termsGroup: string,
-	planType: string,
+	activityGroupId: ActivityGroups['id'],
+	termsGroupId: TermGroups['id'],
+	planTypeId: PlanType['id'],
 	prices:
 	{
 		title: string

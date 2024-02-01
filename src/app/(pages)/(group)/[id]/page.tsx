@@ -16,11 +16,11 @@ import ReactMarkdown from "react-markdown";
 
 export default function GroupPage({ params }: { params: { id: string } }) {
 	const { id } = params
-	const activities = seed.activities.filter(act => act.activityGroup === id)
+	const activities = seed.activities.filter(act => act.activityGroupId === id)
 	const { planType, activityGroups, plans } = seed
-	const groupedPlans = groupBy(seed.plans, 'planType');
+	const groupedPlans = groupBy(seed.plans, 'planTypeId');
 
-	const plansDefaultChecked = plans.filter(plan => plan.defaultSelectedPLan && plan.activityGroup === id)
+	const plansDefaultChecked = plans.filter(plan => plan.defaultSelectedPLan && plan.activityGroupId === id)
 
 	// plano inicialmente seleionado é o primeiro do mesmo grupo de atividade
 	const [activePlan, setActivePlan] = useState<string>(plansDefaultChecked[0]?.id)
@@ -55,7 +55,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 	const PlanMenu = ({ plans, planType }: { plans: Plans[], planType: PlanType }) => {
 
-		const plansToShow = plans.filter(plan => plan.planType === planType.id && plan.activityGroup === id)
+		const plansToShow = plans.filter(plan => plan.planTypeId === planType.id && plan.activityGroupId === id)
 		return <ul className="flex xl:flex-col min-w-44" >
 			{plansToShow?.map((plan, i) => {
 				return (
@@ -73,7 +73,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 		const plansForType = Object.keys(groupedPlans)
 			.map(group => groupedPlans[group])
 			.flat()
-			.filter(plan => plan.planType === type.id && plan.activityGroup === id);
+			.filter(plan => plan.planTypeId === type.id && plan.activityGroupId === id);
 
 		return plansForType.length > 0;
 	});
@@ -101,7 +101,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 							const activityGroupsByPlanType = Object.keys(groupedPlans)
 								.map((group) => ({
 									group,
-									plans: groupedPlans[group].filter((plan) => plan.planType === type.id)
+									plans: groupedPlans[group].filter((plan) => plan.planTypeId === type.id)
 								}))
 								.filter((item) => item.plans.length > 0);
 
@@ -110,7 +110,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 							return (
 								<Fragment key={type.id}>
 
-									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTab(plansDefaultChecked.filter(plan => plan.planType === type.id)[0].id)} name="my_tabs_1" role="tab" defaultChecked={indexTab === 0}
+									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTab(plansDefaultChecked.filter(plan => plan.planTypeId === type.id)[0].id)} name="my_tabs_1" role="tab" defaultChecked={indexTab === 0}
 										className={`tab text-lg text-secondary font-sans bg-yellow-400 checked:bg-yellow-500 checked:font-semibold hover:bg-yellow-300 [--tab-border-color:black] ${clasLinkAnimation}`}
 										aria-label={type.title} />
 									<div role="tabpanel" className="tab-content" >
