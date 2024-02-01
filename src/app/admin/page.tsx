@@ -1,11 +1,7 @@
-
-
 import { NextPage } from "next";
-import { MyAdmin } from "../_supabase/AdminApp";
+import dynamic from "next/dynamic";
+const AdminApp = dynamic(() => import("@/components/AdminApp"), { ssr: false });
 
+const Home: NextPage = () => <AdminApp />;
 
-const Admin: NextPage = () => {
-	return <MyAdmin />;
-};
-
-export default Admin;
+export default Home;
