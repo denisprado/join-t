@@ -14,7 +14,7 @@ type PropType = {
 import { DotButton, NextButton, PrevButton } from './ArrowsDotsButtons'
 import ReactPlayer, { ReactPlayerProps } from 'react-player'
 
-const EmblaCarousel = ({ images, videos }: { images: string[], videos: string[] | null }) => {
+const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: string[] | null }) => {
 	const [emblaRef, emblaApi] = useEmblaCarousel({});
 	const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
 	const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
@@ -76,7 +76,7 @@ const EmblaCarousel = ({ images, videos }: { images: string[], videos: string[] 
 						const videoSrc = imageByIndex(videos, i);
 						return (
 							<div key={i} className="embla__slide">
-								<Video fileName={"/" + videoSrc} id={i + images?.length} currentVideoIndex={selectedIndex} />
+								{images && <Video fileName={"/" + videoSrc} id={i + images?.length} currentVideoIndex={selectedIndex} />}
 							</div>
 						);
 					})}

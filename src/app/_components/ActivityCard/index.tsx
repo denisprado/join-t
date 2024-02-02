@@ -1,10 +1,11 @@
 import { Activity } from "@/types/index"
+import { Tables } from "@/types/supabase";
 import dynamic from "next/dynamic";
 import Image from 'next/image'
 
 const DynamicEmblaCarousel = dynamic(() => import('../Carousel'), { ssr: false });
 
-const ActivityCard = ({ activity }: { activity: Activity }) => {
+const ActivityCard = ({ activity }: { activity: Tables<'activity'> }) => {
 
 	return (
 		<div className="mx-8 fade-in">
@@ -18,7 +19,7 @@ const ActivityCard = ({ activity }: { activity: Activity }) => {
 						<div className='flex flex-row xl:flex-col gap-8'>
 							<div>
 								<h3 className='font-serif text-xl text-primary'>Professor(a)</h3>
-								<p>{activity.teatcher}</p>
+								<p>{activity.teacher}</p>
 							</div>
 							<div>
 								<h3 className='font-serif text-xl text-primary'>Horários</h3>

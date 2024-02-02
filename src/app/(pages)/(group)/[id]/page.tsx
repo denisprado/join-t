@@ -3,20 +3,36 @@
 import seed from "@/app/(seed)/seed";
 import ActivityCard from "@/app/_components/ActivityCard/index";
 import Conditions from "@/app/_components/Conditions";
-
 import Curves from "@/app/_components/Curves/index";
 import GroupsMenu from "@/app/_components/GroupsMenu/index";
+import { createClient } from "@/app/_supabase/client";
 
 import Prices from "@/app/_components/Prices/index";
 import { handleIntersection, observeElements, observerOptions } from "@/app/_helpers/_animation";
 import groupBy from "@/app/_helpers/helpers";
 import { Plans, PlanType } from "@/types/index";
-import { Fragment, SetStateAction, useEffect, useState } from "react";
+import { Tables } from "@/types/supabase";
+import { Fragment, SetStateAction, useState } from "react";
 import ReactMarkdown from "react-markdown";
+
+
+const getRecordById = async ({ table, eq }: { eq: { column: string, id: string }, table: string }) => {
+	const supabaseClient = createClient()
+
+	const { data, error } = await supabaseClient
+		.from(table)
+		.select('*')
+		.eq(eq?.column, eq?.id)
+	return data
+}
 
 export default function GroupPage({ params }: { params: { id: string } }) {
 	const { id } = params
-	const activities = seed.activities.filter(act => act.activityGroupId === id)
+
+	const [activities, setActivities] = useState<Tables<'activity'>[] | null>()
+	getRecordById({ eq: { column: 'activity_group_id', id: id }, table: 'activity' }).then(data => setActivities(data))
+
+
 	const { planType, activityGroups, plans } = seed
 	const groupedPlans = groupBy(seed.plans, 'planTypeId');
 
@@ -84,7 +100,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 		<div className="animatedContainer w-full flex flex-col justify-start items-center">
 			<GroupsMenu layout={"horizontal"} />
 			<div className="container flex flex-col gap-4 justify-center items-center py-16">
-				{activities.map((act, i) => {
+				{activities?.map((act, i) => {
 					return (
 						<ActivityCard key={act.id} activity={act}></ActivityCard>
 					)

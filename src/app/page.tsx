@@ -14,7 +14,7 @@ import { handleIntersection, observeElements, observerOptions } from "./_helpers
 
 
 export default function Home() {
-	const groupedActivities = groupBy(seed.activities, 'activityGroup');
+	const groupedActivities = groupBy(seed.activities, 'activityGroupId');
 	const mappedGroups: Activity[][] = Object.entries(groupedActivities).map(([key, group]) => {
 		const modifiedGroup = group.map((item: any) => ({ ...item, activityGroup: item.activityGroup }));
 		return modifiedGroup;
