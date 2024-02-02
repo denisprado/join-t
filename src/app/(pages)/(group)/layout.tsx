@@ -1,18 +1,14 @@
 
-import Curves from "@/app/_components/Curves"
 
 
 import { ReactNode } from "react"
 
-const About = ({ children }: { children: ReactNode }) => {
+const GroupLayout = ({ children }: { children: ReactNode }) => {
 	return (
-		<>
-			<div>
-				{children}
-			</div>
-			<div></div>
-		</>
+		<div>
+			{children}
+		</div>
 	)
 }
 
-export default About
+export default GroupLayout

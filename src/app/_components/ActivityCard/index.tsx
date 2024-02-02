@@ -1,5 +1,5 @@
 import { Activity } from "@/types/index"
-import { Tables } from "@/types/supabase";
+import { Tables } from "@/types/generated.supabase";
 import dynamic from "next/dynamic";
 import Image from 'next/image'
 

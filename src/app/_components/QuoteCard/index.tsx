@@ -1,7 +1,5 @@
 import { Quote } from "@/types/index"
 import Image from 'next/image'
-import { Fragment } from 'react'
-import ReactMarkdown from 'react-markdown'
 
 const QuoteCard = ({ quote, i, revert }: { quote: Quote, i: number, revert: boolean }) => {
 	const direction = revert ? 'lg:flex-row-reverse' : 'lg:flex-row'
@@ -11,7 +9,7 @@ const QuoteCard = ({ quote, i, revert }: { quote: Quote, i: number, revert: bool
 			<div className="w-full">
 				<div className="flex flex-col gap-4" key={i}>
 					<h2 className="card-title text-primary font-mono text-2xl lg:text-3xl">{quote.excerpt}</h2>
-					<p className={'text-secondary-content'}>{quote.full}</p>
+					<p className={'text-secondary-content'}>{quote.quote}</p>
 				</div>
 			</div>
 			<div className='flex flex-col gap-3 items-center min-w-64 justify-center bg-[url(/quote.png)] bg-center bg-no-repeat'>

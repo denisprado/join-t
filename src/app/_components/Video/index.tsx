@@ -8,7 +8,7 @@ interface VideoProps {
 }
 
 function Video({ fileName, id, currentVideoIndex }: VideoProps) {
-	console.log(id, currentVideoIndex)
+
 	return (
 		<ReactPlayer
 			controls

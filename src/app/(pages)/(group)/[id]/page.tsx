@@ -1,49 +1,51 @@
 'use client'
 
-import seed from "@/app/(seed)/seed";
+import useAllRecords from "@/app/_api/client/useAllRecords";
+import useRecordById from "@/app/_api/client/useRecordById";
 import ActivityCard from "@/app/_components/ActivityCard/index";
 import Conditions from "@/app/_components/Conditions";
 import Curves from "@/app/_components/Curves/index";
 import GroupsMenu from "@/app/_components/GroupsMenu/index";
-import { createClient } from "@/app/_supabase/client";
-
 import Prices from "@/app/_components/Prices/index";
 import { handleIntersection, observeElements, observerOptions } from "@/app/_helpers/_animation";
 import groupBy from "@/app/_helpers/helpers";
-import { Plans, PlanType } from "@/types/index";
-import { Tables } from "@/types/supabase";
-import { Fragment, SetStateAction, useState } from "react";
+import { Tables } from "@/types/generated.supabase";
+import { Fragment, useState } from "react";
 import ReactMarkdown from "react-markdown";
-
-
-const getRecordById = async ({ table, eq }: { eq: { column: string, id: string }, table: string }) => {
-	const supabaseClient = createClient()
-
-	const { data, error } = await supabaseClient
-		.from(table)
-		.select('*')
-		.eq(eq?.column, eq?.id)
-	return data
-}
 
 export default function GroupPage({ params }: { params: { id: string } }) {
 	const { id } = params
 
-	const [activities, setActivities] = useState<Tables<'activity'>[] | null>()
-	getRecordById({ eq: { column: 'activity_group_id', id: id }, table: 'activity' }).then(data => setActivities(data))
+	const { data: activities, loading, error } = useRecordById<'activity'>({
+		eq: { column: 'activity_group_id', id },
+		table: 'activity'
+	});
+
+	const { data: planType, loading: loadingPlanType, error: errorPlanType } = useAllRecords<'plan_types'>({
+		table: 'plan_types'
+	});
+	const { data: activityGroups, loading: loadingactivityGroups, error: erroractivityGroups } = useAllRecords<'activity_groups'>({
+		table: 'activity_groups'
+	});
+	const { data: plans, loading: loadingplans, error: errorplans } = useAllRecords<'plans'>({
+		table: 'plans'
+	});
+
+	const groupedPlans = groupBy(plans!, 'plan_type_id');
+
+	const { data: allPlansDefaultChecked } = useRecordById({ table: 'plans', eq: { column: 'activity_group_id', id: id } })
 
 
-	const { planType, activityGroups, plans } = seed
-	const groupedPlans = groupBy(seed.plans, 'planTypeId');
+	const plansDefaultChecked = allPlansDefaultChecked ? allPlansDefaultChecked.filter(plan => plan.default_selected_plan) : []
 
-	const plansDefaultChecked = plans.filter(plan => plan.defaultSelectedPLan && plan.activityGroupId === id)
+	const initialSelectedPlan = plansDefaultChecked[0]?.id
 
 	// plano inicialmente seleionado é o primeiro do mesmo grupo de atividade
-	const [activePlan, setActivePlan] = useState<string>(plansDefaultChecked[0]?.id)
+	const [activePlan, setActivePlan] = useState<string | null>(initialSelectedPlan)
+	const handleChangeTabs = (newActivePlan: string) => {
+		setActivePlan((prevState) => (prevState === newActivePlan ? null : newActivePlan));
+	};
 
-	function handleChangeTab(activePlan: SetStateAction<string>) {
-		setActivePlan(activePlan)
-	}
 
 	function handleClick(id: string) {
 		setActivePlan(id)
@@ -85,13 +87,13 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 	}
 
-	const planTypesWithPlans = planType.filter(type => {
-		const plansForType = Object.keys(groupedPlans)
+	const planTypesWithPlans = planType && planType!.filter(type => {
+		const plansForType = groupedPlans && Object.keys(groupedPlans!)
 			.map(group => groupedPlans[group])
 			.flat()
-			.filter(plan => plan.planTypeId === type.id && plan.activityGroupId === id);
+			.filter(plan => plan.plan_type_id === type.id && plan.activity_group_id === id);
 
-		return plansForType.length > 0;
+		return plansForType && plansForType!.length > 0;
 	});
 
 	const clasLinkAnimation = 'transition duration-300 hover:duration-500 transition-delay-200 hover:transition-delay-300'
@@ -99,6 +101,14 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	return (
 		<div className="animatedContainer w-full flex flex-col justify-start items-center">
 			<GroupsMenu layout={"horizontal"} />
+
+			{/** 
+			 * 
+			 * 
+			 * Cards das Atividades  
+			 * 
+			 * 
+			 * */}
 			<div className="container flex flex-col gap-4 justify-center items-center py-16">
 				{activities?.map((act, i) => {
 					return (
@@ -107,28 +117,45 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 				})}
 			</div>
 			<Curves color="primary-revert" />
+
+
+			{/** 
+				 * 
+				 * 
+				 * Componentes de planos
+				 * 
+				 * 
+				 * */}
 			<div className="w-full flex flex-col pt-8 bg-primary items-center " >
 				<div className="container self-center px-0 lg:px-10 py-16">
 
-
+					{/** 
+				 * 
+				 * 
+				 * Componentes de TABS
+				 * 
+				 * 
+				 * */}
 					<div role="tablist" className="tabs tabs-bordered [--tab-border-color:black] tab-lg font-sans text-secondary self-center mx-10">
-						{planTypesWithPlans.map((type, indexTab) => {
-
+						{planTypesWithPlans && planTypesWithPlans.map((type, indexTab) => {
+							// Tabs
 							const activityGroupsByPlanType = Object.keys(groupedPlans)
 								.map((group) => ({
 									group,
-									plans: groupedPlans[group].filter((plan) => plan.planTypeId === type.id)
+									plans: groupedPlans[group].filter((plan) => plan.plan_type_id === type.id)
 								}))
 								.filter((item) => item.plans.length > 0);
 
-							const activityGroupsTitle = activityGroups.filter(group => group.id === id)[0]?.title
-
+							const activityGroupsTitle = activityGroups && activityGroups.filter(group => group.id === id)[0]?.title
+							// Conteúdo das tabs
 							return (
 								<Fragment key={type.id}>
 
-									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTab(plansDefaultChecked.filter(plan => plan.planTypeId === type.id)[0].id)} name="my_tabs_1" role="tab" defaultChecked={indexTab === 0}
-										className={`tab text-lg text-secondary font-sans bg-yellow-400 checked:bg-yellow-500 checked:font-semibold hover:bg-yellow-300 [--tab-border-color:black] ${clasLinkAnimation}`}
-										aria-label={type.title} />
+									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTabs(plansDefaultChecked && plansDefaultChecked.filter(plan => plan.plan_type_id === type.id)[0].id)}
+										name="my_tabs_1"
+										role="tab" defaultChecked={indexTab === 0}
+										className={`tab text-lg text-secondary font-sans min-w-40 bg-yellow-400 checked:bg-yellow-500 checked:font-semibold hover:bg-yellow-300 [--tab-border-color:black] ${clasLinkAnimation}`}
+										aria-label={type.title || ''} />
 									<div role="tabpanel" className="tab-content" >
 										<div className="flex flex-col gap-8 py-10">
 											<h2 className="text-5xl font-medium font-serif text-secondary">{activityGroupsTitle}</h2>

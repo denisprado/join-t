@@ -1,18 +1,12 @@
 'use client'
 
-import React, { useState, useEffect, useCallback } from 'react'
 import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
-import imageByIndex from './imagesByIndex'
+import { useCallback, useEffect, useState } from 'react'
 import Video from '../Video'
-
-type PropType = {
-	slides: number[]
-	options?: EmblaOptionsType
-}
 import { DotButton, NextButton, PrevButton } from './ArrowsDotsButtons'
-import ReactPlayer, { ReactPlayerProps } from 'react-player'
+import imageByIndex from './imagesByIndex'
 
 const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: string[] | null }) => {
 	const [emblaRef, emblaApi] = useEmblaCarousel({});
@@ -72,7 +66,7 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 						);
 					})}
 					{videos?.map((video, i) => {
-						console.log(i)
+
 						const videoSrc = imageByIndex(videos, i);
 						return (
 							<div key={i} className="embla__slide">

@@ -1,6 +1,7 @@
 'use client'
-import { Activity, Plans } from "@/types/index";
-import seed from "./(seed)/seed";
+
+import { Activity } from "@/types/index";
+import useAllRecords from "./_api/client/useAllRecords";
 import ActivityGroupCard from "./_components/ActivityGroupCard";
 import Curves from "./_components/Curves";
 import Hero from "./_components/Hero";
@@ -14,13 +15,34 @@ import { handleIntersection, observeElements, observerOptions } from "./_helpers
 
 
 export default function Home() {
-	const groupedActivities = groupBy(seed.activities, 'activityGroupId');
-	const mappedGroups: Activity[][] = Object.entries(groupedActivities).map(([key, group]) => {
-		const modifiedGroup = group.map((item: any) => ({ ...item, activityGroup: item.activityGroup }));
-		return modifiedGroup;
+	const { data: activities, loading, error } = useAllRecords<'activity'>({
+		table: 'activity'
 	});
 
-	const treinosPlans = seed.plans.filter(plan => plan.fixed === true)
+	const { data: plans, loading: loadingplans, error: errorplans } = useAllRecords<'plans'>({
+		table: 'plans'
+	});
+
+	const { data: quotes, loading: loadingQuotes, error: errorQuotes } = useAllRecords<'quote'>({
+		table: 'quote'
+	});
+
+
+	const { data: activityGroups, loading: loadingactivityGroups, error: erroractivityGroups } = useAllRecords<'activity_groups'>({
+		table: 'activity_groups'
+	});
+
+
+
+	const groupedActivities = groupBy(activities!, 'activity_group_id');
+	const mappedGroups: Activity[][] = groupedActivities
+		? Object.entries(groupedActivities).map(([key, group]) => {
+			const modifiedGroup = group.map((item: any) => ({ ...item, activityGroup: item.activityGroup }));
+			return modifiedGroup;
+		})
+		: [];
+
+	const treinosPlans = plans ? plans!.filter(plan => plan.fixed === true) : []
 
 	const minValue = findMinValue(treinosPlans);
 
@@ -59,10 +81,8 @@ export default function Home() {
 					<h2 className="font-serif text-primary text-3xl ">Alguns depoimentos de alunes Join-T</h2>
 				</div>
 				<div className="flex flex-col gap-6 w-full lg:w-10/12 ">
-					{seed.quotes.map((quote, i) => {
-						return <div className={`fade-in`} key={i}>
-							<QuoteCard quote={quote} key={i} i={i} revert={i % 2 !== 0} />
-						</div>
+					{quotes && quotes!.map((quote, i) => {
+						return <QuoteCard quote={quote} key={i} i={i} revert={i % 2 !== 0} />
 					})}
 				</div>
 			</div>
@@ -77,8 +97,8 @@ export default function Home() {
 							return <div className={``} key={i}><div className="fade-in"><Prices key={i} plan={plan} showButton={false} /></div></div>
 						})}
 					</div>
-					<div className="fade-in flex flex-col lg:flex-row gap-2">
-						<a className="btn btn-secondary btn-outline btn-md text-primary" href={`/${seed.activityGroups.filter(group => group.id === treinosPlans[0].activityGroup)[0]?.id}`}>Ver detalhes dos planos</a>
+					<div className="flex flex-col lg:flex-row gap-2">
+						<a className="btn btn-secondary btn-outline btn-md text-primary" href={`/${activityGroups && activityGroups!.filter(group => group.id === treinosPlans[0].activity_group_id)[0]?.id}`}>Ver detalhes dos planos</a>
 						<a className="btn btn-accent text-white btn-md" href={'/agendar-avaliacao'}>Agendar Avaliação de Movimento</a>
 					</div>
 				</div>

@@ -1,9 +1,8 @@
 'use client'
 
-import seed from "@/app/(seed)/seed"
+import useAllRecords from "@/app/_api/client/useAllRecords"
 import { E164Number } from "libphonenumber-js/core"
 import { FormEvent, useState } from "react"
-import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 
 const Agendar = () => {
@@ -14,12 +13,15 @@ const Agendar = () => {
 	const [email, setEmail] = useState('')
 	const [diaDaSemana, setDiaDaSemana] = useState('')
 
+	const { data: profile, loading: loadingprofile, error: errorprofile } = useAllRecords<'profile'>({
+		table: 'profile'
+	});
 
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
 
 		const mensagem = `Nome: ${nome} | Identidade: ${identidade} | Data de nascimento: ${nascimento} | Email: ${email} | Dia/horário disponíveis: ${diaDaSemana}`;
-		const whatsappLink = `https://wa.me/${seed.profile.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+		const whatsappLink = `https://wa.me/${profile![0].whatsapp}?text=${encodeURIComponent(mensagem)}`;
 
 		// Redirecionando para o link
 		window.location.href = whatsappLink;

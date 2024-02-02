@@ -1,11 +1,18 @@
 import Image from 'next/image'
-import seed from '@/app/(seed)/seed'
 import { Activity } from "@/types/index"
 import { Fragment } from 'react'
+import useAllRecords from '@/app/_api/client/useAllRecords';
 
 const ActivityGroupCard = ({ group, i }: { group: Activity[], i: number }) => {
-	const id = seed.activityGroups.filter(groupAct => groupAct.id === group[0]?.activityGroupId)[0]?.id.toString()
-	const image = seed.activityGroups.filter(groupAct => groupAct.id === group[0]?.activityGroupId)[0]?.image.toString()
+
+	const { data: activityGroups, loading: loadingActGoups, error: errorActGoups } = useAllRecords<'activity_groups'>({
+		table: 'activity_groups'
+	});
+
+	const id = activityGroups ? activityGroups!.filter(groupAct => groupAct.id === group[0]?.activity_group_id)[0]?.id.toString() : ''
+
+	const image = activityGroups ? activityGroups!.filter(groupAct => groupAct.id === group[0]?.activity_group_id)[0]!.image!.toString() : ''
+
 	return (
 		<div className="card flex flex-col-reverse md:card-side bg-secondary shadow-xl" id={id} >
 			<div className="card-body w-full lg:w-1/2 flex flex-col gap-4">
