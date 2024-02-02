@@ -42,7 +42,7 @@ const useAllRecords = <T extends SupabaseTables>({ table }: { table: T }) => {
 		};
 
 		fetchData();
-	}, [table]);
+	}, [table, cookiestore]);
 
 	return { data, loading, error };
 };

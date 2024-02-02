@@ -42,7 +42,7 @@ const useRecordById = <T extends SupabaseTables>({ table, eq }: { eq: { column: 
 		};
 
 		fetchData();
-	}, [table, eq]);
+	}, [table, eq, cookiestore]);
 
 	return { data, loading, error };
 };
