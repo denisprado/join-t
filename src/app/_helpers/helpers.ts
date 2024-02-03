@@ -35,5 +35,5 @@ export const findMinValue = (plans: Plans[]): number => {
       return accumulator.concat(planPrices);
     }, []);
 
-  return Math.min(...allPrices);
+  return allPrices && Math.min(...allPrices);
 };

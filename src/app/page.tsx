@@ -19,8 +19,12 @@ export default function Home() {
 		table: 'activity'
 	});
 
-	const { data: plans, loading: loadingplans, error: errorplans } = useAllRecords<'plans'>({
-		table: 'plans'
+	const { data: treinosPlans, loading: loadingplans, error: errorplans } = useRecordById<'plans'>({
+		table: 'plans',
+		eq: {
+			column: 'fixed',
+			id: true
+		}
 	});
 
 	const { data: quotes, loading: loadingQuotes, error: errorQuotes } = useAllRecords<'quote'>({
@@ -42,7 +46,6 @@ export default function Home() {
 		})
 		: [];
 
-	const treinosPlans = plans ? plans!.filter(plan => plan.fixed === true) : []
 
 	const minValue = findMinValue(treinosPlans);
 
@@ -97,10 +100,10 @@ export default function Home() {
 							return <div className={``} key={i}><div className="fade-in"><Prices key={i} plan={plan} showButton={false} /></div></div>
 						})}
 					</div>
-					<div className="flex flex-col lg:flex-row gap-2">
+					{treinosPlans && <div className="flex flex-col lg:flex-row gap-2">
 						<a className="btn btn-secondary btn-outline btn-md text-primary" href={`/${activityGroups && activityGroups!.filter(group => group.id === treinosPlans[0].activity_group_id)[0]?.id}`}>Ver detalhes dos planos</a>
 						<a className="btn btn-accent text-white btn-md" href={'/agendar-avaliacao'}>Agendar Avaliação de Movimento</a>
-					</div>
+					</div>}
 				</div>
 				<Curves color="primary" />
 			</div>

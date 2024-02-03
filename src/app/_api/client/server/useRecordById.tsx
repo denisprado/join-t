@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 
 type SupabaseTables = keyof Database["public"]["Tables"];
 
-const useRecordById = <T extends SupabaseTables>({ table, eq }: { eq: { column: string, id: string }, table: T }) => {
+const useRecordById = <T extends SupabaseTables>({ table, eq }: { eq: { column: string, id: string | boolean }, table: T }) => {
 	const [data, setData] = useState<Tables<T>[]>();
 	const [loading, setLoading] = useState<boolean>(true);
 	const [error, setError] = useState<string | null>(null);
