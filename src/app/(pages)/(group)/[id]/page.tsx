@@ -10,31 +10,33 @@ import Prices from "@/app/_components/Prices/index";
 import { handleIntersection, observeElements, observerOptions } from "@/app/_helpers/_animation";
 import groupBy from "@/app/_helpers/helpers";
 import { Tables } from "@/types/generated.supabase";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 export default function GroupPage({ params }: { params: { id: string } }) {
 	const { id } = params
 
-	const { data: activities, loading, error } = useRecordById<'activity'>({
+	const { data: activities } = useRecordById<'activity'>({
 		eq: { column: 'activity_group_id', id },
 		table: 'activity'
 	});
 
-	const { data: planType, loading: loadingPlanType, error: errorPlanType } = useAllRecords<'plan_types'>({
+	const { data: planType } = useAllRecords<'plan_types'>({
 		table: 'plan_types'
 	});
-	const { data: activityGroups, loading: loadingactivityGroups, error: erroractivityGroups } = useAllRecords<'activity_groups'>({
+
+	const { data: activityGroups } = useAllRecords<'activity_groups'>({
 		table: 'activity_groups'
 	});
-	const { data: plans, loading: loadingplans, error: errorplans } = useAllRecords<'plans'>({
+
+	const { data: plans } = useAllRecords<'plans'>({
 		table: 'plans'
 	});
+
 
 	const groupedPlans = groupBy(plans!, 'plan_type_id');
 
 	const { data: allPlansDefaultChecked } = useRecordById({ table: 'plans', eq: { column: 'activity_group_id', id: id } })
-
 
 	const plansDefaultChecked = allPlansDefaultChecked ? allPlansDefaultChecked.filter(plan => plan.default_selected_plan) : []
 
@@ -130,11 +132,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 				<div className="container self-center px-0 lg:px-10 py-16">
 
 					{/** 
-				 * 
-				 * 
 				 * Componentes de TABS
-				 * 
-				 * 
 				 * */}
 					<div role="tablist" className="tabs tabs-bordered [--tab-border-color:black] tab-lg font-sans text-secondary self-center mx-10">
 						{planTypesWithPlans && planTypesWithPlans.map((type, indexTab) => {
