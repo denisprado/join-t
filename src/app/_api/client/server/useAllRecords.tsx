@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createClient } from "../../_supabase/server";
+import { createClient } from "../../../_supabase/server";
 import { Database } from '@/types/generated.supabase';
 import { Tables } from '@/types/generated.supabase';
 import { cookies } from 'next/headers';

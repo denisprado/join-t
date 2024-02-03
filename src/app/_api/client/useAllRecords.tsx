@@ -43,7 +43,7 @@ const useAllRecords = <T extends SupabaseTables>({ table }: { table: T }) => {
 		};
 
 		fetchData();
-	}, [table]);
+	}, []);
 
 	return { data, loading, error };
 };

@@ -6,30 +6,33 @@ import ActivityCard from "@/app/_components/ActivityCard/index";
 import Conditions from "@/app/_components/Conditions";
 import Curves from "@/app/_components/Curves/index";
 import GroupsMenu from "@/app/_components/GroupsMenu/index";
+import PlanMenu from "@/app/_components/PlanMenu";
 import Prices from "@/app/_components/Prices/index";
 import { handleIntersection, observeElements, observerOptions } from "@/app/_helpers/_animation";
 import groupBy from "@/app/_helpers/helpers";
 import { Tables } from "@/types/generated.supabase";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 export default function GroupPage({ params }: { params: { id: string } }) {
 	const { id } = params
+	const [loading, setLoading] = useState(true)
 
-	const { data: activities } = useRecordById<'activity'>({
+
+	const { data: activities, error: errorActivities } = useRecordById<'activity'>({
 		eq: { column: 'activity_group_id', id },
 		table: 'activity'
 	});
 
-	const { data: planType } = useAllRecords<'plan_types'>({
+	const { data: planType, error: errorPlanType } = useAllRecords<'plan_types'>({
 		table: 'plan_types'
 	});
 
-	const { data: activityGroups } = useAllRecords<'activity_groups'>({
+	const { data: activityGroups, error: errorActivitiesGroups } = useAllRecords<'activity_groups'>({
 		table: 'activity_groups'
 	});
 
-	const { data: plans } = useAllRecords<'plans'>({
+	const { data: plans, error: errorPlans } = useAllRecords<'plans'>({
 		table: 'plans'
 	});
 
@@ -43,11 +46,10 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	const initialSelectedPlan = plansDefaultChecked[0]?.id
 
 	// plano inicialmente seleionado é o primeiro do mesmo grupo de atividade
-	const [activePlan, setActivePlan] = useState<string | null>(initialSelectedPlan)
+	const [activePlan, setActivePlan] = useState<string>(initialSelectedPlan)
 	const handleChangeTabs = (newActivePlan: string) => {
-		setActivePlan((prevState) => (prevState === newActivePlan ? null : newActivePlan));
+		setActivePlan(newActivePlan);
 	};
-
 
 	function handleClick(id: string) {
 		setActivePlan(id)
@@ -98,7 +100,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 		return plansForType && plansForType!.length > 0;
 	});
 
-	const clasLinkAnimation = 'transition duration-300 hover:duration-500 transition-delay-200 hover:transition-delay-300'
+
 
 	return (
 		<div className="animatedContainer w-full flex flex-col justify-start items-center">
@@ -114,7 +116,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 			<div className="container flex flex-col gap-4 justify-center items-center py-16">
 				{activities?.map((act, i) => {
 					return (
-						<ActivityCard key={act.id} activity={act}></ActivityCard>
+						<ActivityCard key={i} activity={act}></ActivityCard>
 					)
 				})}
 			</div>
@@ -152,7 +154,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTabs(plansDefaultChecked && plansDefaultChecked.filter(plan => plan.plan_type_id === type.id)[0].id)}
 										name="my_tabs_1"
 										role="tab" defaultChecked={indexTab === 0}
-										className={`tab text-lg text-secondary font-sans min-w-40 bg-yellow-400 checked:bg-yellow-500 checked:font-semibold hover:bg-yellow-300 [--tab-border-color:black] ${clasLinkAnimation}`}
+										className={`tab text-lg text-secondary font-sans min-w-40 bg-yellow-400 checked:bg-yellow-500 checked:font-semibold hover:bg-yellow-300 [--tab-border-color:black]`}
 										aria-label={type.title || ''} />
 									<div role="tabpanel" className="tab-content" >
 										<div className="flex flex-col gap-8 py-10">
@@ -161,7 +163,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 												{activityGroupsByPlanType.map(((ag, i) => {
 													return (
-														<PlanMenu key={i} plans={ag.plans} planType={type} />
+														<PlanMenu key={i} plans={ag.plans} planType={type} activePlan={activePlan} handleClick={handleClick} id={id} />
 													)
 												}))}
 
