@@ -16,8 +16,6 @@ import ReactMarkdown from "react-markdown";
 
 export default function GroupPage({ params }: { params: { id: string } }) {
 	const { id } = params
-	const [loading, setLoading] = useState(true)
-
 
 	const { data: activities, error: errorActivities } = useRecordById<'activity'>({
 		eq: { column: 'activity_group_id', id },
@@ -38,17 +36,26 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 
 	const groupedPlans = groupBy(plans!, 'plan_type_id');
+	const { data: plansOfThisGroup } = useRecordById({ table: 'plans', eq: { column: 'activity_group_id', id: id } })
 
-	const { data: allPlansDefaultChecked } = useRecordById({ table: 'plans', eq: { column: 'activity_group_id', id: id } })
+	const [activePlanType, setActivePlanType] = useState(planType ? planType[0].id! : '')
 
-	const plansDefaultChecked = allPlansDefaultChecked ? allPlansDefaultChecked.filter(plan => plan.default_selected_plan) : []
+	const [activePlan, setActivePlan] = useState<string>('')
 
-	const initialSelectedPlan = plansDefaultChecked[0]?.id
+	useEffect(() => {
+		const initialSelectedPlan = plansOfThisGroup && plansOfThisGroup.filter(plan => plan.plan_type_id === activePlanType && plan.default_selected_plan === true)[0]?.id!
+		console.log(initialSelectedPlan)
+		setActivePlanType(planType ? planType[0].id! : '')
+		initialSelectedPlan && setActivePlan(initialSelectedPlan)
+	}, [plansOfThisGroup])
+
 
 	// plano inicialmente seleionado é o primeiro do mesmo grupo de atividade
-	const [activePlan, setActivePlan] = useState<string>(initialSelectedPlan)
-	const handleChangeTabs = (newActivePlan: string) => {
-		setActivePlan(newActivePlan);
+	const handleChangeTabs = (type: string) => {
+		setActivePlanType(type)
+		console.log("type", type)
+		const newSelectedPlan = plansOfThisGroup && plansOfThisGroup.filter(plan => plan.plan_type_id === type && plan.default_selected_plan === true)[0]?.id!
+		setActivePlan(newSelectedPlan ? newSelectedPlan : '');
 	};
 
 	function handleClick(id: string) {
@@ -151,7 +158,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 							return (
 								<Fragment key={type.id}>
 
-									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTabs(plansDefaultChecked && plansDefaultChecked.filter(plan => plan.plan_type_id === type.id)[0].id)}
+									<input type="radio" data-theme={'cyberpunk'} onClick={() => handleChangeTabs(type.id)}
 										name="my_tabs_1"
 										role="tab" defaultChecked={indexTab === 0}
 										className={`tab text-lg text-secondary font-sans min-w-40 bg-yellow-400 checked:bg-yellow-500 checked:font-semibold hover:bg-yellow-300 [--tab-border-color:black]`}
