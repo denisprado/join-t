@@ -16,6 +16,7 @@
     "framer-motion": "^11.0.3",
     "next": "14.1.0",
     "ra-data-json-server": "^4.16.8",
+    "ra-input-rich-text": "^4.16.9",
     "ra-supabase": "^2.1.0",
     "ra-supabase-ui-materialui": "^2.1.0",
     "react": "^18",

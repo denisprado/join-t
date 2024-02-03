@@ -185,7 +185,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 																			<div className="flex flex-col gap-4">
 																				<Conditions plan={plan} />
 																				{!!type.disclaimer && <div className="flex flex-col border border-secondary rounded-md">
-																					<ReactMarkdown className={'p-4'}>{type.disclaimer}</ReactMarkdown>
+																					<div dangerouslySetInnerHTML={{ __html: type.disclaimer }} className={'p-4'}></div>
 																				</div>}
 
 																			</div>

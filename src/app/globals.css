@@ -10,8 +10,19 @@
   }
 }
 
-p {
-  @apply font-sans;
+p,
+h2,
+h3 {
+  @apply font-sans mb-2;
+}
+
+h1 {
+  @apply mb-2;
+  @apply font-bold text-xl font-serif;
+}
+
+h2 {
+  @apply font-bold text-lg;
 }
 
 [data-theme="joinT"] .btn,

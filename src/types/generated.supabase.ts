@@ -192,14 +192,17 @@ export interface Database {
       terms_groups: {
         Row: {
           id: string;
+          title: string;
           terms: { title: string; value: string }[] | null;
         };
         Insert: {
           id: string;
+          title: string;
           terms?: { title: string; value: string }[] | null;
         };
         Update: {
           id?: string;
+          title: string;
           terms?: { title: string; value: string }[] | null;
         };
         Relationships: [];
