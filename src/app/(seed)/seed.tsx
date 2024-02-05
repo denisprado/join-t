@@ -34,16 +34,16 @@ const seed: Seed =
 
 		}
 		,
-		{
-			id: `3`,
-			name: `Yoga`,
-			description: `A YOGA é uma prática milenar que surgiu na Índia e se popularizou em todo o mundo por seus inúmeros benefícios para a saúde física e mental. Com a combinação de posturas corporais, exercícios de respiração e meditação, a Yoga promove o equilíbrio entre corpo e mente, aliviando o estresse, aumentando a flexibilidade, melhorando a concentração e trazendo paz interior. Praticar Yoga regularmente pode ajudar a melhorar a qualidade de vida e a encontrar um estado de tranquilidade e bem-estar.`,
-			images: [`yoga-image.png`],
-			teatcher: `Thais Esteves`,
-			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
-			activityGroup: `2`,
+		// {
+		// 	id: `3`,
+		// 	name: `Yoga`,
+		// 	description: `A YOGA é uma prática milenar que surgiu na Índia e se popularizou em todo o mundo por seus inúmeros benefícios para a saúde física e mental. Com a combinação de posturas corporais, exercícios de respiração e meditação, a Yoga promove o equilíbrio entre corpo e mente, aliviando o estresse, aumentando a flexibilidade, melhorando a concentração e trazendo paz interior. Praticar Yoga regularmente pode ajudar a melhorar a qualidade de vida e a encontrar um estado de tranquilidade e bem-estar.`,
+		// 	images: [`yoga-image.png`],
+		// 	teatcher: `Thais Esteves`,
+		// 	schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
+		// 	activityGroup: `2`,
 
-		},
+		// },
 		{
 			id: `4`,
 			name: `Dança Contemporânea e Movimento Consciente`,
