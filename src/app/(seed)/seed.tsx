@@ -402,21 +402,21 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 		{
 			id: "1",
 			author: "Paula Maria",
-			avatar: "./quote_1.jpeg",
+			avatar: "/quote_1.jpeg",
 			excerpt: "A forma como o Join-T foi pensado, me faz ter esperança de que existem pessoas decentes e boas neste mundo.",
 			full: "Na contramão de todo o tipo de espaço para atividade física, o Join-T incentiva corpos diferentes dividindo o mesmo espaço de forma saudável! Eu não preciso ter medo de ir treinar, pois sei que o ambiente é seguro para mim [...]!"
 		},
 		{
 			id: "2",
 			author: "Augusto César",
-			avatar: "./quote_2.jpeg",
+			avatar: "/quote_2.jpeg",
 			excerpt: "Academias convencionais sempre foram chatas para mim",
 			full: `Eu sempre tive muita dor lombar e meu foco era que isso melhorasse e, adivinhem só, melhorou! [...] hoje consigo fazer movimentos que eu nunca sequer pensei que fosse possível. Tudo isso sempre com muita paciência e correção de movimento ao longo dos treinos. Se hoje eu gosto de treinar, é por causa do Join-T e dos professores que trabalham nele.`
 		},
 		{
 			id: "3",
 			author: "André Paiva",
-			avatar: "./quote_3.jpeg",
+			avatar: "/quote_3.jpeg",
 			excerpt: "O Join-T me apresentou um jeito mais amigável e saudável de funcionamento de uma academia.",
 			full: `(...) você é encorajado a pensar em coisas que realmente quer alcançar e não algo culturalmente imposto pela sociedade. [...] sinto que o Join-T ajuda a gente reencontrar alguns prazeres presentes no exercício, mas que acabam ficando escondidos devido aos modelos maçantes de academias que estão por ai.`
 		}
