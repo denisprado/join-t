@@ -15,6 +15,10 @@ import { PlansEdit } from '@/app/_components/ReactAdmin/Plans/Edit';
 import { PlansCreate } from '@/app/_components/ReactAdmin/Plans/Create';
 import { PlansTypesList } from '@/app/_components/ReactAdmin/PlansTypes/List';
 import { PlansTypesEdit } from '@/app/_components/ReactAdmin/PlansTypes/Edit';
+import { MediaList } from '@/app/_components/ReactAdmin/Media/List';
+import { MediaEdit } from '@/app/_components/ReactAdmin/Media/Edit';
+import { ActivityGroupsCreate } from '@/app/_components/ReactAdmin/ActivityGroups/Create';
+import { MediaCreate } from '@/app/_components/ReactAdmin/Media/Create';
 
 const MyAdmin = () => (
 
@@ -36,12 +40,13 @@ const MyAdmin = () => (
 			/>
 		</CustomRoutes>
 		<Resource name="activity" list={ActivityList} edit={ActivityEdit} options={{ label: 'Atividades' }} show={ShowGuesser} create={ActivityCreate} />
-		<Resource name="activity_groups" list={ActivityGroupsList} edit={ActivityGroupsEdit} show={ShowGuesser} options={{ label: 'Grupo de Atividades' }} />
-		<Resource name="plans" list={PlansList} edit={PlansEdit} show={PlansCreate} options={{ label: 'Planos' }} />
-		<Resource name="terms_groups" list={ListGuesser} edit={EditGuesser} show={ShowGuesser} options={{ label: 'Grupos de Condições' }} />
-		<Resource name="plan_types" list={PlansTypesList} edit={PlansTypesEdit} show={ShowGuesser} options={{ label: 'Tipos de Plano' }} />
-		<Resource name="profile" list={ListGuesser} edit={EditGuesser} show={ShowGuesser} options={{ label: 'Redes Sociais e Contatos' }} />
-		<Resource name="quote" list={ListGuesser} edit={EditGuesser} show={ShowGuesser} options={{ label: 'Depoimentos de Alunos' }} />
+		<Resource name="activity_groups" list={ActivityGroupsList} edit={ActivityGroupsEdit} show={ShowGuesser} options={{ label: 'Grupo de Atividades' }} create={ActivityGroupsCreate} />
+		<Resource name="plans" list={PlansList} edit={PlansEdit} show={PlansCreate} options={{ label: 'Planos' }} create={PlansCreate} />
+		<Resource name="terms_groups" list={ListGuesser} edit={EditGuesser} show={ShowGuesser} options={{ label: 'Grupos de Condições' }} create={EditGuesser} />
+		<Resource name="plan_types" list={PlansTypesList} edit={PlansTypesEdit} show={ShowGuesser} options={{ label: 'Tipos de Plano' }} create={EditGuesser} />
+		<Resource name="profile" list={ListGuesser} edit={EditGuesser} show={ShowGuesser} options={{ label: 'Redes Sociais e Contatos' }} create={EditGuesser} />
+		<Resource name="quote" list={ListGuesser} edit={EditGuesser} show={ShowGuesser} options={{ label: 'Depoimentos de Alunos' }} create={EditGuesser} />
+		<Resource name="media" list={MediaList} edit={MediaEdit} show={ShowGuesser} options={{ label: 'Media' }} create={MediaCreate} />
 
 	</Admin>
 
