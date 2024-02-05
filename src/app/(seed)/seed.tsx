@@ -49,7 +49,7 @@ const seed: Seed =
 			name: `Dança Contemporânea e Movimento Consciente`,
 			description: `A DANÇA CONTEMPORÂNEA é uma forma de arte que valoriza a liberdade de expressão e a originalidade do movimento. Ela se diferencia dos estilos de dança mais tradicionais por sua abordagem experimental e pela busca constante por novas formas de se movimentar. `,
 			teatcher: `Thais Esteves`,
-			images: [`danca-image.png`],
+			images: [`danca_contemporanea-1.jpeg`, "danca_contemporanea-2.jpeg", "danca_contemporanea-3.jpeg", "danca_contemporanea-4.jpeg", "danca_contemporanea-5.jpeg", "danca_contemporanea-6.jpeg"],
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30	 <br>
 			
 			Sábado : 8h - 11h`,
@@ -63,11 +63,11 @@ const seed: Seed =
 			title: `Treino Individualizado + Aulas Especiais`,
 			image: `treino-image.png`,
 		},
-		{
-			id: `2`,
-			title: `Yoga`,
-			image: `yoga-image.png`,
-		},
+		// {
+		// 	id: `2`,
+		// 	title: `Yoga`,
+		// 	image: `yoga-image.png`,
+		// },
 
 		{
 			id: `3`,
@@ -401,33 +401,31 @@ Exemplo prático: caso você contrate o plano social 2x na semana (r$ 100,00) e 
 	quotes: [
 		{
 			id: "1",
-			author: "Maria",
-			avatar: "./avatar.png",
-			excerpt: "Cheguei no Joint faz pouco tempo e já me impressionei com a organização, a competência dos professores o ambiente acolhedor. Estão de parabéns!",
-			full: ""
+			author: "Paula Maria",
+			avatar: "./quote_1.jpeg",
+			excerpt: "A forma como o Join-T foi pensado, me faz ter esperança de que existem pessoas decentes e boas neste mundo.",
+			full: "Na contramão de todo o tipo de espaço para atividade física, o Join-T incentiva corpos diferentes dividindo o mesmo espaço de forma saudável! Eu não preciso ter medo de ir treinar, pois sei que o ambiente é seguro para mim [...]!"
 		},
 		{
 			id: "2",
-			author: "Maria",
-			avatar: "./avatar.png",
-			excerpt: "A Joint veio pra mudar minha visão de treinos: 			",
-			full: `1) Ela me foi recomendada por um professor de educação física do qual eu tenho muita confiança; 2) Logo na avaliação física (que é uma raridade em 
-				academias convencionais), o professor perguntou se eu tinha alguma queixa de dor, qual era  minha rotina e se
-				eu queria aprender algum movimento novo.`
+			author: "Augusto César",
+			avatar: "./quote_2.jpeg",
+			excerpt: "Academias convencionais sempre foram chatas para mim",
+			full: `Eu sempre tive muita dor lombar e meu foco era que isso melhorasse e, adivinhem só, melhorou! [...] hoje consigo fazer movimentos que eu nunca sequer pensei que fosse possível. Tudo isso sempre com muita paciência e correção de movimento ao longo dos treinos. Se hoje eu gosto de treinar, é por causa do Join-T e dos professores que trabalham nele.`
 		},
 		{
 			id: "3",
-			author: "Maria",
-			avatar: "./avatar.png",
-			excerpt: "A Join-t me apresentou um jeito mais amigável e saudável de funcionamento de uma academia.",
-			full: `Esbarrei nesse cenário diferente logo na primeira sessão que fui, quando meu professor quis saber o que eu tinha de objetivo (e eu poderia falar tudo, menos o tradicional "ficar forte, definido etc."), achei isso muito legal. Isso dá muita liberdade e ajuda o aluno a continuar na academia pois você é encorajado a pensar em coisas que realmente quer alcançar (e não algo culturalmente imposto pela sociedade).`
+			author: "André Paiva",
+			avatar: "./quote_3.jpeg",
+			excerpt: "O Join-T me apresentou um jeito mais amigável e saudável de funcionamento de uma academia.",
+			full: `(...) você é encorajado a pensar em coisas que realmente quer alcançar e não algo culturalmente imposto pela sociedade. [...] sinto que o Join-T ajuda a gente reencontrar alguns prazeres presentes no exercício, mas que acabam ficando escondidos devido aos modelos maçantes de academias que estão por ai.`
 		}
 	],
 	profile:
 	{
 		whatsapp: "19971404714",
 		instagram: "@jointtreinamento",
-		email: "joint@jooint.com.br",
+		email: "jointtreinamento@gmail.com",
 		address: `Rua Jerônimo Páttaro, 250. Barão Geraldo.  
 			(Próximo ao Sorvete em Camadas)`,
 		coordinates: "https://maps.app.goo.gl/QWuAJTGP3p9Pmtzb8",
