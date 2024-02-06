@@ -37,6 +37,7 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+
 	return (
 		<html lang="en">
 			<body className={`${roboto_sans.variable} ${roboto_slab.variable} ${roboto_serif.variable}`} data-theme="joinT">

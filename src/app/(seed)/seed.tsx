@@ -21,7 +21,7 @@ const seed: Seed =
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30			Sábado : 8h - 11h`,
 			teatcher: `Daniel Moda e Lucas Ambrosio`,
 			activityGroup: `1`,
-			videos: ['https://www.youtube.com/watch?v=ntm42tvkngk', 'https://www.youtube.com/watch?v=7Ty0ICZIVuE']
+			videos: []
 		},
 		{
 			id: `2`,
@@ -49,7 +49,7 @@ const seed: Seed =
 			name: `Dança Contemporânea e Movimento Consciente`,
 			description: `A DANÇA CONTEMPORÂNEA é uma forma de arte que valoriza a liberdade de expressão e a originalidade do movimento. Ela se diferencia dos estilos de dança mais tradicionais por sua abordagem experimental e pela busca constante por novas formas de se movimentar. `,
 			teatcher: `Thais Esteves`,
-			images: [`danca_contemporanea-1.jpeg`, "danca_contemporanea-2.jpeg", "danca_contemporanea-3.jpeg", "danca_contemporanea-4.jpeg", "danca_contemporanea-5.jpeg", "danca_contemporanea-6.jpeg"],
+			images: [`danca_contemporanea-6.jpeg`, "danca_contemporanea-2.jpeg", "danca_contemporanea-3.jpeg", "danca_contemporanea-4.jpeg", "danca_contemporanea-5.jpeg", "danca_contemporanea-1.jpeg"],
 			schedules: `Segunda a sexta: 6h30 - 10h30 / 15h - 19h30	 <br>
 			
 			Sábado : 8h - 11h`,

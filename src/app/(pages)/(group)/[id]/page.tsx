@@ -8,6 +8,7 @@ import Curves from "@/app/_components/Curves/index";
 import GroupsMenu from "@/app/_components/GroupsMenu/index";
 
 import Prices from "@/app/_components/Prices/index";
+import { handleIntersection, observeElements, observerOptions } from "@/app/_helpers/_animation";
 import groupBy from "@/app/_helpers/helpers";
 import { Plans, PlanType } from "@/types/index";
 import { Fragment, SetStateAction, useEffect, useState } from "react";
@@ -22,7 +23,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	const plansDefaultChecked = plans.filter(plan => plan.defaultSelectedPLan && plan.activityGroup === id)
 
 	// plano inicialmente seleionado é o primeiro do mesmo grupo de atividade
-	const [activePlan, setActivePlan] = useState<string>(plansDefaultChecked[0].id)
+	const [activePlan, setActivePlan] = useState<string>(plansDefaultChecked[0]?.id)
 
 	function handleChangeTab(activePlan: SetStateAction<string>) {
 		setActivePlan(activePlan)
@@ -31,6 +32,26 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	function handleClick(id: string) {
 		setActivePlan(id)
 	}
+
+	useEffect(() => {
+
+
+		const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+		// Observa a primeira div com a classe 'container'
+		const containerElement = document.querySelector('.animatedContainer') as HTMLElement | null;
+		if (containerElement) {
+			observer.observe(containerElement);
+		}
+
+		// Observa todos os elementos com a classe 'fade-in'
+		observeElements(observer, '.fade-in', 0.05);
+
+		// Limpe o observer quando o componente for desmontado
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
 
 	const PlanMenu = ({ plans, planType }: { plans: Plans[], planType: PlanType }) => {
 
@@ -60,7 +81,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	const clasLinkAnimation = 'transition duration-300 hover:duration-500 transition-delay-200 hover:transition-delay-300'
 
 	return (
-		<div className="w-full flex flex-col justify-start items-center">
+		<div className="animatedContainer w-full flex flex-col justify-start items-center">
 			<GroupsMenu layout={"horizontal"} />
 			<div className="container flex flex-col gap-4 justify-center items-center py-16">
 				{activities.map((act, i) => {

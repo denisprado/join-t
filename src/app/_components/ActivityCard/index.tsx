@@ -7,7 +7,7 @@ const DynamicEmblaCarousel = dynamic(() => import('../Carousel'), { ssr: false }
 const ActivityCard = ({ activity }: { activity: Activity }) => {
 
 	return (
-		<div className="mx-8">
+		<div className="mx-8 fade-in">
 			<div className="card lg:card-side bg-secondary shadow-xl container">
 				<div className="card-body lg:w-2/3 xl:w-1/3">
 					<div className='flex flex-col gap-8'>

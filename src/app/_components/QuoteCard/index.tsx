@@ -4,7 +4,6 @@ import { Fragment } from 'react'
 import ReactMarkdown from 'react-markdown'
 
 const QuoteCard = ({ quote, i, revert }: { quote: Quote, i: number, revert: boolean }) => {
-	console.log(revert)
 	const direction = revert ? 'lg:flex-row-reverse' : 'lg:flex-row'
 	const photo = quote.avatar
 	return (
