@@ -13,7 +13,7 @@ const ActivityCard = ({ activity }: { activity: Activity }) => {
 					<div className='flex flex-col gap-8'>
 						<div className='flex flex-col gap-4'>
 							<h2 className="card-title text-5xl font-medium text-primary font-serif ">{activity.name}</h2>
-							<p className='font-sans'>{activity.description}</p>
+							<p className='font-sans' dangerouslySetInnerHTML={{ __html: activity.description }}></p>
 						</div>
 						<div className='flex flex-row xl:flex-col gap-8'>
 							<div>
@@ -22,7 +22,7 @@ const ActivityCard = ({ activity }: { activity: Activity }) => {
 							</div>
 							<div>
 								<h3 className='font-serif text-xl text-primary'>Horários</h3>
-								<p className='font-sans'>{activity.schedules}</p>
+								<p className='font-sans' dangerouslySetInnerHTML={{ __html: activity.schedules }}></p>
 							</div>
 						</div>
 					</div>

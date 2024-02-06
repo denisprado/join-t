@@ -141,3 +141,17 @@ p {
 .embla__dot--selected:after {
   background: linear-gradient(45deg, rgb(var(--yellow)), rgb(var(--yellow)));
 }
+
+.fade-in {
+  opacity: 0;
+
+  transform: translateY(
+    30px
+  ); /* ou qualquer valor que você deseje inicialmente, para movê-lo para baixo */
+  transition: opacity 0.5s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
