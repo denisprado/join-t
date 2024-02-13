@@ -10,6 +10,7 @@ import PlanMenu from "@/app/_components/PlanMenu";
 import Prices from "@/app/_components/Prices/index";
 import { handleIntersection, observeElements, observerOptions } from "@/app/_helpers/_animation";
 import groupBy from "@/app/_helpers/helpers";
+import { PlanType, Plans } from "@/types";
 import { Tables } from "@/types/generated.supabase";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -84,12 +85,12 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 	const PlanMenu = ({ plans, planType }: { plans: Plans[], planType: PlanType }) => {
 
-		const plansToShow = plans.filter(plan => plan.planTypeId === planType.id && plan.activityGroupId === id)
+		const plansToShow = plans.filter(plan => plan.plan_type_id === planType.id && plan.activity_group_id === id)
 		return <ul className="flex xl:flex-col min-w-44" >
 			{plansToShow?.map((plan, i) => {
 				return (
 					<li key={plan.id} onClick={() => handleClick(plan.id)} className={`py-2 px-4 cursor-pointer hover:bg-yellow-300 hover:text-secondary border-y  border-secondary hover:border-y hover:first:border-y 
-					xl:border-b-0 hover:xl:border-b-0  hover:border-secondary ${(plan.id === activePlan) ? "bg-secondary text-primary" : "border-b border-secondary"} ${clasLinkAnimation}`}>
+					xl:border-b-0 hover:xl:border-b-0  hover:border-secondary ${(plan.id === activePlan) ? "bg-secondary text-primary" : "border-b border-secondary"}`}>
 						<a>{plan.title} </a>
 					</li>
 				)
