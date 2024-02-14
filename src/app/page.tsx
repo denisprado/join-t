@@ -11,6 +11,7 @@ import groupBy, { findMinValue } from "./_helpers/helpers";
 import { Element } from 'react-scroll';
 import { useEffect } from "react";
 import { handleIntersection, observeElements, observerOptions } from "./_helpers/_animation";
+import useRecordById from "./_api/client/useRecordById";
 
 
 
@@ -41,13 +42,13 @@ export default function Home() {
 	const groupedActivities = groupBy(activities!, 'activity_group_id');
 	const mappedGroups: Activity[][] = groupedActivities
 		? Object.entries(groupedActivities).map(([key, group]) => {
-			const modifiedGroup = group.map((item: any) => ({ ...item, activityGroup: item.activityGroup }));
+			const modifiedGroup = group.map((item: Activity) => ({ ...item, activity_group_id: item.activity_group_id }));
 			return modifiedGroup;
 		})
 		: [];
 
 
-	const minValue = findMinValue(treinosPlans);
+	const minValue = treinosPlans && findMinValue(treinosPlans);
 
 	useEffect(() => {
 
@@ -56,6 +57,7 @@ export default function Home() {
 		// Observa a primeira div com a classe 'container'
 		const containerElement = document.querySelector('.animatedContainer') as HTMLElement | null;
 		if (containerElement) {
+			console.log("containerElement viewed")
 			observer.observe(containerElement);
 		}
 
@@ -68,24 +70,29 @@ export default function Home() {
 		};
 	}, []);
 
+
 	return (
 		<main className="animatedContainer flex min-h-screen flex-col bg-neutral-800 justify-start ">
+
 			<Hero />
+
 			<div className="container flex flex-col gap-8 items-center self-center justify-center pt-24 px-8 2xl:px-32">
-				{mappedGroups.map((group, i) => {
-					return <div key={i} className="fade-in"><ActivityGroupCard group={group} key={i} i={i} /></div>
+				{mappedGroups && mappedGroups.map((group, i) => {
+					return <div key={i} className="fade-in ">
+						<ActivityGroupCard group={group} key={i} i={i} />
+					</div>
 				})}
 			</div>
 
 			<div className="divider divider-neutral w-full self-center py-12 lg:py-16"></div>
 
 			<div className="fade-in container flex flex-col lg:flex-row lg:gap-8 items-start self-center justify-center px-8 2xl:px-16">
-				<div className="p-8 lg:text-4xl w-full lg:w-3/12 border-2  border-primary  fade-in">
-					<h2 className="font-serif text-primary text-3xl ">Alguns depoimentos de alunes Join-T</h2>
+				<div className="p-8 lg:text-4xl w-full lg:w-3/12 border-2  border-primary fade-in mb-8">
+					<h2 className="font-serif text-primary text-3xl  ">Alguns depoimentos de alunes Join-T</h2>
 				</div>
 				<div className="flex flex-col gap-6 w-full lg:w-10/12 ">
 					{quotes && quotes!.map((quote, i) => {
-						return <QuoteCard quote={quote} key={i} i={i} revert={i % 2 !== 0} />
+						return <div key={i} className="fade-in"><QuoteCard quote={quote} key={i} i={i} revert={i % 2 !== 0} /></div>
 					})}
 				</div>
 			</div>
@@ -96,7 +103,7 @@ export default function Home() {
 
 					<h2 className="font-serif text-secondary text-4xl fade-in">Planos a partir de R${minValue},00</h2>
 					<div className="flex flex-row flex-wrap gap-6 w-full justify-center">
-						{treinosPlans.map((plan, i) => {
+						{treinosPlans?.map((plan, i) => {
 							return <div className={``} key={i}><div className="fade-in"><Prices key={i} plan={plan} showButton={false} /></div></div>
 						})}
 					</div>

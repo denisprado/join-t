@@ -171,7 +171,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 												{activityGroupsByPlanType.map(((ag, i) => {
 													return (
-														<PlanMenu key={i} plans={ag.plans} planType={type} activePlan={activePlan} handleClick={handleClick} id={id} />
+														<PlanMenu key={i} plans={ag.plans} planType={type} />
 													)
 												}))}
 

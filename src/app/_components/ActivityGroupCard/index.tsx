@@ -20,7 +20,7 @@ const ActivityGroupCard = ({ group, i }: { group: Activity[], i: number }) => {
 					return (
 						<Fragment key={i}>
 							<h2 className="card-title text-primary font-serif text-4xl font-medium">{g.name}</h2>
-							<p dangerouslySetInnerHTML={{ __html: g.description }}></p>
+							<p dangerouslySetInnerHTML={{ __html: g!.description! }}></p>
 						</Fragment>
 					)
 				})}

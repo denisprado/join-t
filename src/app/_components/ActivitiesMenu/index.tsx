@@ -22,7 +22,7 @@ const ActivitiesMenu = ({ layout = 'vertical' }: { layout: 'vertical' | 'horizon
 			<ul className={`menu menu-horizontal border-b border-secondary items-center justify-center bg-yellow-500 w-full p-0 [&_li>*]:rounded-none [&_li>*]:font-sans ${menuLayoutClass}`}>
 				{activities && activities!.map((act) => {
 					return (
-						<li key={act.id} className="hover:bg-yellow-300 text-secondary"><a href={`/${activityGroups!.filter(group => group.id === act.activity_group_id)[0]?.id}`}>{act.name}</a></li>
+						<li key={act.id} className="hover:bg-yellow-300 text-secondary"><a href={`/${activityGroups && activityGroups!.filter(group => group.id === act.activity_group_id)[0]?.id}`}>{act.name}</a></li>
 					)
 				})}
 			</ul>

@@ -1,24 +1,24 @@
 'use client'
 
+import { ActivityCreate } from '@/app/_components/ReactAdmin/Activity/Create';
+import { ActivityEdit } from '@/app/_components/ReactAdmin/Activity/Edit';
+import { ActivityList } from '@/app/_components/ReactAdmin/Activity/List';
+import { ActivityGroupsCreate } from '@/app/_components/ReactAdmin/ActivityGroups/Create';
+import { ActivityGroupsEdit } from '@/app/_components/ReactAdmin/ActivityGroups/Edit';
+import { ActivityGroupsList } from '@/app/_components/ReactAdmin/ActivityGroups/List';
+import { MediaCreate } from '@/app/_components/ReactAdmin/Media/Create';
+import { MediaEdit } from '@/app/_components/ReactAdmin/Media/Edit';
+import { MediaList } from '@/app/_components/ReactAdmin/Media/List';
+import { PlansCreate } from '@/app/_components/ReactAdmin/Plans/Create';
+import { PlansEdit } from '@/app/_components/ReactAdmin/Plans/Edit';
+import { PlansList } from '@/app/_components/ReactAdmin/Plans/List';
+import { PlansTypesEdit } from '@/app/_components/ReactAdmin/PlansTypes/Edit';
+import { PlansTypesList } from '@/app/_components/ReactAdmin/PlansTypes/List';
+import { authProvider } from '@/app/_supabase/authProvider';
+import { dataProvider } from '@/app/_supabase/dataProvider';
 import { ForgotPasswordPage, LoginPage, SetPasswordPage } from 'ra-supabase-ui-materialui';
 import { Admin, CustomRoutes, EditGuesser, ListGuesser, Resource, ShowGuesser } from 'react-admin';
 import { Route } from 'react-router-dom';
-import { authProvider } from '@/app/_supabase/authProvider';
-import { dataProvider } from '@/app/_supabase/dataProvider';
-import { ActivityList } from '@/app/_components/ReactAdmin/Activity/List';
-import { ActivityEdit } from '@/app/_components/ReactAdmin/Activity/Edit';
-import { ActivityCreate } from '@/app/_components/ReactAdmin/Activity/Create';
-import { ActivityGroupsList } from '@/app/_components/ReactAdmin/ActivityGroups/List';
-import { ActivityGroupsEdit } from '@/app/_components/ReactAdmin/ActivityGroups/Edit';
-import { PlansList } from '@/app/_components/ReactAdmin/Plans/List';
-import { PlansEdit } from '@/app/_components/ReactAdmin/Plans/Edit';
-import { PlansCreate } from '@/app/_components/ReactAdmin/Plans/Create';
-import { PlansTypesList } from '@/app/_components/ReactAdmin/PlansTypes/List';
-import { PlansTypesEdit } from '@/app/_components/ReactAdmin/PlansTypes/Edit';
-import { MediaList } from '@/app/_components/ReactAdmin/Media/List';
-import { MediaEdit } from '@/app/_components/ReactAdmin/Media/Edit';
-import { ActivityGroupsCreate } from '@/app/_components/ReactAdmin/ActivityGroups/Create';
-import { MediaCreate } from '@/app/_components/ReactAdmin/Media/Create';
 
 const MyAdmin = () => (
 
