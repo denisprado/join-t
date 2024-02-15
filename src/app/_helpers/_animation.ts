@@ -1,6 +1,7 @@
 export function handleIntersection(entries: any[], observer: any) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
+      console.log("added");
       entry.target.classList.add("active");
     }
   });

@@ -189,7 +189,6 @@ h2 {
 
 .fade-in {
   opacity: 0;
-
   transform: translateY(
     30px
   ); /* ou qualquer valor que você deseje inicialmente, para movê-lo para baixo */

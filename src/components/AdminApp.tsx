@@ -19,11 +19,13 @@ import { dataProvider } from '@/app/_supabase/dataProvider';
 import { ForgotPasswordPage, LoginPage, SetPasswordPage } from 'ra-supabase-ui-materialui';
 import { Admin, CustomRoutes, EditGuesser, ListGuesser, Resource, ShowGuesser } from 'react-admin';
 import { Route } from 'react-router-dom';
+import { MyLayout } from './DevLayout';
 
 const MyAdmin = () => (
 
 	<Admin
 		title={'JoinT'}
+		layout={MyLayout}
 		basename="/admin"
 		dataProvider={dataProvider}
 		authProvider={authProvider}

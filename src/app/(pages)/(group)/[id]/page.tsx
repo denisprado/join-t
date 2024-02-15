@@ -6,14 +6,11 @@ import ActivityCard from "@/app/_components/ActivityCard/index";
 import Conditions from "@/app/_components/Conditions";
 import Curves from "@/app/_components/Curves/index";
 import GroupsMenu from "@/app/_components/GroupsMenu/index";
-import PlanMenu from "@/app/_components/PlanMenu";
 import Prices from "@/app/_components/Prices/index";
 import { handleIntersection, observeElements, observerOptions } from "@/app/_helpers/_animation";
 import groupBy from "@/app/_helpers/helpers";
 import { PlanType, Plans } from "@/types";
-import { Tables } from "@/types/generated.supabase";
-import { Fragment, useCallback, useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
+import { Fragment, useEffect, useState } from "react";
 
 export default function GroupPage({ params }: { params: { id: string } }) {
 	const { id } = params
@@ -45,7 +42,6 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 
 	useEffect(() => {
 		const initialSelectedPlan = plansOfThisGroup && plansOfThisGroup.filter(plan => plan.plan_type_id === activePlanType && plan.default_selected_plan === true)[0]?.id!
-		console.log(initialSelectedPlan)
 		setActivePlanType(planType ? planType[0].id! : '')
 		initialSelectedPlan && setActivePlan(initialSelectedPlan)
 	}, [plansOfThisGroup])
@@ -54,7 +50,6 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	// plano inicialmente seleionado é o primeiro do mesmo grupo de atividade
 	const handleChangeTabs = (type: string) => {
 		setActivePlanType(type)
-		console.log("type", type)
 		const newSelectedPlan = plansOfThisGroup && plansOfThisGroup.filter(plan => plan.plan_type_id === type && plan.default_selected_plan === true)[0]?.id!
 		setActivePlan(newSelectedPlan ? newSelectedPlan : '');
 	};
