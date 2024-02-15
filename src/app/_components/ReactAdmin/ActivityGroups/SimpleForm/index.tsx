@@ -1,11 +1,12 @@
-import { ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
+import { ImageInput, SimpleForm, TextInput } from "react-admin";
+import ImageSupabase from "../../ImageSupabase";
 
 const ActivityGroupsSimpleForm = () => {
 	return (
 		<SimpleForm>
 			<TextInput source="title" fullWidth />
 			<ImageInput source="images" label="Imagens" multiple>
-				<ImageField source="src" title="title" />
+				<ImageSupabase source="title" />
 			</ImageInput>
 		</SimpleForm>
 	)
