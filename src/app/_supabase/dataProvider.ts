@@ -42,9 +42,7 @@ export const dataProvider = {
           }
         );
 
-        // Aguarde o término de todos os uploads
         await Promise.all(uploadPromises).then(() => {
-          // O resultado da operação de upload está em 'response', você pode processar conforme necessário
           return initialSupabaseDataProvider.update(resource, {
             ...params,
             data: {

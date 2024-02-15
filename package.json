@@ -15,6 +15,7 @@
     "@tanstack/react-query-devtools": "^5.20.5",
     "embla-carousel-react": "^8.0.0-rc20",
     "framer-motion": "^11.0.3",
+    "lodash": "^4.17.21",
     "next": "14.1.0",
     "ra-data-json-server": "^4.16.8",
     "ra-input-rich-text": "^4.16.9",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
