@@ -1,35 +1,14 @@
+import { getArrayOfImages } from "@/app/_helpers/helpers";
 import { Tables } from "@/types/generated.supabase";
 import dynamic from "next/dynamic";
 
 const DynamicEmblaCarousel = dynamic(() => import('../Carousel'), { ssr: false });
-interface ImageData {
-	rawFile: {
-		path: string;
-	};
-	src: string;
-	title: string;
-}
+
 const ActivityCard = ({ activity }: { activity: Tables<'activity'> }) => {
 	const { images } = activity
 
-	// Definindo a expressão regular para extrair o JSON
-	const regex = /({.*})/;
+	const arrayImages = getArrayOfImages(images)
 
-	// Convertendo cada string JSON em um objeto JavaScript
-	const arrayDeObjetos: (ImageData | null)[] | null = images && images.map(str => {
-		// Extrair o JSON válido da string
-		const match = str.match(regex);
-		if (match) {
-			// Analisar o JSON
-			return JSON.parse(match[0]) as ImageData;
-		}
-		return null;
-	}).filter(objeto => objeto !== null);
-
-
-	const arrayImages: string[] | null = arrayDeObjetos && arrayDeObjetos.map(objeto => objeto!.rawFile && process.env.NEXT_PUBLIC_SUPABASE_STORAGE + objeto!.rawFile.path);
-
-	console.log(arrayImages)
 	return (
 		<div className="mx-8">
 			<div className="card lg:card-side bg-secondary shadow-xl container">

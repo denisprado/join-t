@@ -37,3 +37,40 @@ export const findMinValue = (plans: Plans[]): number => {
 
   return allPrices && Math.min(...allPrices);
 };
+
+export const getArrayOfImages = (images: string[] | null) => {
+  // Definindo a expressão regular para extrair o JSON
+  interface ImageData {
+    rawFile: {
+      path: string;
+    };
+    src: string;
+    title: string;
+  }
+
+  const regex = /({.*})/;
+
+  // Convertendo cada string JSON em um objeto JavaScript
+  const arrayDeObjetos: (ImageData | null)[] | null =
+    images &&
+    images
+      .map((str) => {
+        // Extrair o JSON válido da string
+        const match = str.match(regex);
+        if (match) {
+          // Analisar o JSON
+          return JSON.parse(match[0]) as ImageData;
+        }
+        return null;
+      })
+      .filter((objeto) => objeto !== null);
+
+  const arrayImages: string[] | null =
+    arrayDeObjetos &&
+    arrayDeObjetos.map(
+      (objeto) =>
+        objeto!.rawFile &&
+        process.env.NEXT_PUBLIC_SUPABASE_STORAGE + "/" + objeto!.rawFile.path
+    );
+  return arrayImages;
+};

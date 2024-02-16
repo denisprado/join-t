@@ -24,7 +24,7 @@ export interface Database {
           activity_group_id?: string | null;
           description?: string | null;
           id: string;
-          images?: string[] | null;
+          images: string[] | null;
           name?: string | null;
           schedules?: string | null;
           teacher?: string | null;
@@ -34,7 +34,7 @@ export interface Database {
           activity_group_id?: string | null;
           description?: string | null;
           id?: string;
-          images?: string[] | null;
+          images: string[] | null;
           name?: string | null;
           schedules?: string | null;
           teacher?: string | null;
@@ -53,17 +53,17 @@ export interface Database {
       activity_groups: {
         Row: {
           id: string;
-          image: string[] | null;
+          images: string[] | null;
           title: string | null;
         };
         Insert: {
           id: string;
-          image?: string[] | null;
+          images: string[] | null;
           title?: string | null;
         };
         Update: {
           id?: string;
-          image?: string[] | null;
+          images: string[] | null;
           title?: string | null;
         };
         Relationships: [];
@@ -168,21 +168,21 @@ export interface Database {
       quote: {
         Row: {
           author: string | null;
-          avatar: string | null;
+          images: string[] | null;
           excerpt: string | null;
           id: string;
           quote: string | null;
         };
         Insert: {
           author?: string | null;
-          avatar?: string | null;
+          images: string[] | null;
           excerpt?: string | null;
           id: string;
           quote?: string | null;
         };
         Update: {
           author?: string | null;
-          avatar?: string | null;
+          images: string[] | null;
           excerpt?: string | null;
           id?: string;
           quote?: string | null;

@@ -10,7 +10,7 @@ export const initialSupabaseDataProvider = supabaseDataProvider({
   supabaseClient,
 });
 
-const resourcesWithUpload = ["activity", "activity_groups"];
+const resourcesWithUpload = ["activity", "activity_groups", "quote"];
 const newId = v4();
 
 export const dataProvider = {
