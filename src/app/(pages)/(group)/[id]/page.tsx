@@ -41,10 +41,10 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 	const [activePlan, setActivePlan] = useState<string>('')
 
 	useEffect(() => {
-		const initialSelectedPlan = plansOfThisGroup && plansOfThisGroup.filter(plan => plan.plan_type_id === activePlanType && plan.default_selected_plan === true)[0]?.id!
 		setActivePlanType(planType ? planType[0].id! : '')
+		const initialSelectedPlan = plansOfThisGroup && plansOfThisGroup.filter(plan => plan.plan_type_id === activePlanType && plan.default_selected_plan === true)[0]?.id!
 		initialSelectedPlan && setActivePlan(initialSelectedPlan)
-	}, [plansOfThisGroup])
+	}, [plansOfThisGroup, planType])
 
 
 	// plano inicialmente seleionado é o primeiro do mesmo grupo de atividade
