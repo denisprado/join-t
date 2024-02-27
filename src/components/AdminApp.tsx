@@ -14,19 +14,32 @@ import { PlansTypesList } from '@/app/_components/ReactAdmin/PlansTypes/List';
 import { authProvider } from '@/app/_supabase/authProvider';
 import { dataProvider } from '@/app/_supabase/dataProvider';
 import { ForgotPasswordPage, LoginPage, SetPasswordPage } from 'ra-supabase-ui-materialui';
-import { Admin, CustomRoutes, EditGuesser, ListGuesser, Resource, ShowGuesser, defaultTheme, defaultDarkTheme } from 'react-admin';
+import { Admin, CustomRoutes, EditGuesser, ListGuesser, Resource, ShowGuesser, defaultTheme, defaultDarkTheme, TranslationMessages } from 'react-admin';
 import { Route } from 'react-router-dom';
 import { MyLayout } from './DevLayout';
 import { QuoteEdit } from '@/app/_components/ReactAdmin/Quote/Edit';
 import { QuoteCreate } from '@/app/_components/ReactAdmin/Quote/Create';
 import { QuoteList } from '@/app/_components/ReactAdmin/Quote/List';
+import ptBrMessages from 'ra-language-pt-br';
+import polyglotI18nProvider from 'ra-i18n-polyglot';
 
 const MyAdmin = () => {
-	// top: 80px !important;
-	// background-color: rgb(var(--yellow)) !important;
-	// color: rgb(var(--neutral)) !important;
+
+
+	const messages: Record<string, TranslationMessages> = {
+		'pt-br': ptBrMessages as unknown as TranslationMessages,
+	};
+	const i18nProvider = polyglotI18nProvider(locale => messages[locale], 'pt-br');
+
 	const theme = {
 		...defaultDarkTheme,
+		palette: {
+			...defaultDarkTheme.palette,
+			primary: {
+				main: 'rgb(var(--yellow))', // Not far from orange
+
+			},
+		},
 		components: {
 			...defaultDarkTheme.components,
 			MuiToolbar: {
@@ -49,6 +62,7 @@ const MyAdmin = () => {
 	return (
 
 		<Admin
+			i18nProvider={i18nProvider}
 			theme={theme}
 			title={'JoinT'}
 			layout={MyLayout}
