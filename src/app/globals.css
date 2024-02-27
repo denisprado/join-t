@@ -71,7 +71,7 @@ h2 {
   z-index: 1100;
   left: auto;
   right: 0; */
-  top: 84px !important;
+  top: 80px !important;
   background-color: rgb(var(--yellow)) !important;
   color: rgb(var(--neutral)) !important;
 }
