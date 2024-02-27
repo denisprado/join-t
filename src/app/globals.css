@@ -48,7 +48,7 @@ h2 {
   color: color-mix(in oklab, var(--fallback-p, oklch(var(--p) / 1)) 90%, white);
 }
 
-.css-uwxfgq-MuiPaper-root-MuiAppBar-root-RaAppBar-root {
+.css-uwxfgq-MuiPaper-root-MuiAppBar-root-RaAppBar-root .css-eukygx {
   /* background-color: #fff;
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -71,9 +71,9 @@ h2 {
   z-index: 1100;
   left: auto;
   right: 0; */
-  top: 80px !important;
+  /* top: 80px !important;
   background-color: rgb(var(--yellow)) !important;
-  color: rgb(var(--neutral)) !important;
+  color: rgb(var(--neutral)) !important; */
 }
 
 .css-vuqtfo-MuiTypography-root {
