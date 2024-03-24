@@ -61,7 +61,7 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 						const imageSrc = imageByIndex(images, index);
 						return (
 							<div key={index} className="embla__slide">
-								<Image src={imageSrc} alt={slide + index} width={1025} height={1025} />
+								<Image src={imageSrc} alt={slide + index} width={941} height={628} style={{ maxHeight: 628, objectFit: 'cover' }} />
 							</div>
 						);
 					})}
