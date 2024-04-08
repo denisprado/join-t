@@ -139,7 +139,7 @@ export default function GroupPage({ params }: { params: { id: string } }) {
 					{/** 
 				 * Componentes de TABS
 				 * */}
-					<div role="tablist" className="tabs tabs-bordered [--tab-border-color:black] tab-lg font-sans text-secondary self-center mx-10">
+					<div role="tablist" className="md:tabs flex-col tabs-bordered [--tab-border-color:black] tab-lg font-sans text-secondary self-center mx-10">
 						{planTypesWithPlans && planTypesWithPlans.map((type, indexTab) => {
 							// Tabs
 							const activityGroupsByPlanType = Object.keys(groupedPlans)

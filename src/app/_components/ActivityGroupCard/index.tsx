@@ -40,9 +40,9 @@ const ActivityGroupCard = ({ group, i }: { group: Activity[], i: number }) => {
 				</div>
 
 			</div>
-			<div className='w-full lg:w-1/2 p-4 relative'>
+			<div className='w-full lg:w-1/2 p-4 relative min-h-[264px]'>
 
-				<figure className='p-5'><Image src={arrayImages ? arrayImages[0] : ''} alt="treino" style={{ objectFit: 'cover', padding: '1rem' }} fill /></figure>
+				<figure className='p-5'><Image src={arrayImages ? arrayImages[0] : ''} alt="treino" style={{ objectFit: 'cover', padding: '1rem', minHeight: '264px' }} fill /></figure>
 			</div>
 		</div>
 	)

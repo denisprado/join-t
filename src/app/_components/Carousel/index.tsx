@@ -1,12 +1,11 @@
-'use client'
-
-import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel'
-import useEmblaCarousel from 'embla-carousel-react'
-import Image from 'next/image'
-import { useCallback, useEffect, useState } from 'react'
-import Video from '../Video'
-import { DotButton, NextButton, PrevButton } from './ArrowsDotsButtons'
-import imageByIndex from './imagesByIndex'
+import { EmblaCarouselType } from 'embla-carousel';
+import useEmblaCarousel from 'embla-carousel-react';
+import Image from 'next/image';
+import { useCallback, useEffect, useState } from 'react';
+import Video from '../Video';
+import { DotButton, NextButton, PrevButton } from './ArrowsDotsButtons';
+import imageByIndex from './imagesByIndex';
+import ExifReader from 'exif-js';
 
 const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: string[] | null }) => {
 	const [emblaRef, emblaApi] = useEmblaCarousel({});
@@ -14,6 +13,7 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 	const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+	const [imageDescriptions, setImageDescriptions] = useState<string[]>([]);
 
 	const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
 	const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
@@ -27,18 +27,24 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 		setSelectedIndex(emblaApi.selectedScrollSnap());
 		setPrevBtnDisabled(!emblaApi.canScrollPrev());
 		setNextBtnDisabled(!emblaApi.canScrollNext());
-
-
 	}, []);
 
-	const handlePrev = () => {
-		//setCurrentVideoIndex(null); // Define como nulo para evitar pausar o vídeo novamente
-		scrollPrev();
-	};
+	const fetchImageDescriptions = async () => {
+		if (!images) return;
 
-	const handleNext = () => {
-		//setCurrentVideoIndex(null); / / Define como nulo para evitar pausar o vídeo novamente
-		scrollNext();
+		const descriptions = await Promise.all(images.map(async (imageSrc) => {
+			try {
+				console.log(imageSrc)
+				const exifData = await ExifReader.getAllTags(imageSrc);
+				console.log(exifData)
+				return exifData?.ImageDescription || '';
+			} catch (error) {
+				console.error('Erro ao extrair dados EXIF:', error);
+				return '';
+			}
+		}));
+
+		setImageDescriptions(descriptions);
 	};
 
 	useEffect(() => {
@@ -49,9 +55,9 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 		emblaApi.on('reInit', onInit);
 		emblaApi.on('reInit', onSelect);
 		emblaApi.on('select', onSelect);
-	}, [emblaApi, onInit, onSelect]);
 
-
+		fetchImageDescriptions();
+	}, [emblaApi, onInit, onSelect, images]);
 
 	return (
 		<div className="embla">
@@ -61,12 +67,12 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 						const imageSrc = imageByIndex(images, index);
 						return (
 							<div key={index} className="embla__slide">
+								<div className="image-description bg-primary p-4">{imageDescriptions[index]}</div>
 								<Image src={imageSrc} alt={slide + index} width={941} height={628} style={{ maxHeight: 628, objectFit: 'cover' }} />
 							</div>
 						);
 					})}
 					{videos?.map((video, i) => {
-
 						const videoSrc = imageByIndex(videos, i);
 						return (
 							<div key={i} className="embla__slide">
@@ -74,26 +80,16 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 							</div>
 						);
 					})}
-
 				</div>
 				<div className="embla__buttons">
-					<PrevButton
-						onClick={() => {
-							handlePrev();
-						}}
-						disabled={prevBtnDisabled} />
-					<NextButton
-						onClick={() => {
-							handleNext();
-						}} disabled={nextBtnDisabled} />
+					<PrevButton onClick={scrollPrev} disabled={prevBtnDisabled} />
+					<NextButton onClick={scrollNext} disabled={nextBtnDisabled} />
 				</div>
 				<div className="embla__dots">
 					{scrollSnaps.map((_, index) => (
 						<DotButton
 							key={index}
-							onClick={() => {
-								scrollTo(index);
-							}}
+							onClick={() => scrollTo(index)}
 							className={'embla__dot'.concat(index === selectedIndex ? ' embla__dot--selected' : '')}
 						/>
 					))}
