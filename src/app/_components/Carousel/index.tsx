@@ -66,9 +66,17 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 					{images?.map((slide, index) => {
 						const imageSrc = imageByIndex(images, index);
 						return (
-							<div key={index} className="embla__slide">
+							<div key={index} className="embla__slide h-72 sm:h-80 md:h-96 xl:h-[420px] 2xl:h-[500px]">
 								{/* <div className="image-description bg-primary p-4">{imageDescriptions[index]}</div> */}
-								<Image src={imageSrc} alt={slide + index} width={941} height={628} style={{ maxHeight: 628, objectFit: 'cover' }} />
+								<Image
+									src={imageSrc}
+									alt={slide + index}
+									fill
+									sizes="(min-width: 320px)  100vw"
+									style={{
+										objectFit: 'cover', // cover, contain, none
+									}}
+								/>
 							</div>
 						);
 					})}
@@ -81,7 +89,7 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 						);
 					})}
 				</div>
-				<div className="embla__buttons">
+				<div className="embla__buttons top-[70%] md:top-[80%]">
 					<PrevButton onClick={scrollPrev} disabled={prevBtnDisabled} />
 					<NextButton onClick={scrollNext} disabled={nextBtnDisabled} />
 				</div>

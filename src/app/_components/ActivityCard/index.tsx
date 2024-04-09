@@ -11,8 +11,8 @@ const ActivityCard = ({ activity }: { activity: Tables<'activity'> }) => {
 
 	return (
 		<div className="mx-8 w-full">
-			<div className="card lg:card-side bg-secondary shadow-xl w-full">
-				<div className="card-body lg:w-2/3 xl:w-1/3">
+			<div className="card lg:card-side bg-secondary shadow-xl w-full ">
+				<div className="card-body lg:w-2/5 xl:w-1/3">
 					<div className='flex flex-col gap-8'>
 						<div className='flex flex-col gap-4'>
 							<h2 className="card-title  text-3xl sm:text-5xl font-medium text-primary font-serif ">{activity.name}</h2>
@@ -30,7 +30,7 @@ const ActivityCard = ({ activity }: { activity: Tables<'activity'> }) => {
 						</div>
 					</div>
 				</div>
-				<div className="w-2/3 p-5 self-center">
+				<div className="w-full lg:w-3/5 p-5 self-center">
 					<DynamicEmblaCarousel videos={activity.videos && activity.videos.length > 0 ? activity.videos : null} images={arrayImages} />
 				</div>
 			</div>
