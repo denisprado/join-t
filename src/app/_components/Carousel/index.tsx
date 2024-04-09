@@ -13,7 +13,7 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 	const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-	const [imageDescriptions, setImageDescriptions] = useState<string[]>([]);
+	// const [imageDescriptions, setImageDescriptions] = useState<string[]>([]);
 
 	const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
 	const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
@@ -29,23 +29,23 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 		setNextBtnDisabled(!emblaApi.canScrollNext());
 	}, []);
 
-	const fetchImageDescriptions = async () => {
-		if (!images) return;
+	// const fetchImageDescriptions = async () => {
+	// 	if (!images) return;
 
-		const descriptions = await Promise.all(images.map(async (imageSrc) => {
-			try {
-				console.log(imageSrc)
-				const exifData = await ExifReader.getAllTags(imageSrc);
-				console.log(exifData)
-				return exifData?.ImageDescription || '';
-			} catch (error) {
-				console.error('Erro ao extrair dados EXIF:', error);
-				return '';
-			}
-		}));
+	// 	const descriptions = await Promise.all(images.map(async (imageSrc) => {
+	// 		try {
+	// 			console.log(imageSrc)
+	// 			const exifData = await ExifReader.getAllTags(imageSrc);
+	// 			console.log(exifData)
+	// 			return exifData?.ImageDescription || '';
+	// 		} catch (error) {
+	// 			console.error('Erro ao extrair dados EXIF:', error);
+	// 			return '';
+	// 		}
+	// 	}));
 
-		setImageDescriptions(descriptions);
-	};
+	// 	setImageDescriptions(descriptions);
+	// };
 
 	useEffect(() => {
 		if (!emblaApi) return;
@@ -56,7 +56,7 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 		emblaApi.on('reInit', onSelect);
 		emblaApi.on('select', onSelect);
 
-		fetchImageDescriptions();
+		// fetchImageDescriptions();
 	}, [emblaApi, onInit, onSelect, images]);
 
 	return (
@@ -67,7 +67,7 @@ const EmblaCarousel = ({ images, videos }: { images: string[] | null, videos: st
 						const imageSrc = imageByIndex(images, index);
 						return (
 							<div key={index} className="embla__slide">
-								<div className="image-description bg-primary p-4">{imageDescriptions[index]}</div>
+								{/* <div className="image-description bg-primary p-4">{imageDescriptions[index]}</div> */}
 								<Image src={imageSrc} alt={slide + index} width={941} height={628} style={{ maxHeight: 628, objectFit: 'cover' }} />
 							</div>
 						);

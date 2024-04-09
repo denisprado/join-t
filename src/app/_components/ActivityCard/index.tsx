@@ -10,21 +10,21 @@ const ActivityCard = ({ activity }: { activity: Tables<'activity'> }) => {
 	const arrayImages = getArrayOfImages(images)
 
 	return (
-		<div className="mx-8">
-			<div className="card lg:card-side bg-secondary shadow-xl container">
+		<div className="mx-8 w-full">
+			<div className="card lg:card-side bg-secondary shadow-xl w-full">
 				<div className="card-body lg:w-2/3 xl:w-1/3">
 					<div className='flex flex-col gap-8'>
 						<div className='flex flex-col gap-4'>
-							<h2 className="card-title text-5xl font-medium text-primary font-serif ">{activity.name}</h2>
+							<h2 className="card-title  text-3xl sm:text-5xl font-medium text-primary font-serif ">{activity.name}</h2>
 							<p className='font-sans' dangerouslySetInnerHTML={{ __html: activity.description! }}></p>
 						</div>
 						<div className='flex flex-row xl:flex-col gap-8'>
 							<div>
-								<h3 className='font-serif text-xl text-primary'>Professor(a)</h3>
+								<h3 className='font-serif text-primary'>Professor(a)</h3>
 								<p>{activity.teacher}</p>
 							</div>
 							<div>
-								<h3 className='font-serif text-xl text-primary'>Horários</h3>
+								<h3 className='font-serif text-primary'>Horários</h3>
 								<p className='font-sans' dangerouslySetInnerHTML={{ __html: activity.schedules! }}></p>
 							</div>
 						</div>
