@@ -91,10 +91,10 @@ export default function Home() {
 			<div className="divider divider-neutral w-full self-center py-12 lg:py-16"></div>
 
 			<div className="container flex flex-col lg:flex-row lg:gap-8 items-start self-center justify-center px-8 2xl:px-16">
-				<div className="fade-in p-8 lg:text-4xl w-full lg:w-3/12 border-2  border-primary fade-in mb-8">
+				<div className="p-8 lg:text-4xl w-full lg:w-3/12 border-2  border-primary mb-8">
 					<h2 className="font-serif text-primary text-3xl">Alguns depoimentos de alunes Join-T</h2>
 				</div>
-				<div className="fade-in flex flex-col gap-6 w-full lg:w-10/12 ">
+				<div className=" flex flex-col gap-6 w-full lg:w-10/12 ">
 					{quotes && quotes!.map((quote, i) => {
 						return <QuoteCard quote={quote} key={i} i={i} revert={i % 2 !== 0} />
 					})}
