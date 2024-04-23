@@ -84,7 +84,7 @@ export default function Home() {
 
 			<Hero />
 
-			<div className="fade-in container flex flex-col gap-8 items-center self-center justify-center pt-24 px-8 2xl:px-32">
+			<div className="container flex flex-col gap-8 items-center self-center justify-center pt-24 px-8 2xl:px-32">
 				<MappedGroups />
 			</div>
 
