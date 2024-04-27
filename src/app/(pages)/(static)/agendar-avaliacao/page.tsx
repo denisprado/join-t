@@ -17,10 +17,16 @@ const Agendar = () => {
 		table: 'profile'
 	});
 
+	function formatDate(date: string): string {
+		const [ano, mes, dia] = date.split('-');
+		return `${dia}/${mes}/${ano} (dia/mês/ano)`;
+	}
+
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault();
 
-		const mensagem = `Nome: ${nome} | Identidade: ${identidade} | Data de nascimento: ${nascimento} | Email: ${email} | Dia/horário disponíveis: ${diaDaSemana}`;
+
+		const mensagem = `Nome: ${nome} | Identidade: ${identidade} | Data de nascimento: ${formatDate(nascimento)} | Email: ${email} | Dia/horário disponíveis: ${diaDaSemana}`;
 		const whatsappLink = `https://wa.me/${profile![0].whatsapp}?text=${encodeURIComponent(mensagem)}`;
 
 		// Redirecionando para o link

@@ -39,7 +39,7 @@ export function MenuItems({ items }: MenuItemsProps) {
 			{items.map(({ label, href }, i) => {
 
 				return i > 0 && (
-					<li>
+					<li key={i}>
 						<Link href={href}
 							className="text-xs uppercase font-sans relative"
 							onPointerEnter={() => {
