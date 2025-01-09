@@ -6,6 +6,8 @@ const Navbar = () => {
 	const items = [
 		{ href: "/", label: "home" },
 		{ href: "/quem-somos", label: "quem somos" },
+		{ href: "/horario", label: "horários" },
+		{ href: "/#valores", label: "valores" },
 		{ href: "#footer", label: "Contato" },
 		{ href: "#footer", label: "Localização" },
 	]
