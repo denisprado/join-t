@@ -101,7 +101,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="flex flex-col items-start self-center justify-center py-12 w-full">
+			<div className="flex flex-col items-start self-center justify-center py-12 w-full" id="valores">
 				<Curves color="primary-revert" />
 				<div className="bg-primary w-full p-8 lg:p-20 self-center justify-center flex flex-col items-center gap-12">
 
