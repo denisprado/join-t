@@ -45,48 +45,50 @@ const HorarioPage: React.FC = () => {
 
 		},
 	};
-	const borderClasses = 'border border-slate-400 border-collapse sm:p-1';
+
+	const borderClasses = 'border border-slate-700 border-collapse p-1 pt-2';
 
 	// Função para renderizar a atividade
 	const renderAtividade = (dia: string, horario: string) => {
 		return (
-			<div className='p-1 sm:p-2 flex flex-col gap-1'>
-				{dia !== "Sábado" && (
-					<div className='bg-[#753fff] text-[#753fff]'>
-						<p className='hidden sm:flex'>Treino</p>
-						<p className='sm:hidden flex'>&nbsp;</p>
-					</div>
-				)}
-				<div className='bg-[#b014e9] font-bold'>
-					<p className='hidden sm:flex'>{atividades[dia]?.[horario]}</p>
-					<p className='sm:hidden flex'>&nbsp;</p>
-				</div>
+			<div className='p-1 sm:px-2 flex flex-col gap-2 text-xs sm:text-base sm:font-bold text-center'>{dia !== "Sábado" &&
+				<div className='bg-[#753fff] text-[#753fff]'>
+					<div className='hidden sm:flex'>Treino</div>
+					<div className='sm:hidden flex'>&nbsp;</div>
+				</div>}
+
+				<div className={`${sabadoColor(dia)} text-xs justify-center md:text-base md:font-bold hidden md:flex`}>{atividades[dia]?.[horario]}</div>
+				<div className={`${sabadoColor(dia)} text-xs justify-center md:text-base md:font-bold md:hidden flex`}>{atividades[dia]?.[horario]}</div>
+
 			</div>
 		);
 	};
 	const sabadoColor = (dia: string) => {
 		return dia === 'Sábado' ? 'bg-[#753fff] text-[#753fff]' : 'bg-[#b014e9]'
 	}
+
+
+
 	return (
 		<div className="container mx-auto p-4">
 			<h1 className='font-bold font-sans text-2xl mt-16 mb-8'>Tabela de Horários</h1>
 
 			<div className='flex flex-col sm:flex-row sm:justify-start sm:items-center mb-4 gap-2 sm:gap-8'>
 				<div className='flex gap-2 justify-start items-center mb-4 text-xl'><div className='bg-[#753fff] text-{#753fff} w-8 p-4 '> </div>
-					<p>Treino</p>
+					<div className='font-sans'>Treino</div>
 				</div>
 				<div className='flex gap-2 justify-start items-center mb-4  text-xl'>
 					<div className='bg-[#b014e9] text-green-100 w-8 p-4'> </div>
-					<p>Aula Especial</p>
+					<div className='font-sans'>Aula Especial</div>
 				</div>
-				<div className='flex gap-2 justify-start items-center mb-4  text-xl'>
+				<div className='flex justify-start items-center mb-4  text-xl'>
 
-					<p>Aula Especial ABERTA - Último Sábado do mês - 11H</p>
+					<div className='font-sans'>Aula Especial ABERTA - Último Sábado do mês - 11H</div>
 				</div>
 			</div>
 
 			<div className="overflow-auto">
-				<table className={borderClasses + ' font-sans text-center mb-8 table-auto table-pin-cols w-full'}>
+				<table className={borderClasses + ' font-sans text-center mb-8 table-fixed table-pin-cols w-full'}>
 					<thead>
 						<tr >
 							<th className={borderClasses + ' text-xs sm:text-lg sm:p-2'}>Horário de Início</th>
@@ -100,19 +102,7 @@ const HorarioPage: React.FC = () => {
 							<tr key={horario} >
 								<td className={borderClasses + ' sm:text-lg'}>{horario}</td>
 								{diasDaSemana.map(dia => {
-									const atividade =
-										<div className='p-1 sm:p-2 flex flex-col gap-1 text-xs sm:text-base sm:font-bold text-center'>{dia !== "Sábado" &&
-											<div className='bg-[#753fff] text-[#753fff]'>
-												<p className='hidden sm:flex'>Treino</p>
-												<p className='sm:hidden flex'>&nbsp;</p>
-											</div>}
-
-											<div className={`${sabadoColor(dia)} text-xs flex justify-center sm:text-base sm:font-bold`}>
-												<p className='hidden sm:flex justify-center'>{atividades[dia]?.[horario]}</p>
-												<p className='sm:hidden flex  justify-center'>{atividades[dia]?.[horario]}</p>
-											</div>
-										</div>;
-									return <td className={borderClasses} key={dia}>{atividade}</td>; //Mostra a atividade ou "treino"
+									return <td className={borderClasses} key={dia}>{renderAtividade(dia, horario)}</td>; //Mostra a atividade ou "treino"
 								})}
 							</tr>
 						))}
@@ -123,21 +113,9 @@ const HorarioPage: React.FC = () => {
 						{/* Horários da tarde */}
 						{horariosTarde.map(horario => (
 							<tr key={horario} >
-								<td className={borderClasses}>{horario}</td>
+								<td className={borderClasses + ' sm:text-lg'}>{horario}</td>
 								{diasDaSemana.map(dia => {
-									const atividade =
-										<div className='p-1 sm:p-2 flex flex-col gap-1 text-xs sm:text-base sm:font-bold text-center'>{dia !== "Sábado" &&
-											<div className='bg-[#753fff] text-[#753fff]'>
-												<p className='hidden sm:flex'>Treino</p>
-												<p className='sm:hidden flex'>&nbsp;</p>
-											</div>}
-
-											<div className={`${sabadoColor(dia)} text-xs flex justify-center sm:text-base sm:font-bold`}>
-												<p className='hidden sm:flex justify-center'>{atividades[dia]?.[horario]}</p>
-												<p className='sm:hidden flex  justify-center'>{atividades[dia]?.[horario]}</p>
-											</div>
-										</div>;
-									return <td className={borderClasses} key={dia}>{atividade}</td>; //Mostra a atividade ou "treino"
+									return <td className={borderClasses} key={dia}>{renderAtividade(dia, horario)}</td>; //Mostra a atividade ou "treino"
 								})}
 							</tr>
 						))}
