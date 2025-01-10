@@ -57,8 +57,8 @@ const HorarioPage: React.FC = () => {
 					<div className='sm:hidden flex'>&nbsp;</div>
 				</div>}
 
-				<div className={`${sabadoColor(dia)} text-xs justify-center md:text-base md:font-bold hidden md:flex`}>{atividades[dia]?.[horario]}</div>
-				<div className={`${sabadoColor(dia)} text-xs justify-center md:text-base md:font-bold md:hidden flex`}>{atividades[dia]?.[horario]}</div>
+				<div className={`${sabadoColor(dia)} text-[8px] sm:text-[10px] md:text-[14px] text-wrap justify-center md:text-base md:font-bold hidden md:flex`}>{atividades[dia]?.[horario]}</div>
+				<div className={`${sabadoColor(dia)} text-[8px] sm:text-[10px]  md:text-[14px] text-wrap justify-center md:text-base md:font-bold md:hidden flex`}>{atividades[dia]?.[horario]}</div>
 
 			</div>
 		);
